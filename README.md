@@ -1,2 +1,2 @@
-# Morce Code - FPGA
+# Morse Code - FPGA
 Em breve
