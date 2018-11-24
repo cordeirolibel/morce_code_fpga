@@ -39,7 +39,6 @@ package commonPak is
 	constant RED 	: std_logic_vector(7 downto 0) := ("111" & "000" & "00");
 	constant GREEN 	: std_logic_vector(7 downto 0) := ("000" & "111" & "00");
 	constant YELLOW	: std_logic_vector(7 downto 0) := ("111" & "111" & "00");
-	constant SEILA	: std_logic_vector(7 downto 0) := ("000" & "111" & "11");
 ------------------------------------------
 
 	
