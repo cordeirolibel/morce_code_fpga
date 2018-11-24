@@ -32,8 +32,14 @@ package commonPak is
 	end record;
 
 	type type_textColorMap is array(natural range <>) of std_logic_vector(7 downto 0); 
-	
-
+	constant WHITE 	: std_logic_vector(7 downto 0) := ("111" & "111" & "11");
+	constant BLACK 	: std_logic_vector(7 downto 0) := ("000" & "000" & "00");
+	constant GRAY 	: std_logic_vector(7 downto 0) := ("010" & "010" & "01");
+	constant BLUE 	: std_logic_vector(7 downto 0) := ("000" & "000" & "11");
+	constant RED 	: std_logic_vector(7 downto 0) := ("111" & "000" & "00");
+	constant GREEN 	: std_logic_vector(7 downto 0) := ("000" & "111" & "00");
+	constant YELLOW	: std_logic_vector(7 downto 0) := ("111" & "111" & "00");
+	constant SEILA	: std_logic_vector(7 downto 0) := ("000" & "111" & "11");
 ------------------------------------------
 
 	

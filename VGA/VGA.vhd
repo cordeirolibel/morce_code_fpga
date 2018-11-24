@@ -21,6 +21,11 @@ ARCHITECTURE VGA OF VGA IS
 ----------------------------------------------------------
 ---------- LIGACOES
 ----------------------------------------------------------
+	CONSTANT MSG_TOP    : STRING(1 TO 10) := "Morse Code";
+	CONSTANT MSG_REC    : STRING(1 TO 10) := "RECEBIDO: ";
+	CONSTANT MSG_ENV    : STRING(1 TO 10) := "ENVIADO:  ";
+	CONSTANT MSG_EXT    : STRING(1 TO 10) := ". . ... . ";
+	CONSTANT MSG_BOTTOM : STRING(1 TO 34) := "UTFPR 2018 - LOGICA RECONFIGURAVEL";
 
 	SIGNAL HCOUNT : STD_LOGIC_VECTOR (9 DOWNTO 0) := "0000000000";
 	SIGNAL VCOUNT : STD_LOGIC_VECTOR(9 DOWNTO 0)  := "0000000000";
@@ -35,7 +40,7 @@ ARCHITECTURE VGA OF VGA IS
 	SIGNAL CLK_25MHZ : STD_LOGIC := '0';
 	
 
-	CONSTANT NUM_TEXT_ELEMENTS: integer := 1;
+	CONSTANT NUM_TEXT_ELEMENTS: integer := 5;
 	SIGNAL inArbiterPortArray: type_inArbiterPortArray(0 TO NUM_TEXT_ELEMENTS-1) := (OTHERS => init_type_inArbiterPort);
 	SIGNAL outArbiterPortArray: type_outArbiterPortArray(0 TO NUM_TEXT_ELEMENTS-1) := (OTHERS => init_type_outArbiterPort);
 	
@@ -45,6 +50,10 @@ BEGIN
 ----------------------------------------------------------
 ---------- COMPONENTES
 ----------------------------------------------------------
+
+	-----------------------
+	----- VGA
+
 	vs1: ENTITY WORK.VGA_SYNC PORT MAP (CLK_25Mhz => CLK_25MHZ, 
 										RST => RST,
 										H_SYNC => H_SYNC,
@@ -57,81 +66,110 @@ BEGIN
 										RST => RST,
 										CLK_OUT => CLK_25MHZ);
 
-	
-
 	ba1: ENTITY WORK.blockRamArbiter GENERIC MAP(numPorts => NUM_TEXT_ELEMENTS)
 									 PORT MAP(clk => CLK_50MHZ,
 											reset => RST,
 											inPortArray => inArbiterPortArray,
 											outPortArray => outArbiterPortArray);
 
-	tl1: ENTITY WORK.text_line	GENERIC MAP (textpassagelength => 11)
+	-----------------------
+	----- TEXTOS
+
+	tl0: ENTITY WORK.text_line	GENERIC MAP (textpassagelength => MSG_TOP'LENGTH)
 								PORT MAP(clk => CLK_50MHZ,
 										reset => RST,
-										textPassage => "Hello World",
-										position => (50, 50),
-										colorMap => (10 downto 0 => "111" & "111" & "11"),
+										textPassage => MSG_TOP,
+										position => (200, 75), -- 640x480
+										colorMap => (MSG_TOP'LENGTH-1 DOWNTO 0 => WHITE),
 										inArbiterPort => inArbiterPortArray(0),
 										outArbiterPort => outArbiterPortArray(0),
 										hCount => CONV_INTEGER(UNSIGNED(HCOUNT)),
 										vCount => CONV_INTEGER(UNSIGNED(VCOUNT)),
 										drawElement => drawElementArray(0));
+
+	tl1: ENTITY WORK.text_line	GENERIC MAP (textpassagelength => MSG_REC'LENGTH)
+								PORT MAP(clk => CLK_50MHZ,
+										reset => RST,
+										textPassage => MSG_REC,
+										position => (100, 150),-- 640x480
+										colorMap => (MSG_REC'LENGTH-1 DOWNTO 0 => WHITE),
+										inArbiterPort => inArbiterPortArray(1),
+										outArbiterPort => outArbiterPortArray(1),
+										hCount => CONV_INTEGER(UNSIGNED(HCOUNT)),
+										vCount => CONV_INTEGER(UNSIGNED(VCOUNT)),
+										drawElement => drawElementArray(1));
+										
+	tl2: ENTITY WORK.text_line	GENERIC MAP (textpassagelength => MSG_ENV'LENGTH)
+								PORT MAP(clk => CLK_50MHZ,
+										reset => RST,
+										textPassage => MSG_ENV,
+										position => (100, 200),-- 640x480
+										colorMap => (MSG_ENV'LENGTH-1 DOWNTO 0 => WHITE),
+										inArbiterPort => inArbiterPortArray(2),
+										outArbiterPort => outArbiterPortArray(2),
+										hCount => CONV_INTEGER(UNSIGNED(HCOUNT)),
+										vCount => CONV_INTEGER(UNSIGNED(VCOUNT)),
+										drawElement => drawElementArray(2));
+	
+	tl3: ENTITY WORK.text_line	GENERIC MAP (textpassagelength => MSG_EXT'LENGTH)
+								PORT MAP(clk => CLK_50MHZ,
+										reset => RST,
+										textPassage => MSG_EXT,
+										position => (100, 250),-- 640x480
+										colorMap => (MSG_EXT'LENGTH-1 DOWNTO 0 => WHITE),
+										inArbiterPort => inArbiterPortArray(3),
+										outArbiterPort => outArbiterPortArray(3),
+										hCount => CONV_INTEGER(UNSIGNED(HCOUNT)),
+										vCount => CONV_INTEGER(UNSIGNED(VCOUNT)),
+										drawElement => drawElementArray(3));				
+
+	tl4: ENTITY WORK.text_line	GENERIC MAP (textpassagelength => MSG_BOTTOM'LENGTH)
+								PORT MAP(clk => CLK_50MHZ,
+										reset => RST,
+										textPassage => MSG_BOTTOM,
+										position => (100, 400),
+										colorMap => (MSG_BOTTOM'LENGTH-1 DOWNTO 0 => WHITE),
+										inArbiterPort => inArbiterPortArray(4),
+										outArbiterPort => outArbiterPortArray(4),
+										hCount => CONV_INTEGER(UNSIGNED(HCOUNT)),
+										vCount => CONV_INTEGER(UNSIGNED(VCOUNT)),
+										drawElement => drawElementArray(4));
 ----------------------------------------------------------
 ---------- PROCESSOS
 ----------------------------------------------------------
 	PROCESS(CLK_25MHZ,RST)
 		VARIABLE COUNTER : INTEGER := 0; 
-		VARIABLE rgbDrawColor : std_logic_vector(7 DOWNTO 0) := (OTHERS => '0');
+		VARIABLE rgbDrawColor : std_logic_vector(7 DOWNTO 0) := BLACK;
+		VARIABLE text_draw : STD_LOGIC := '0';
 	BEGIN
 		IF RISING_EDGE(CLK_25MHZ) THEN 
+			--------------------------
+			-- verfica todos os textos 
+			text_draw := '0';
+			FOR i IN drawElementArray'range loop		
+				IF drawElementArray(i).pixelOn THEN
+					rgbDrawColor := drawElementArray(i).rgb;
+					text_draw := '1';
+				END IF;
+			END LOOP;
 			
-			IF drawElementArray(0).pixelOn THEN
-				rgbDrawColor := drawElementArray(0).rgb;
-				R <=  rgbDrawColor(7 DOWNTO 5)&'0';
-				G <=  rgbDrawColor(4 DOWNTO 2)&'0';
-				B <=  rgbDrawColor(1 DOWNTO 0)&"00";
+			--------------------------
+			-- print texto
+			IF text_draw = '1' THEN
+				text_draw := '0';
 				
-			ELSIF VCOUNT > 355 AND VCOUNT < 480 AND  HCOUNT >1 AND HCOUNT <79  THEN
-				R<= (OTHERS => '0'); G <= (OTHERS => '0'); B <= (OTHERS => '1'); --blue  001
-			ELSIF VCOUNT > 355 AND VCOUNT < 480 AND HCOUNT > 81 AND HCOUNT <159 THEN
-				R<= (OTHERS => '0'); G <= (OTHERS => '1'); B <= (OTHERS => '0'); --GREEN  010
-			ELSIF VCOUNT > 355 AND VCOUNT < 480 AND HCOUNT> 161 AND HCOUNT <239  THEN
-				R<= (OTHERS => '0'); G <= (OTHERS => '0'); B <= (OTHERS => '1'); --blue 
-			ELSIF VCOUNT > 355 AND VCOUNT < 480 AND HCOUNT> 241 AND HCOUNT <319  THEN
-				R<= (OTHERS => '0'); G <= (OTHERS => '1'); B <= (OTHERS => '0'); --GREEN  010
-			ELSIF VCOUNT > 355 AND VCOUNT < 480 AND HCOUNT> 321 AND HCOUNT <399  THEN
-				R<= (OTHERS => '0'); G <= (OTHERS => '0'); B <= (OTHERS => '1'); --blue 
-			ELSIF VCOUNT > 355 AND VCOUNT < 480 AND HCOUNT> 401 AND HCOUNT <479  THEN
-				R<= (OTHERS => '0'); G <= (OTHERS => '1'); B <= (OTHERS => '0'); --GREEN  010
-			ELSIF VCOUNT > 355 AND VCOUNT < 480 AND HCOUNT> 481 AND HCOUNT <559  THEN
-				R<= (OTHERS => '0'); G <= (OTHERS => '0'); B <= (OTHERS => '1'); --blue 
-			ELSIF VCOUNT > 355 AND VCOUNT < 480 AND HCOUNT> 561 AND HCOUNT <649 THEN
-				R <= (OTHERS => '0'); G <= (OTHERS => '1'); B <= (OTHERS => '0'); --GREEN  010
+			--------------------------
+			-- rentangulos
+			ELSIF VCOUNT > 450 AND VCOUNT < 470 AND HCOUNT> 20 AND HCOUNT <620 THEN
+				rgbDrawColor := GRAY;
 			
 			ELSE
-				R <= (OTHERS => '0'); G <= (OTHERS => '0'); B <= (OTHERS => '0');
+				rgbDrawColor := BLACK;
 			END IF;
 
-			IF COUNTER = 781250  THEN
-				COUNTER:=0;		
-				IF  FALLING_BLOCK_F < 130  THEN
-					FALLING_BLOCK_F <= FALLING_BLOCK_F + 5;
-				ELSIF FALLING_BLOCK_F >= 130 AND FALLING_BLOCK_F < 350  THEN
-					FALLING_BLOCK_I <= FALLING_BLOCK_I + 5;
-					FALLING_BLOCK_F <= FALLING_BLOCK_F + 5; 
-				ELSIF FALLING_BLOCK_I  <= 350 THEN
-					FALLING_BLOCK_I <= FALLING_BLOCK_I + 5;
-				ELSIF FALLING_BLOCK_I > 350 THEN
-					FALLING_BLOCK_I <= 0;
-					FALLING_BLOCK_F <= 0;
-				END IF;
-			ELSE
-				COUNTER := COUNTER + 1;		
-			END IF;	
-
-
-			
-			--
+			R <=  rgbDrawColor(7 DOWNTO 5)&'0';
+			G <=  rgbDrawColor(4 DOWNTO 2)&'0';
+			B <=  rgbDrawColor(1 DOWNTO 0)&"00";
 		END IF;
 	END PROCESS;		
 	
