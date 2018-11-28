@@ -5,7 +5,7 @@ USE IEEE.STD_LOGIC_1164.ALL;
 
 ENTITY exemplo_VGA IS
 	GENERIC( 
-			MAX_MSG : INTEGER := 10--tamanho maximo de mensagem
+			MAX_MSG : INTEGER := 13--tamanho maximo de mensagem
 		);
 	PORT (
 			--vga
@@ -20,9 +20,9 @@ ARCHITECTURE exemplo_VGA OF exemplo_VGA IS
 ---------- LIGACOES
 ----------------------------------------------------------
 	
-	CONSTANT MSG_REC    : STRING(1 TO MAX_MSG) 	:= "8000!     "; -- recebida
-	CONSTANT MSG_ENV    : STRING(1 TO MAX_MSG) 	:= "42        "; -- enviada
-	CONSTANT MSG_EXT    : STRING(1 TO MAX_MSG) 	:= "abcABC123_"; -- extra
+	CONSTANT MSG_REC    : STRING(1 TO MAX_MSG) 	:= "VHDL EH LEGAL"; -- recebida
+	CONSTANT MSG_ENV    : STRING(1 TO MAX_MSG) 	:= "UTFPR TESTE  "; -- enviada
+	CONSTANT MSG_EXT    : STRING(1 TO MAX_MSG) 	:= ".-...-...-.  "; -- extra
 
 BEGIN
 ----------------------------------------------------------
