@@ -1,0 +1,179 @@
+LIBRARY ieee;
+USE ieee.numeric_std.all;
+USE ieee.std_logic_1164.all;
+----------------------------
+ENTITY APS IS
+GENERIC (NUM_LEDS: INTEGER :=10;  		--quantidade de leds disponiveis
+			MAX: INTEGER:=8;					--tamanho do buffer
+			FREQ_HZ: INTEGER:=50000000);
+
+PORT (clk, rst, button: 	IN STD_LOGIC;			   					--sinais de clock, reset e o botao de transmissao
+		states: OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+		out_ssd: OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+		buzzer: OUT STD_LOGIC);													--buzzer de sinalizacao de ponto-traco
+END APS;
+----------------------------
+ARCHITECTURE MORSE_GENERATOR OF APS IS
+	
+	TYPE vetor_ssd IS ARRAY (16 DOWNTO 0) OF std_logic_vector (6 DOWNTO 0); 	--vetor de valores do display 7 segmentos
+	SIGNAL ssd: vetor_ssd;	
+	
+	
+	
+	TYPE char_array IS ARRAY (MAX-1 DOWNTO 0) OF std_logic_vector (1 DOWNTO 0); --vetor para bufferizacao dos pontos e tracos
+	SIGNAL char: char_array;	
+	TYPE state IS (											--estados da maquina
+	idleInput,												
+	processChar,												
+	processSpace,												
+	buttonPress,												
+	processDash,
+	processDot,
+	msgFull);														--estado sinaleiro 2 amarelo
+	
+	SIGNAL pr_state,nx_state: state; 
+	SIGNAL button_db: std_logic;						
+	SIGNAL pointer: integer range 0 TO MAX:=0;			
+	SIGNAL rst_db: std_logic;									-- botão de reset
+
+	CONSTANT   tChar: NATURAL := 150000000;					--constante de tempo 1, 2s
+	CONSTANT  tSpace: NATURAL := 250000000;					--constante de tempo 2, 3s
+	CONSTANT    tDot: NATURAL := 50000000;
+	CONSTANT   tDash: NATURAL := 150000000;
+	CONSTANT tBuzzer: NATURAL := 250000000;
+	CONSTANT tmax: NATURAL := 2147483647;					--constante de tempo máximo
+	SIGNAL t: NATURAL RANGE 0 TO tmax;
+	
+BEGIN
+
+
+	ssd(0)<="1000000"; 
+	ssd(1)<="1111001";
+	ssd(2)<="0100100";
+	ssd(3)<="0110000";
+	ssd(4)<="0011001";
+	ssd(5)<="0010010";
+	ssd(6)<="0000010";
+	ssd(7)<="1111000";
+	ssd(8)<="0000000";
+	ssd(9)<="0010000";
+	ssd(10)<="0100000";
+	ssd(11)<="0000011";
+	ssd(12)<="1000110";
+	ssd(13)<="0100001";
+	ssd(14)<="0000110";
+	ssd(15)<="0001110";
+	ssd(16)<="1111110";
+
+
+
+---circuito de debounce dos botoes e reset ------------------
+db_button: entity work.LAB_7_1 port map(clk=>clk, button=>button, output_debounce=>button_db);
+db_rst: entity work.DEBOUNCE port map(clk=>clk, button=>rst, output_debounce=>rst_db);
+
+-----------------TIMER-----------------------------------------
+	PROCESS (ALL)	
+	BEGIN
+		IF (rising_edge(clk)) THEN
+			out_ssd <= ssd(pointer);
+		END IF;
+	
+		IF (rst_db = '1') THEN
+			t <= 0;
+			pointer<=0;
+		ELSIF (rising_edge(clk)) THEN
+			IF pr_state /= nx_state THEN
+				t <= 0;
+			ELSIF t/= tmax THEN
+				t <= t+1;
+			END IF;
+		END IF;
+	--END PROCESS;
+----------------------- Lower section -----------------------
+	--PROCESS (rst_db, clk)
+	--BEGIN
+		IF (rst_db='1') THEN
+			pr_state <= idleInput;
+			FOR i IN 0 TO MAX LOOP
+				char(i) <= NULL;
+			END LOOP;
+		ELSIF (rising_edge(clk)) THEN
+			pr_state <= nx_state;
+		END IF;
+	--END PROCESS;
+---------------------- Upper section ------------------------
+	--PROCESS (pr_state)
+	--BEGIN
+		CASE pr_state IS
+		
+		 WHEN idleInput =>									
+			buzzer <= '0';
+			states <= "0001";
+			IF (button_db = '1' AND t < tChar AND pointer < MAX - 1) THEN
+				nx_state <= buttonPress;
+			ELSIF (button_db = '1' AND tChar < t AND tSpace > t AND pointer < MAX - 1) THEN
+				nx_state <= processChar;
+			ELSIF (button_db = '1' AND tSpace > t AND pointer < MAX - 1) THEN
+				nx_state <= processSpace;
+			ELSIF (button_db = '1' AND pointer > MAX - 1) THEN
+				nx_state <= msgFull;
+			ELSE nx_state <= idleInput;
+			END IF;
+
+		 WHEN buttonPress =>						
+			buzzer <= button_db;
+			states <= "0010";
+			IF (button_db = '0' AND t>tDot) THEN
+				nx_state <= processDash;
+			ELSIF (button_db = '0' AND t<tDot) THEN
+				nx_state <= processDot;
+			ELSE nx_state <= buttonPress;
+			END IF;
+			
+		 WHEN processDash =>
+			buzzer <= '0';
+			states <= "0011";
+			IF (t>100000000) THEN
+				nx_state <= idleInput;
+				char(pointer) <= "01";
+				pointer<=pointer+1;
+			ELSE nx_state <= processDash;
+			END IF;
+			
+	    WHEN processDot =>
+			buzzer <= '0';
+			states <= "0100";
+			IF (t>100000000) THEN
+				nx_state <= idleInput;
+				char(pointer) <= "00";
+				pointer<=pointer+1;
+			ELSE nx_state <= processDot;
+			END IF;
+			
+		 WHEN processChar =>
+			states <= "0101";
+			buzzer <= '0';
+			nx_state <= buttonPress;
+			char(pointer) <= "10";
+			pointer<=pointer+1;
+
+		 WHEN processSpace =>
+			states <= "0110";
+			buzzer <= '0';
+			nx_state <= buttonPress;
+			char(pointer) <= "11";
+			pointer<=pointer+1;
+		
+		 WHEN msgFull =>
+			states <= "0111";
+			buzzer <= '1';
+			IF (t > tBuzzer) THEN
+			nx_state <= idleInput;
+			ELSE nx_state <= msgFull;
+			END IF;
+			
+		END CASE;
+	END PROCESS;
+
+END MORSE_GENERATOR;
+-----------------------------------------
