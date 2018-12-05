@@ -1,0 +1,26 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+use ieee.std_logic_arith.all;
+
+ENTITY print_debug IS
+	--GENERIC();
+	PORT(
+		txt	: IN STRING(3 DOWNTO 0);
+		ssd0	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		ssd1	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		ssd2	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		ssd3	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+	);
+END ENTITY;
+
+ARCHITECTURE print_debug OF print_debug IS
+	
+BEGIN
+	
+	ssd0 <= conv_std_logic_vector(character'pos(txt(3), 8))
+	ssd1 <= conv_std_logic_vector(character'pos(txt(2), 8))
+	ssd2 <= conv_std_logic_vector(character'pos(txt(1), 8))
+	ssd3 <= conv_std_logic_vector(character'pos(txt(0), 8))
+	
+END ARCHITECTURE;
