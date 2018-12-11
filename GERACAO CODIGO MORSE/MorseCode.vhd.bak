@@ -1,0 +1,94 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE work.meupacote.all;
+USE ieee.math_real.all;
+
+ENTITY MorseCode IS
+	GENERIC(
+		FCLK: NATURAL := 50_000_000;
+		NUM_LEDS: NATURAL := 10;
+		MAX_INST: NATURAL := 500;
+		NUM_MAX: NATURAL := 11
+	);
+	PORT (
+		clk: IN STD_LOGIC;
+		in_put, in_remove, in_rst: IN STD_LOGIC;
+		TX_STATE, RX_STATE : IN STD_LOGIC;
+		output: OUT STD_LOGIC_VECTOR (NUM_LEDS - 1 DOWNTO 0)
+	);
+END ENTITY;
+
+ARCHITECTURE MorseCode OF MorseCode IS	
+
+	---------- MAQUINA DE ESTADOS -------------------
+	TYPE state IS (IDLE, TRANSMITING, RECEIVING);
+	SIGNAL pr_state, nx_state: state;
+	--------------------------------------------------
+	
+	----------- TEMPOS DE ATIVACAO -----------------
+	CONSTANT TEMPO_500MS: NATURAL := FCLK / 2;
+	
+	CONSTANT TDOT: NATURAL := FCLK / 100;
+	CONSTANT TDASH: NATURAL := TDOT * 3;
+	CONSTANT TSYM: NATURAL	:= TDOT;
+	CONSTANT TCHAR: NATURAL := TDOT * 3;
+	CONSTANT TWORD: NATURAL := TDOT * 7;
+	CONSTANT tmax: NATURAL := TDOT * 10;
+	CONSTANT TBUFF: NATURAL := TDOT / 5;
+	--------------------------------------------------
+	
+	---------- VETOR COM MENSAGEM -----------------
+	CONSTANT MSG: INTEGER := 1;
+	
+	
+	
+	SIGNAL put, remove, rst: STD_LOGIC;
+	SIGNAL sys_clk: STD_LOGIC;		
+	SIGNAL pos_atual: NATURAL RANGE 0 TO NUM_LEDS := NUM_LEDS;
+	SIGNAL num_acesos: NATURAL RANGE 0 TO NUM_LEDS - 1 := 0;
+	
+-- FLAGS
+	SIGNAL flag_put, flag_remove, flag_end_put, flag_end_remove: STD_LOGIC := '0';
+
+BEGIN
+-- TIMER ----------------------
+PROCESS(clk, rst)
+BEGIN
+	IF rst = '1' THEN
+		t <= 0;
+	ELSIF rising_edge(clk) THEN
+		IF pr_state /= nx_state THEN 
+			t <= 0;
+		ELSIF t /= tmax THEN
+			t <= t + 1;
+		END IF;
+	END IF;
+END PROCESS;
+
+------------- ESTADOS -----------------
+PROCESS(clk, rst)
+BEGIN
+	CASE pr_state IS
+		WHEN IDLE =>
+			IF TX_STATE = '1' THEN
+				nx_state <= TRANSMITING;
+			ELSIF RX_STATE = '1' THEN
+				nx_state <= RECEIVING;
+			ELSE
+				NX_STATE <= IDLE;
+			END IF;
+			
+		WHEN TRANSMITING =>
+			IF TX_STATE = '1' THEN
+				nx_state <= TRANSMITING;
+			ELSIF RX_STATE = '1' THEN
+				nx_state <= RECEIVING;
+			END IF;
+					
+	END CASE;
+END PROCESS;
+
+
+
+
+END ARCHITECTURE;

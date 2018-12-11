@@ -1,0 +1,23 @@
+
+State Machine - |APS|pr_state
+Name pr_state.communication pr_state.msgFull pr_state.processDot pr_state.processDash pr_state.buttonPress pr_state.processSpace pr_state.processChar pr_state.idleInput 
+pr_state.idleInput 0 0 0 0 0 0 0 0 
+pr_state.processChar 0 0 0 0 0 0 1 1 
+pr_state.processSpace 0 0 0 0 0 1 0 1 
+pr_state.buttonPress 0 0 0 0 1 0 0 1 
+pr_state.processDash 0 0 0 1 0 0 0 1 
+pr_state.processDot 0 0 1 0 0 0 0 1 
+pr_state.msgFull 0 1 0 0 0 0 0 1 
+pr_state.communication 1 0 0 0 0 0 0 1 
+
+State Machine - |APS|MorseCode:RxTx|pr_state
+Name pr_state.btw_word pr_state.btw_symb pr_state.btw_char pr_state.tx_dash pr_state.tx_dot pr_state.transmiting pr_state.transmit_hs pr_state.communication pr_state.idle 
+pr_state.idle 0 0 0 0 0 0 0 0 0 
+pr_state.communication 0 0 0 0 0 0 0 1 1 
+pr_state.transmit_hs 0 0 0 0 0 0 1 0 1 
+pr_state.transmiting 0 0 0 0 0 1 0 0 1 
+pr_state.tx_dot 0 0 0 0 1 0 0 0 1 
+pr_state.tx_dash 0 0 0 1 0 0 0 0 1 
+pr_state.btw_char 0 0 1 0 0 0 0 0 1 
+pr_state.btw_symb 0 1 0 0 0 0 0 0 1 
+pr_state.btw_word 1 0 0 0 0 0 0 0 1 

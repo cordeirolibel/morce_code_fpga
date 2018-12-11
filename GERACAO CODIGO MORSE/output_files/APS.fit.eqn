@@ -1,0 +1,5059 @@
+-- Copyright (C) 1991-2013 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+--F1L33 is MorseCode:RxTx|print_debug:texto_comp|Add9~0 at LCCOMB_X23_Y21_N14
+F1L33 = (((!E1_pr_state.transmiting & !E1_pr_state.tx_dot)));
+
+--F1L34 is MorseCode:RxTx|print_debug:texto_comp|Add9~1 at LCCOMB_X23_Y21_N14
+F1L34 = CARRY((!E1_pr_state.transmiting & !E1_pr_state.tx_dot));
+
+
+--F1L35 is MorseCode:RxTx|print_debug:texto_comp|Add9~2 at LCCOMB_X23_Y21_N16
+F1L35 = (E1_WideOr14 & (!F1L34)) # (!E1_WideOr14 & ((F1L34) # (GND)));
+
+--F1L36 is MorseCode:RxTx|print_debug:texto_comp|Add9~3 at LCCOMB_X23_Y21_N16
+F1L36 = CARRY((!F1L34) # (!E1_WideOr14));
+
+
+--F1L37 is MorseCode:RxTx|print_debug:texto_comp|Add9~4 at LCCOMB_X23_Y21_N18
+F1L37 = (E1_WideOr13 & (F1L36 $ (GND))) # (!E1_WideOr13 & (!F1L36 & VCC));
+
+--F1L38 is MorseCode:RxTx|print_debug:texto_comp|Add9~5 at LCCOMB_X23_Y21_N18
+F1L38 = CARRY((E1_WideOr13 & !F1L36));
+
+
+--F1L39 is MorseCode:RxTx|print_debug:texto_comp|Add9~6 at LCCOMB_X23_Y21_N20
+F1L39 = (E1L218 & (F1L38 & VCC)) # (!E1L218 & (!F1L38));
+
+--F1L40 is MorseCode:RxTx|print_debug:texto_comp|Add9~7 at LCCOMB_X23_Y21_N20
+F1L40 = CARRY((!E1L218 & !F1L38));
+
+
+--F1L41 is MorseCode:RxTx|print_debug:texto_comp|Add9~8 at LCCOMB_X23_Y21_N22
+F1L41 = (E1L217 & (F1L40 $ (GND))) # (!E1L217 & (!F1L40 & VCC));
+
+--F1L42 is MorseCode:RxTx|print_debug:texto_comp|Add9~9 at LCCOMB_X23_Y21_N22
+F1L42 = CARRY((E1L217 & !F1L40));
+
+
+--F1L43 is MorseCode:RxTx|print_debug:texto_comp|Add9~10 at LCCOMB_X23_Y21_N24
+F1L43 = F1L42;
+
+
+--F1L23 is MorseCode:RxTx|print_debug:texto_comp|Add6~0 at LCCOMB_X22_Y22_N18
+F1L23 = (((E1_pr_state.tx_dash) # (E1_pr_state.communication)));
+
+--F1L24 is MorseCode:RxTx|print_debug:texto_comp|Add6~1 at LCCOMB_X22_Y22_N18
+F1L24 = CARRY((E1_pr_state.tx_dash) # (E1_pr_state.communication));
+
+
+--F1L25 is MorseCode:RxTx|print_debug:texto_comp|Add6~2 at LCCOMB_X22_Y22_N20
+F1L25 = (E1_pr_state.tx_dot & (!F1L24)) # (!E1_pr_state.tx_dot & ((F1L24) # (GND)));
+
+--F1L26 is MorseCode:RxTx|print_debug:texto_comp|Add6~3 at LCCOMB_X22_Y22_N20
+F1L26 = CARRY((!F1L24) # (!E1_pr_state.tx_dot));
+
+
+--F1L27 is MorseCode:RxTx|print_debug:texto_comp|Add6~4 at LCCOMB_X22_Y22_N22
+F1L27 = (F1L61 & (!F1L26 & VCC)) # (!F1L61 & (F1L26 $ (GND)));
+
+--F1L28 is MorseCode:RxTx|print_debug:texto_comp|Add6~5 at LCCOMB_X22_Y22_N22
+F1L28 = CARRY((!F1L61 & !F1L26));
+
+
+--F1L29 is MorseCode:RxTx|print_debug:texto_comp|Add6~6 at LCCOMB_X22_Y22_N24
+F1L29 = (E1_WideOr9 & (!F1L28)) # (!E1_WideOr9 & (F1L28 & VCC));
+
+--F1L30 is MorseCode:RxTx|print_debug:texto_comp|Add6~7 at LCCOMB_X22_Y22_N24
+F1L30 = CARRY((E1_WideOr9 & !F1L28));
+
+
+--F1L31 is MorseCode:RxTx|print_debug:texto_comp|Add6~8 at LCCOMB_X22_Y22_N26
+F1L31 = F1L30 $ (!E1_pr_state.transmiting);
+
+
+--F1L11 is MorseCode:RxTx|print_debug:texto_comp|Add3~0 at LCCOMB_X27_Y23_N6
+F1L11 = (((E1_pr_state.communication) # (E1_pr_state.tx_dash)));
+
+--F1L12 is MorseCode:RxTx|print_debug:texto_comp|Add3~1 at LCCOMB_X27_Y23_N6
+F1L12 = CARRY((E1_pr_state.communication) # (E1_pr_state.tx_dash));
+
+
+--F1L13 is MorseCode:RxTx|print_debug:texto_comp|Add3~2 at LCCOMB_X27_Y23_N8
+F1L13 = (E1_pr_state.communication & (((!F1L12)))) # (!E1_pr_state.communication & ((E1_pr_state.tx_dot & (!F1L12)) # (!E1_pr_state.tx_dot & ((F1L12) # (GND)))));
+
+--F1L14 is MorseCode:RxTx|print_debug:texto_comp|Add3~3 at LCCOMB_X27_Y23_N8
+F1L14 = CARRY(((!E1_pr_state.communication & !E1_pr_state.tx_dot)) # (!F1L12));
+
+
+--F1L15 is MorseCode:RxTx|print_debug:texto_comp|Add3~4 at LCCOMB_X27_Y23_N10
+F1L15 = (F1L14 & (!E1_pr_state.transmit_hs & (!E1_pr_state.transmiting & VCC))) # (!F1L14 & ((((!E1_pr_state.transmit_hs & !E1_pr_state.transmiting)))));
+
+--F1L16 is MorseCode:RxTx|print_debug:texto_comp|Add3~5 at LCCOMB_X27_Y23_N10
+F1L16 = CARRY((!E1_pr_state.transmit_hs & (!E1_pr_state.transmiting & !F1L14)));
+
+
+--F1L17 is MorseCode:RxTx|print_debug:texto_comp|Add3~6 at LCCOMB_X27_Y23_N12
+F1L17 = (E1_WideOr7 & (!F1L16)) # (!E1_WideOr7 & (F1L16 & VCC));
+
+--F1L18 is MorseCode:RxTx|print_debug:texto_comp|Add3~7 at LCCOMB_X27_Y23_N12
+F1L18 = CARRY((E1_WideOr7 & !F1L16));
+
+
+--F1L19 is MorseCode:RxTx|print_debug:texto_comp|Add3~8 at LCCOMB_X27_Y23_N14
+F1L19 = (E1_WideOr6 & (!F1L18 & VCC)) # (!E1_WideOr6 & (F1L18 $ (GND)));
+
+--F1L20 is MorseCode:RxTx|print_debug:texto_comp|Add3~9 at LCCOMB_X27_Y23_N14
+F1L20 = CARRY((!E1_WideOr6 & !F1L18));
+
+
+--F1L21 is MorseCode:RxTx|print_debug:texto_comp|Add3~10 at LCCOMB_X27_Y23_N16
+F1L21 = F1L20;
+
+
+--F1L1 is MorseCode:RxTx|print_debug:texto_comp|Add0~0 at LCCOMB_X27_Y25_N6
+F1L1 = E1_WideOr5 $ (VCC);
+
+--F1L2 is MorseCode:RxTx|print_debug:texto_comp|Add0~1 at LCCOMB_X27_Y25_N6
+F1L2 = CARRY(E1_WideOr5);
+
+
+--F1L3 is MorseCode:RxTx|print_debug:texto_comp|Add0~2 at LCCOMB_X27_Y25_N8
+F1L3 = (E1L212 & ((F1L2) # (GND))) # (!E1L212 & (!F1L2));
+
+--F1L4 is MorseCode:RxTx|print_debug:texto_comp|Add0~3 at LCCOMB_X27_Y25_N8
+F1L4 = CARRY((E1L212) # (!F1L2));
+
+
+--F1L5 is MorseCode:RxTx|print_debug:texto_comp|Add0~4 at LCCOMB_X27_Y25_N10
+F1L5 = (E1_WideOr3 & (F1L4 $ (GND))) # (!E1_WideOr3 & (!F1L4 & VCC));
+
+--F1L6 is MorseCode:RxTx|print_debug:texto_comp|Add0~5 at LCCOMB_X27_Y25_N10
+F1L6 = CARRY((E1_WideOr3 & !F1L4));
+
+
+--F1L7 is MorseCode:RxTx|print_debug:texto_comp|Add0~6 at LCCOMB_X27_Y25_N12
+F1L7 = (E1_WideOr2 & (F1L6 & VCC)) # (!E1_WideOr2 & (!F1L6));
+
+--F1L8 is MorseCode:RxTx|print_debug:texto_comp|Add0~7 at LCCOMB_X27_Y25_N12
+F1L8 = CARRY((!E1_WideOr2 & !F1L6));
+
+
+--F1L9 is MorseCode:RxTx|print_debug:texto_comp|Add0~8 at LCCOMB_X27_Y25_N14
+F1L9 = F1L8 $ (((!E1_pr_state.transmit_hs & !E1_pr_state.transmiting)));
+
+
+--pointer[31] is pointer[31] at FF_X14_Y16_N31
+--register power-up is low
+
+pointer[31] = DFFEAS(A1L250, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[6] is pointer[6] at FF_X15_Y17_N5
+--register power-up is low
+
+pointer[6] = DFFEAS(A1L176, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[7] is pointer[7] at FF_X14_Y17_N15
+--register power-up is low
+
+pointer[7] = DFFEAS(A1L178, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[8] is pointer[8] at FF_X14_Y17_N17
+--register power-up is low
+
+pointer[8] = DFFEAS(A1L181, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[9] is pointer[9] at FF_X14_Y17_N19
+--register power-up is low
+
+pointer[9] = DFFEAS(A1L184, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[10] is pointer[10] at FF_X14_Y17_N21
+--register power-up is low
+
+pointer[10] = DFFEAS(A1L187, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[11] is pointer[11] at FF_X14_Y17_N23
+--register power-up is low
+
+pointer[11] = DFFEAS(A1L190, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[12] is pointer[12] at FF_X14_Y17_N25
+--register power-up is low
+
+pointer[12] = DFFEAS(A1L193, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[13] is pointer[13] at FF_X14_Y17_N27
+--register power-up is low
+
+pointer[13] = DFFEAS(A1L196, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[1] is pointer[1] at FF_X16_Y17_N17
+--register power-up is low
+
+pointer[1] = DFFEAS( , A1L57, !D1_aux[2],  , !A1L263, A1L159,  ,  , VCC);
+
+
+--pointer[2] is pointer[2] at FF_X14_Y17_N5
+--register power-up is low
+
+pointer[2] = DFFEAS(A1L162, A1L57, !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[3] is pointer[3] at FF_X14_Y17_N7
+--register power-up is low
+
+pointer[3] = DFFEAS(A1L165, A1L57, !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[4] is pointer[4] at FF_X14_Y17_N9
+--register power-up is low
+
+pointer[4] = DFFEAS(A1L168, A1L57, !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[5] is pointer[5] at FF_X14_Y17_N11
+--register power-up is low
+
+pointer[5] = DFFEAS(A1L171, A1L57, !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[14] is pointer[14] at FF_X14_Y17_N29
+--register power-up is low
+
+pointer[14] = DFFEAS(A1L199, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[15] is pointer[15] at FF_X14_Y17_N31
+--register power-up is low
+
+pointer[15] = DFFEAS(A1L202, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[16] is pointer[16] at FF_X14_Y16_N1
+--register power-up is low
+
+pointer[16] = DFFEAS(A1L205, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[17] is pointer[17] at FF_X14_Y16_N3
+--register power-up is low
+
+pointer[17] = DFFEAS(A1L208, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[18] is pointer[18] at FF_X14_Y16_N5
+--register power-up is low
+
+pointer[18] = DFFEAS(A1L211, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[19] is pointer[19] at FF_X14_Y16_N7
+--register power-up is low
+
+pointer[19] = DFFEAS(A1L214, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[20] is pointer[20] at FF_X14_Y16_N9
+--register power-up is low
+
+pointer[20] = DFFEAS(A1L217, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[21] is pointer[21] at FF_X14_Y16_N11
+--register power-up is low
+
+pointer[21] = DFFEAS(A1L220, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[22] is pointer[22] at FF_X14_Y16_N13
+--register power-up is low
+
+pointer[22] = DFFEAS(A1L223, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[23] is pointer[23] at FF_X14_Y16_N15
+--register power-up is low
+
+pointer[23] = DFFEAS(A1L226, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[24] is pointer[24] at FF_X14_Y16_N17
+--register power-up is low
+
+pointer[24] = DFFEAS(A1L229, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[25] is pointer[25] at FF_X14_Y16_N19
+--register power-up is low
+
+pointer[25] = DFFEAS(A1L232, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[26] is pointer[26] at FF_X14_Y16_N21
+--register power-up is low
+
+pointer[26] = DFFEAS(A1L235, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[27] is pointer[27] at FF_X14_Y16_N23
+--register power-up is low
+
+pointer[27] = DFFEAS(A1L238, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[28] is pointer[28] at FF_X14_Y16_N25
+--register power-up is low
+
+pointer[28] = DFFEAS(A1L241, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[29] is pointer[29] at FF_X14_Y16_N27
+--register power-up is low
+
+pointer[29] = DFFEAS(A1L244, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--pointer[30] is pointer[30] at FF_X14_Y16_N29
+--register power-up is low
+
+pointer[30] = DFFEAS(A1L247, GLOBAL(A1L58), !D1_aux[2],  , !A1L263,  ,  ,  ,  );
+
+
+--t[25] is t[25] at FF_X16_Y19_N23
+--register power-up is low
+
+t[25] = DFFEAS(A1L463, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[26] is t[26] at FF_X16_Y19_N25
+--register power-up is low
+
+t[26] = DFFEAS(A1L466, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[24] is t[24] at FF_X16_Y19_N21
+--register power-up is low
+
+t[24] = DFFEAS(A1L460, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[14] is t[14] at FF_X16_Y19_N1
+--register power-up is low
+
+t[14] = DFFEAS(A1L430, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[21] is t[21] at FF_X16_Y19_N15
+--register power-up is low
+
+t[21] = DFFEAS(A1L451, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[22] is t[22] at FF_X16_Y19_N17
+--register power-up is low
+
+t[22] = DFFEAS(A1L454, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[23] is t[23] at FF_X16_Y19_N19
+--register power-up is low
+
+t[23] = DFFEAS(A1L457, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[20] is t[20] at FF_X16_Y19_N13
+--register power-up is low
+
+t[20] = DFFEAS(A1L448, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[17] is t[17] at FF_X16_Y19_N7
+--register power-up is low
+
+t[17] = DFFEAS(A1L439, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[18] is t[18] at FF_X16_Y19_N9
+--register power-up is low
+
+t[18] = DFFEAS(A1L442, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[16] is t[16] at FF_X16_Y19_N5
+--register power-up is low
+
+t[16] = DFFEAS(A1L436, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[19] is t[19] at FF_X16_Y19_N11
+--register power-up is low
+
+t[19] = DFFEAS(A1L445, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[15] is t[15] at FF_X16_Y19_N3
+--register power-up is low
+
+t[15] = DFFEAS(A1L433, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[13] is t[13] at FF_X16_Y20_N31
+--register power-up is low
+
+t[13] = DFFEAS(A1L427, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[12] is t[12] at FF_X16_Y20_N29
+--register power-up is low
+
+t[12] = DFFEAS(A1L424, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[8] is t[8] at FF_X16_Y20_N21
+--register power-up is low
+
+t[8] = DFFEAS(A1L412, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[7] is t[7] at FF_X16_Y20_N19
+--register power-up is low
+
+t[7] = DFFEAS(A1L409, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[0] is t[0] at FF_X16_Y20_N5
+--register power-up is low
+
+t[0] = DFFEAS(A1L377, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[1] is t[1] at FF_X16_Y20_N7
+--register power-up is low
+
+t[1] = DFFEAS(A1L380, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[2] is t[2] at FF_X16_Y20_N9
+--register power-up is low
+
+t[2] = DFFEAS(A1L385, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[3] is t[3] at FF_X16_Y20_N11
+--register power-up is low
+
+t[3] = DFFEAS(A1L397, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[4] is t[4] at FF_X16_Y20_N13
+--register power-up is low
+
+t[4] = DFFEAS(A1L400, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[5] is t[5] at FF_X16_Y20_N15
+--register power-up is low
+
+t[5] = DFFEAS(A1L403, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[6] is t[6] at FF_X16_Y20_N17
+--register power-up is low
+
+t[6] = DFFEAS(A1L406, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[10] is t[10] at FF_X16_Y20_N25
+--register power-up is low
+
+t[10] = DFFEAS(A1L418, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[11] is t[11] at FF_X16_Y20_N27
+--register power-up is low
+
+t[11] = DFFEAS(A1L421, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[9] is t[9] at FF_X16_Y20_N23
+--register power-up is low
+
+t[9] = DFFEAS(A1L415, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[27] is t[27] at FF_X16_Y19_N27
+--register power-up is low
+
+t[27] = DFFEAS(A1L469, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--t[28] is t[28] at FF_X16_Y19_N29
+--register power-up is low
+
+t[28] = DFFEAS(A1L472, GLOBAL(A1L58), !D1_aux[2],  , A1L395,  ,  , A1L480,  );
+
+
+--E1_I[3] is MorseCode:RxTx|I[3] at FF_X20_Y18_N21
+--register power-up is low
+
+E1_I[3] = DFFEAS(E1L1, GLOBAL(A1L58), A1L270,  , E1L6,  ,  , !E1_pr_state.idle,  );
+
+
+--E1_I[2] is MorseCode:RxTx|I[2] at FF_X20_Y18_N23
+--register power-up is low
+
+E1_I[2] = DFFEAS(E1L2, GLOBAL(A1L58), A1L270,  , E1L6,  ,  , !E1_pr_state.idle,  );
+
+
+--E1_I[1] is MorseCode:RxTx|I[1] at FF_X20_Y18_N5
+--register power-up is low
+
+E1_I[1] = DFFEAS(E1L3, GLOBAL(A1L58), A1L270,  , E1L6,  ,  , !E1_pr_state.idle,  );
+
+
+--E1_t[24] is MorseCode:RxTx|t[24] at FF_X22_Y16_N21
+--register power-up is low
+
+E1_t[24] = DFFEAS(E1L186, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[25] is MorseCode:RxTx|t[25] at FF_X22_Y16_N23
+--register power-up is low
+
+E1_t[25] = DFFEAS(E1L189, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[26] is MorseCode:RxTx|t[26] at FF_X22_Y16_N25
+--register power-up is low
+
+E1_t[26] = DFFEAS(E1L192, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[17] is MorseCode:RxTx|t[17] at FF_X22_Y16_N7
+--register power-up is low
+
+E1_t[17] = DFFEAS(E1L154, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[18] is MorseCode:RxTx|t[18] at FF_X22_Y16_N9
+--register power-up is low
+
+E1_t[18] = DFFEAS(E1L157, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[16] is MorseCode:RxTx|t[16] at FF_X22_Y16_N5
+--register power-up is low
+
+E1_t[16] = DFFEAS(E1L151, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[19] is MorseCode:RxTx|t[19] at FF_X22_Y16_N11
+--register power-up is low
+
+E1_t[19] = DFFEAS(E1L160, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[0] is MorseCode:RxTx|t[0] at FF_X22_Y17_N5
+--register power-up is low
+
+E1_t[0] = DFFEAS(E1L103, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[1] is MorseCode:RxTx|t[1] at FF_X22_Y17_N7
+--register power-up is low
+
+E1_t[1] = DFFEAS(E1L106, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[2] is MorseCode:RxTx|t[2] at FF_X22_Y17_N9
+--register power-up is low
+
+E1_t[2] = DFFEAS(E1L109, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[3] is MorseCode:RxTx|t[3] at FF_X22_Y17_N11
+--register power-up is low
+
+E1_t[3] = DFFEAS(E1L112, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[4] is MorseCode:RxTx|t[4] at FF_X22_Y17_N13
+--register power-up is low
+
+E1_t[4] = DFFEAS(E1L115, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[5] is MorseCode:RxTx|t[5] at FF_X22_Y17_N15
+--register power-up is low
+
+E1_t[5] = DFFEAS(E1L118, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[6] is MorseCode:RxTx|t[6] at FF_X22_Y17_N17
+--register power-up is low
+
+E1_t[6] = DFFEAS(E1L121, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[7] is MorseCode:RxTx|t[7] at FF_X22_Y17_N19
+--register power-up is low
+
+E1_t[7] = DFFEAS(E1L124, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[8] is MorseCode:RxTx|t[8] at FF_X22_Y17_N21
+--register power-up is low
+
+E1_t[8] = DFFEAS(E1L127, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[9] is MorseCode:RxTx|t[9] at FF_X22_Y17_N23
+--register power-up is low
+
+E1_t[9] = DFFEAS(E1L130, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[10] is MorseCode:RxTx|t[10] at FF_X22_Y17_N25
+--register power-up is low
+
+E1_t[10] = DFFEAS(E1L133, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[11] is MorseCode:RxTx|t[11] at FF_X22_Y17_N27
+--register power-up is low
+
+E1_t[11] = DFFEAS(E1L136, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[12] is MorseCode:RxTx|t[12] at FF_X22_Y17_N29
+--register power-up is low
+
+E1_t[12] = DFFEAS(E1L139, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[13] is MorseCode:RxTx|t[13] at FF_X22_Y17_N31
+--register power-up is low
+
+E1_t[13] = DFFEAS(E1L142, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[14] is MorseCode:RxTx|t[14] at FF_X22_Y16_N1
+--register power-up is low
+
+E1_t[14] = DFFEAS(E1L145, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[15] is MorseCode:RxTx|t[15] at FF_X22_Y16_N3
+--register power-up is low
+
+E1_t[15] = DFFEAS(E1L148, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[20] is MorseCode:RxTx|t[20] at FF_X22_Y16_N13
+--register power-up is low
+
+E1_t[20] = DFFEAS(E1L174, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[21] is MorseCode:RxTx|t[21] at FF_X22_Y16_N15
+--register power-up is low
+
+E1_t[21] = DFFEAS(E1L177, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[22] is MorseCode:RxTx|t[22] at FF_X22_Y16_N17
+--register power-up is low
+
+E1_t[22] = DFFEAS(E1L180, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[23] is MorseCode:RxTx|t[23] at FF_X22_Y16_N19
+--register power-up is low
+
+E1_t[23] = DFFEAS(E1L183, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[27] is MorseCode:RxTx|t[27] at FF_X22_Y16_N27
+--register power-up is low
+
+E1_t[27] = DFFEAS(E1L195, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--E1_t[28] is MorseCode:RxTx|t[28] at FF_X22_Y16_N29
+--register power-up is low
+
+E1_t[28] = DFFEAS(E1L198, GLOBAL(A1L58), A1L270,  , E1L172,  ,  , E1L208,  );
+
+
+--A1L159 is pointer[1]~31 at LCCOMB_X14_Y17_N2
+A1L159 = (pointer[0] & (pointer[1] $ (VCC))) # (!pointer[0] & (pointer[1] & VCC));
+
+--A1L160 is pointer[1]~32 at LCCOMB_X14_Y17_N2
+A1L160 = CARRY((pointer[0] & pointer[1]));
+
+
+--A1L162 is pointer[2]~33 at LCCOMB_X14_Y17_N4
+A1L162 = (pointer[2] & (!A1L160)) # (!pointer[2] & ((A1L160) # (GND)));
+
+--A1L163 is pointer[2]~34 at LCCOMB_X14_Y17_N4
+A1L163 = CARRY((!A1L160) # (!pointer[2]));
+
+
+--A1L165 is pointer[3]~35 at LCCOMB_X14_Y17_N6
+A1L165 = (pointer[3] & (A1L163 $ (GND))) # (!pointer[3] & (!A1L163 & VCC));
+
+--A1L166 is pointer[3]~36 at LCCOMB_X14_Y17_N6
+A1L166 = CARRY((pointer[3] & !A1L163));
+
+
+--A1L168 is pointer[4]~37 at LCCOMB_X14_Y17_N8
+A1L168 = (pointer[4] & (!A1L166)) # (!pointer[4] & ((A1L166) # (GND)));
+
+--A1L169 is pointer[4]~38 at LCCOMB_X14_Y17_N8
+A1L169 = CARRY((!A1L166) # (!pointer[4]));
+
+
+--A1L171 is pointer[5]~39 at LCCOMB_X14_Y17_N10
+A1L171 = (pointer[5] & (A1L169 $ (GND))) # (!pointer[5] & (!A1L169 & VCC));
+
+--A1L172 is pointer[5]~40 at LCCOMB_X14_Y17_N10
+A1L172 = CARRY((pointer[5] & !A1L169));
+
+
+--A1L174 is pointer[6]~41 at LCCOMB_X14_Y17_N12
+A1L174 = (pointer[6] & (!A1L172)) # (!pointer[6] & ((A1L172) # (GND)));
+
+--A1L175 is pointer[6]~42 at LCCOMB_X14_Y17_N12
+A1L175 = CARRY((!A1L172) # (!pointer[6]));
+
+
+--A1L178 is pointer[7]~43 at LCCOMB_X14_Y17_N14
+A1L178 = (pointer[7] & (A1L175 $ (GND))) # (!pointer[7] & (!A1L175 & VCC));
+
+--A1L179 is pointer[7]~44 at LCCOMB_X14_Y17_N14
+A1L179 = CARRY((pointer[7] & !A1L175));
+
+
+--A1L181 is pointer[8]~45 at LCCOMB_X14_Y17_N16
+A1L181 = (pointer[8] & (!A1L179)) # (!pointer[8] & ((A1L179) # (GND)));
+
+--A1L182 is pointer[8]~46 at LCCOMB_X14_Y17_N16
+A1L182 = CARRY((!A1L179) # (!pointer[8]));
+
+
+--A1L184 is pointer[9]~47 at LCCOMB_X14_Y17_N18
+A1L184 = (pointer[9] & (A1L182 $ (GND))) # (!pointer[9] & (!A1L182 & VCC));
+
+--A1L185 is pointer[9]~48 at LCCOMB_X14_Y17_N18
+A1L185 = CARRY((pointer[9] & !A1L182));
+
+
+--A1L187 is pointer[10]~49 at LCCOMB_X14_Y17_N20
+A1L187 = (pointer[10] & (!A1L185)) # (!pointer[10] & ((A1L185) # (GND)));
+
+--A1L188 is pointer[10]~50 at LCCOMB_X14_Y17_N20
+A1L188 = CARRY((!A1L185) # (!pointer[10]));
+
+
+--A1L190 is pointer[11]~51 at LCCOMB_X14_Y17_N22
+A1L190 = (pointer[11] & (A1L188 $ (GND))) # (!pointer[11] & (!A1L188 & VCC));
+
+--A1L191 is pointer[11]~52 at LCCOMB_X14_Y17_N22
+A1L191 = CARRY((pointer[11] & !A1L188));
+
+
+--A1L193 is pointer[12]~53 at LCCOMB_X14_Y17_N24
+A1L193 = (pointer[12] & (!A1L191)) # (!pointer[12] & ((A1L191) # (GND)));
+
+--A1L194 is pointer[12]~54 at LCCOMB_X14_Y17_N24
+A1L194 = CARRY((!A1L191) # (!pointer[12]));
+
+
+--A1L196 is pointer[13]~55 at LCCOMB_X14_Y17_N26
+A1L196 = (pointer[13] & (A1L194 $ (GND))) # (!pointer[13] & (!A1L194 & VCC));
+
+--A1L197 is pointer[13]~56 at LCCOMB_X14_Y17_N26
+A1L197 = CARRY((pointer[13] & !A1L194));
+
+
+--A1L199 is pointer[14]~57 at LCCOMB_X14_Y17_N28
+A1L199 = (pointer[14] & (!A1L197)) # (!pointer[14] & ((A1L197) # (GND)));
+
+--A1L200 is pointer[14]~58 at LCCOMB_X14_Y17_N28
+A1L200 = CARRY((!A1L197) # (!pointer[14]));
+
+
+--A1L202 is pointer[15]~59 at LCCOMB_X14_Y17_N30
+A1L202 = (pointer[15] & (A1L200 $ (GND))) # (!pointer[15] & (!A1L200 & VCC));
+
+--A1L203 is pointer[15]~60 at LCCOMB_X14_Y17_N30
+A1L203 = CARRY((pointer[15] & !A1L200));
+
+
+--A1L205 is pointer[16]~61 at LCCOMB_X14_Y16_N0
+A1L205 = (pointer[16] & (!A1L203)) # (!pointer[16] & ((A1L203) # (GND)));
+
+--A1L206 is pointer[16]~62 at LCCOMB_X14_Y16_N0
+A1L206 = CARRY((!A1L203) # (!pointer[16]));
+
+
+--A1L208 is pointer[17]~63 at LCCOMB_X14_Y16_N2
+A1L208 = (pointer[17] & (A1L206 $ (GND))) # (!pointer[17] & (!A1L206 & VCC));
+
+--A1L209 is pointer[17]~64 at LCCOMB_X14_Y16_N2
+A1L209 = CARRY((pointer[17] & !A1L206));
+
+
+--A1L211 is pointer[18]~65 at LCCOMB_X14_Y16_N4
+A1L211 = (pointer[18] & (!A1L209)) # (!pointer[18] & ((A1L209) # (GND)));
+
+--A1L212 is pointer[18]~66 at LCCOMB_X14_Y16_N4
+A1L212 = CARRY((!A1L209) # (!pointer[18]));
+
+
+--A1L214 is pointer[19]~67 at LCCOMB_X14_Y16_N6
+A1L214 = (pointer[19] & (A1L212 $ (GND))) # (!pointer[19] & (!A1L212 & VCC));
+
+--A1L215 is pointer[19]~68 at LCCOMB_X14_Y16_N6
+A1L215 = CARRY((pointer[19] & !A1L212));
+
+
+--A1L217 is pointer[20]~69 at LCCOMB_X14_Y16_N8
+A1L217 = (pointer[20] & (!A1L215)) # (!pointer[20] & ((A1L215) # (GND)));
+
+--A1L218 is pointer[20]~70 at LCCOMB_X14_Y16_N8
+A1L218 = CARRY((!A1L215) # (!pointer[20]));
+
+
+--A1L220 is pointer[21]~71 at LCCOMB_X14_Y16_N10
+A1L220 = (pointer[21] & (A1L218 $ (GND))) # (!pointer[21] & (!A1L218 & VCC));
+
+--A1L221 is pointer[21]~72 at LCCOMB_X14_Y16_N10
+A1L221 = CARRY((pointer[21] & !A1L218));
+
+
+--A1L223 is pointer[22]~73 at LCCOMB_X14_Y16_N12
+A1L223 = (pointer[22] & (!A1L221)) # (!pointer[22] & ((A1L221) # (GND)));
+
+--A1L224 is pointer[22]~74 at LCCOMB_X14_Y16_N12
+A1L224 = CARRY((!A1L221) # (!pointer[22]));
+
+
+--A1L226 is pointer[23]~75 at LCCOMB_X14_Y16_N14
+A1L226 = (pointer[23] & (A1L224 $ (GND))) # (!pointer[23] & (!A1L224 & VCC));
+
+--A1L227 is pointer[23]~76 at LCCOMB_X14_Y16_N14
+A1L227 = CARRY((pointer[23] & !A1L224));
+
+
+--A1L229 is pointer[24]~77 at LCCOMB_X14_Y16_N16
+A1L229 = (pointer[24] & (!A1L227)) # (!pointer[24] & ((A1L227) # (GND)));
+
+--A1L230 is pointer[24]~78 at LCCOMB_X14_Y16_N16
+A1L230 = CARRY((!A1L227) # (!pointer[24]));
+
+
+--A1L232 is pointer[25]~79 at LCCOMB_X14_Y16_N18
+A1L232 = (pointer[25] & (A1L230 $ (GND))) # (!pointer[25] & (!A1L230 & VCC));
+
+--A1L233 is pointer[25]~80 at LCCOMB_X14_Y16_N18
+A1L233 = CARRY((pointer[25] & !A1L230));
+
+
+--A1L235 is pointer[26]~81 at LCCOMB_X14_Y16_N20
+A1L235 = (pointer[26] & (!A1L233)) # (!pointer[26] & ((A1L233) # (GND)));
+
+--A1L236 is pointer[26]~82 at LCCOMB_X14_Y16_N20
+A1L236 = CARRY((!A1L233) # (!pointer[26]));
+
+
+--A1L238 is pointer[27]~83 at LCCOMB_X14_Y16_N22
+A1L238 = (pointer[27] & (A1L236 $ (GND))) # (!pointer[27] & (!A1L236 & VCC));
+
+--A1L239 is pointer[27]~84 at LCCOMB_X14_Y16_N22
+A1L239 = CARRY((pointer[27] & !A1L236));
+
+
+--A1L241 is pointer[28]~85 at LCCOMB_X14_Y16_N24
+A1L241 = (pointer[28] & (!A1L239)) # (!pointer[28] & ((A1L239) # (GND)));
+
+--A1L242 is pointer[28]~86 at LCCOMB_X14_Y16_N24
+A1L242 = CARRY((!A1L239) # (!pointer[28]));
+
+
+--A1L244 is pointer[29]~87 at LCCOMB_X14_Y16_N26
+A1L244 = (pointer[29] & (A1L242 $ (GND))) # (!pointer[29] & (!A1L242 & VCC));
+
+--A1L245 is pointer[29]~88 at LCCOMB_X14_Y16_N26
+A1L245 = CARRY((pointer[29] & !A1L242));
+
+
+--A1L247 is pointer[30]~89 at LCCOMB_X14_Y16_N28
+A1L247 = (pointer[30] & (!A1L245)) # (!pointer[30] & ((A1L245) # (GND)));
+
+--A1L248 is pointer[30]~90 at LCCOMB_X14_Y16_N28
+A1L248 = CARRY((!A1L245) # (!pointer[30]));
+
+
+--A1L250 is pointer[31]~91 at LCCOMB_X14_Y16_N30
+A1L250 = pointer[31] $ (!A1L248);
+
+
+--A1L377 is t[0]~31 at LCCOMB_X16_Y20_N4
+A1L377 = t[0] $ (VCC);
+
+--A1L378 is t[0]~32 at LCCOMB_X16_Y20_N4
+A1L378 = CARRY(t[0]);
+
+
+--A1L380 is t[1]~33 at LCCOMB_X16_Y20_N6
+A1L380 = (t[1] & (!A1L378)) # (!t[1] & ((A1L378) # (GND)));
+
+--A1L381 is t[1]~34 at LCCOMB_X16_Y20_N6
+A1L381 = CARRY((!A1L378) # (!t[1]));
+
+
+--A1L385 is t[2]~35 at LCCOMB_X16_Y20_N8
+A1L385 = (t[2] & (A1L381 $ (GND))) # (!t[2] & (!A1L381 & VCC));
+
+--A1L386 is t[2]~36 at LCCOMB_X16_Y20_N8
+A1L386 = CARRY((t[2] & !A1L381));
+
+
+--A1L397 is t[3]~37 at LCCOMB_X16_Y20_N10
+A1L397 = (t[3] & (!A1L386)) # (!t[3] & ((A1L386) # (GND)));
+
+--A1L398 is t[3]~38 at LCCOMB_X16_Y20_N10
+A1L398 = CARRY((!A1L386) # (!t[3]));
+
+
+--A1L400 is t[4]~39 at LCCOMB_X16_Y20_N12
+A1L400 = (t[4] & (A1L398 $ (GND))) # (!t[4] & (!A1L398 & VCC));
+
+--A1L401 is t[4]~40 at LCCOMB_X16_Y20_N12
+A1L401 = CARRY((t[4] & !A1L398));
+
+
+--A1L403 is t[5]~41 at LCCOMB_X16_Y20_N14
+A1L403 = (t[5] & (!A1L401)) # (!t[5] & ((A1L401) # (GND)));
+
+--A1L404 is t[5]~42 at LCCOMB_X16_Y20_N14
+A1L404 = CARRY((!A1L401) # (!t[5]));
+
+
+--A1L406 is t[6]~43 at LCCOMB_X16_Y20_N16
+A1L406 = (t[6] & (A1L404 $ (GND))) # (!t[6] & (!A1L404 & VCC));
+
+--A1L407 is t[6]~44 at LCCOMB_X16_Y20_N16
+A1L407 = CARRY((t[6] & !A1L404));
+
+
+--A1L409 is t[7]~45 at LCCOMB_X16_Y20_N18
+A1L409 = (t[7] & (!A1L407)) # (!t[7] & ((A1L407) # (GND)));
+
+--A1L410 is t[7]~46 at LCCOMB_X16_Y20_N18
+A1L410 = CARRY((!A1L407) # (!t[7]));
+
+
+--A1L412 is t[8]~47 at LCCOMB_X16_Y20_N20
+A1L412 = (t[8] & (A1L410 $ (GND))) # (!t[8] & (!A1L410 & VCC));
+
+--A1L413 is t[8]~48 at LCCOMB_X16_Y20_N20
+A1L413 = CARRY((t[8] & !A1L410));
+
+
+--A1L415 is t[9]~49 at LCCOMB_X16_Y20_N22
+A1L415 = (t[9] & (!A1L413)) # (!t[9] & ((A1L413) # (GND)));
+
+--A1L416 is t[9]~50 at LCCOMB_X16_Y20_N22
+A1L416 = CARRY((!A1L413) # (!t[9]));
+
+
+--A1L418 is t[10]~51 at LCCOMB_X16_Y20_N24
+A1L418 = (t[10] & (A1L416 $ (GND))) # (!t[10] & (!A1L416 & VCC));
+
+--A1L419 is t[10]~52 at LCCOMB_X16_Y20_N24
+A1L419 = CARRY((t[10] & !A1L416));
+
+
+--A1L421 is t[11]~53 at LCCOMB_X16_Y20_N26
+A1L421 = (t[11] & (!A1L419)) # (!t[11] & ((A1L419) # (GND)));
+
+--A1L422 is t[11]~54 at LCCOMB_X16_Y20_N26
+A1L422 = CARRY((!A1L419) # (!t[11]));
+
+
+--A1L424 is t[12]~55 at LCCOMB_X16_Y20_N28
+A1L424 = (t[12] & (A1L422 $ (GND))) # (!t[12] & (!A1L422 & VCC));
+
+--A1L425 is t[12]~56 at LCCOMB_X16_Y20_N28
+A1L425 = CARRY((t[12] & !A1L422));
+
+
+--A1L427 is t[13]~57 at LCCOMB_X16_Y20_N30
+A1L427 = (t[13] & (!A1L425)) # (!t[13] & ((A1L425) # (GND)));
+
+--A1L428 is t[13]~58 at LCCOMB_X16_Y20_N30
+A1L428 = CARRY((!A1L425) # (!t[13]));
+
+
+--A1L430 is t[14]~59 at LCCOMB_X16_Y19_N0
+A1L430 = (t[14] & (A1L428 $ (GND))) # (!t[14] & (!A1L428 & VCC));
+
+--A1L431 is t[14]~60 at LCCOMB_X16_Y19_N0
+A1L431 = CARRY((t[14] & !A1L428));
+
+
+--A1L433 is t[15]~61 at LCCOMB_X16_Y19_N2
+A1L433 = (t[15] & (!A1L431)) # (!t[15] & ((A1L431) # (GND)));
+
+--A1L434 is t[15]~62 at LCCOMB_X16_Y19_N2
+A1L434 = CARRY((!A1L431) # (!t[15]));
+
+
+--A1L436 is t[16]~63 at LCCOMB_X16_Y19_N4
+A1L436 = (t[16] & (A1L434 $ (GND))) # (!t[16] & (!A1L434 & VCC));
+
+--A1L437 is t[16]~64 at LCCOMB_X16_Y19_N4
+A1L437 = CARRY((t[16] & !A1L434));
+
+
+--A1L439 is t[17]~65 at LCCOMB_X16_Y19_N6
+A1L439 = (t[17] & (!A1L437)) # (!t[17] & ((A1L437) # (GND)));
+
+--A1L440 is t[17]~66 at LCCOMB_X16_Y19_N6
+A1L440 = CARRY((!A1L437) # (!t[17]));
+
+
+--A1L442 is t[18]~67 at LCCOMB_X16_Y19_N8
+A1L442 = (t[18] & (A1L440 $ (GND))) # (!t[18] & (!A1L440 & VCC));
+
+--A1L443 is t[18]~68 at LCCOMB_X16_Y19_N8
+A1L443 = CARRY((t[18] & !A1L440));
+
+
+--A1L445 is t[19]~69 at LCCOMB_X16_Y19_N10
+A1L445 = (t[19] & (!A1L443)) # (!t[19] & ((A1L443) # (GND)));
+
+--A1L446 is t[19]~70 at LCCOMB_X16_Y19_N10
+A1L446 = CARRY((!A1L443) # (!t[19]));
+
+
+--A1L448 is t[20]~71 at LCCOMB_X16_Y19_N12
+A1L448 = (t[20] & (A1L446 $ (GND))) # (!t[20] & (!A1L446 & VCC));
+
+--A1L449 is t[20]~72 at LCCOMB_X16_Y19_N12
+A1L449 = CARRY((t[20] & !A1L446));
+
+
+--A1L451 is t[21]~73 at LCCOMB_X16_Y19_N14
+A1L451 = (t[21] & (!A1L449)) # (!t[21] & ((A1L449) # (GND)));
+
+--A1L452 is t[21]~74 at LCCOMB_X16_Y19_N14
+A1L452 = CARRY((!A1L449) # (!t[21]));
+
+
+--A1L454 is t[22]~75 at LCCOMB_X16_Y19_N16
+A1L454 = (t[22] & (A1L452 $ (GND))) # (!t[22] & (!A1L452 & VCC));
+
+--A1L455 is t[22]~76 at LCCOMB_X16_Y19_N16
+A1L455 = CARRY((t[22] & !A1L452));
+
+
+--A1L457 is t[23]~77 at LCCOMB_X16_Y19_N18
+A1L457 = (t[23] & (!A1L455)) # (!t[23] & ((A1L455) # (GND)));
+
+--A1L458 is t[23]~78 at LCCOMB_X16_Y19_N18
+A1L458 = CARRY((!A1L455) # (!t[23]));
+
+
+--A1L460 is t[24]~79 at LCCOMB_X16_Y19_N20
+A1L460 = (t[24] & (A1L458 $ (GND))) # (!t[24] & (!A1L458 & VCC));
+
+--A1L461 is t[24]~80 at LCCOMB_X16_Y19_N20
+A1L461 = CARRY((t[24] & !A1L458));
+
+
+--A1L463 is t[25]~81 at LCCOMB_X16_Y19_N22
+A1L463 = (t[25] & (!A1L461)) # (!t[25] & ((A1L461) # (GND)));
+
+--A1L464 is t[25]~82 at LCCOMB_X16_Y19_N22
+A1L464 = CARRY((!A1L461) # (!t[25]));
+
+
+--A1L466 is t[26]~92 at LCCOMB_X16_Y19_N24
+A1L466 = (t[26] & (A1L464 $ (GND))) # (!t[26] & (!A1L464 & VCC));
+
+--A1L467 is t[26]~93 at LCCOMB_X16_Y19_N24
+A1L467 = CARRY((t[26] & !A1L464));
+
+
+--A1L469 is t[27]~94 at LCCOMB_X16_Y19_N26
+A1L469 = (t[27] & (!A1L467)) # (!t[27] & ((A1L467) # (GND)));
+
+--A1L470 is t[27]~95 at LCCOMB_X16_Y19_N26
+A1L470 = CARRY((!A1L467) # (!t[27]));
+
+
+--A1L472 is t[28]~96 at LCCOMB_X16_Y19_N28
+A1L472 = A1L470 $ (!t[28]);
+
+
+--E1L103 is MorseCode:RxTx|t[0]~29 at LCCOMB_X22_Y17_N4
+E1L103 = E1_t[0] $ (VCC);
+
+--E1L104 is MorseCode:RxTx|t[0]~30 at LCCOMB_X22_Y17_N4
+E1L104 = CARRY(E1_t[0]);
+
+
+--E1L106 is MorseCode:RxTx|t[1]~31 at LCCOMB_X22_Y17_N6
+E1L106 = (E1_t[1] & (!E1L104)) # (!E1_t[1] & ((E1L104) # (GND)));
+
+--E1L107 is MorseCode:RxTx|t[1]~32 at LCCOMB_X22_Y17_N6
+E1L107 = CARRY((!E1L104) # (!E1_t[1]));
+
+
+--E1L109 is MorseCode:RxTx|t[2]~33 at LCCOMB_X22_Y17_N8
+E1L109 = (E1_t[2] & (E1L107 $ (GND))) # (!E1_t[2] & (!E1L107 & VCC));
+
+--E1L110 is MorseCode:RxTx|t[2]~34 at LCCOMB_X22_Y17_N8
+E1L110 = CARRY((E1_t[2] & !E1L107));
+
+
+--E1L112 is MorseCode:RxTx|t[3]~35 at LCCOMB_X22_Y17_N10
+E1L112 = (E1_t[3] & (!E1L110)) # (!E1_t[3] & ((E1L110) # (GND)));
+
+--E1L113 is MorseCode:RxTx|t[3]~36 at LCCOMB_X22_Y17_N10
+E1L113 = CARRY((!E1L110) # (!E1_t[3]));
+
+
+--E1L115 is MorseCode:RxTx|t[4]~37 at LCCOMB_X22_Y17_N12
+E1L115 = (E1_t[4] & (E1L113 $ (GND))) # (!E1_t[4] & (!E1L113 & VCC));
+
+--E1L116 is MorseCode:RxTx|t[4]~38 at LCCOMB_X22_Y17_N12
+E1L116 = CARRY((E1_t[4] & !E1L113));
+
+
+--E1L118 is MorseCode:RxTx|t[5]~39 at LCCOMB_X22_Y17_N14
+E1L118 = (E1_t[5] & (!E1L116)) # (!E1_t[5] & ((E1L116) # (GND)));
+
+--E1L119 is MorseCode:RxTx|t[5]~40 at LCCOMB_X22_Y17_N14
+E1L119 = CARRY((!E1L116) # (!E1_t[5]));
+
+
+--E1L121 is MorseCode:RxTx|t[6]~41 at LCCOMB_X22_Y17_N16
+E1L121 = (E1_t[6] & (E1L119 $ (GND))) # (!E1_t[6] & (!E1L119 & VCC));
+
+--E1L122 is MorseCode:RxTx|t[6]~42 at LCCOMB_X22_Y17_N16
+E1L122 = CARRY((E1_t[6] & !E1L119));
+
+
+--E1L124 is MorseCode:RxTx|t[7]~43 at LCCOMB_X22_Y17_N18
+E1L124 = (E1_t[7] & (!E1L122)) # (!E1_t[7] & ((E1L122) # (GND)));
+
+--E1L125 is MorseCode:RxTx|t[7]~44 at LCCOMB_X22_Y17_N18
+E1L125 = CARRY((!E1L122) # (!E1_t[7]));
+
+
+--E1L127 is MorseCode:RxTx|t[8]~45 at LCCOMB_X22_Y17_N20
+E1L127 = (E1_t[8] & (E1L125 $ (GND))) # (!E1_t[8] & (!E1L125 & VCC));
+
+--E1L128 is MorseCode:RxTx|t[8]~46 at LCCOMB_X22_Y17_N20
+E1L128 = CARRY((E1_t[8] & !E1L125));
+
+
+--E1L130 is MorseCode:RxTx|t[9]~47 at LCCOMB_X22_Y17_N22
+E1L130 = (E1_t[9] & (!E1L128)) # (!E1_t[9] & ((E1L128) # (GND)));
+
+--E1L131 is MorseCode:RxTx|t[9]~48 at LCCOMB_X22_Y17_N22
+E1L131 = CARRY((!E1L128) # (!E1_t[9]));
+
+
+--E1L133 is MorseCode:RxTx|t[10]~49 at LCCOMB_X22_Y17_N24
+E1L133 = (E1_t[10] & (E1L131 $ (GND))) # (!E1_t[10] & (!E1L131 & VCC));
+
+--E1L134 is MorseCode:RxTx|t[10]~50 at LCCOMB_X22_Y17_N24
+E1L134 = CARRY((E1_t[10] & !E1L131));
+
+
+--E1L136 is MorseCode:RxTx|t[11]~51 at LCCOMB_X22_Y17_N26
+E1L136 = (E1_t[11] & (!E1L134)) # (!E1_t[11] & ((E1L134) # (GND)));
+
+--E1L137 is MorseCode:RxTx|t[11]~52 at LCCOMB_X22_Y17_N26
+E1L137 = CARRY((!E1L134) # (!E1_t[11]));
+
+
+--E1L139 is MorseCode:RxTx|t[12]~53 at LCCOMB_X22_Y17_N28
+E1L139 = (E1_t[12] & (E1L137 $ (GND))) # (!E1_t[12] & (!E1L137 & VCC));
+
+--E1L140 is MorseCode:RxTx|t[12]~54 at LCCOMB_X22_Y17_N28
+E1L140 = CARRY((E1_t[12] & !E1L137));
+
+
+--E1L142 is MorseCode:RxTx|t[13]~55 at LCCOMB_X22_Y17_N30
+E1L142 = (E1_t[13] & (!E1L140)) # (!E1_t[13] & ((E1L140) # (GND)));
+
+--E1L143 is MorseCode:RxTx|t[13]~56 at LCCOMB_X22_Y17_N30
+E1L143 = CARRY((!E1L140) # (!E1_t[13]));
+
+
+--E1L145 is MorseCode:RxTx|t[14]~57 at LCCOMB_X22_Y16_N0
+E1L145 = (E1_t[14] & (E1L143 $ (GND))) # (!E1_t[14] & (!E1L143 & VCC));
+
+--E1L146 is MorseCode:RxTx|t[14]~58 at LCCOMB_X22_Y16_N0
+E1L146 = CARRY((E1_t[14] & !E1L143));
+
+
+--E1L148 is MorseCode:RxTx|t[15]~59 at LCCOMB_X22_Y16_N2
+E1L148 = (E1_t[15] & (!E1L146)) # (!E1_t[15] & ((E1L146) # (GND)));
+
+--E1L149 is MorseCode:RxTx|t[15]~60 at LCCOMB_X22_Y16_N2
+E1L149 = CARRY((!E1L146) # (!E1_t[15]));
+
+
+--E1L151 is MorseCode:RxTx|t[16]~61 at LCCOMB_X22_Y16_N4
+E1L151 = (E1_t[16] & (E1L149 $ (GND))) # (!E1_t[16] & (!E1L149 & VCC));
+
+--E1L152 is MorseCode:RxTx|t[16]~62 at LCCOMB_X22_Y16_N4
+E1L152 = CARRY((E1_t[16] & !E1L149));
+
+
+--E1L154 is MorseCode:RxTx|t[17]~63 at LCCOMB_X22_Y16_N6
+E1L154 = (E1_t[17] & (!E1L152)) # (!E1_t[17] & ((E1L152) # (GND)));
+
+--E1L155 is MorseCode:RxTx|t[17]~64 at LCCOMB_X22_Y16_N6
+E1L155 = CARRY((!E1L152) # (!E1_t[17]));
+
+
+--E1L157 is MorseCode:RxTx|t[18]~65 at LCCOMB_X22_Y16_N8
+E1L157 = (E1_t[18] & (E1L155 $ (GND))) # (!E1_t[18] & (!E1L155 & VCC));
+
+--E1L158 is MorseCode:RxTx|t[18]~66 at LCCOMB_X22_Y16_N8
+E1L158 = CARRY((E1_t[18] & !E1L155));
+
+
+--E1L160 is MorseCode:RxTx|t[19]~67 at LCCOMB_X22_Y16_N10
+E1L160 = (E1_t[19] & (!E1L158)) # (!E1_t[19] & ((E1L158) # (GND)));
+
+--E1L161 is MorseCode:RxTx|t[19]~68 at LCCOMB_X22_Y16_N10
+E1L161 = CARRY((!E1L158) # (!E1_t[19]));
+
+
+--E1L174 is MorseCode:RxTx|t[20]~69 at LCCOMB_X22_Y16_N12
+E1L174 = (E1_t[20] & (E1L161 $ (GND))) # (!E1_t[20] & (!E1L161 & VCC));
+
+--E1L175 is MorseCode:RxTx|t[20]~70 at LCCOMB_X22_Y16_N12
+E1L175 = CARRY((E1_t[20] & !E1L161));
+
+
+--E1L177 is MorseCode:RxTx|t[21]~71 at LCCOMB_X22_Y16_N14
+E1L177 = (E1_t[21] & (!E1L175)) # (!E1_t[21] & ((E1L175) # (GND)));
+
+--E1L178 is MorseCode:RxTx|t[21]~72 at LCCOMB_X22_Y16_N14
+E1L178 = CARRY((!E1L175) # (!E1_t[21]));
+
+
+--E1L180 is MorseCode:RxTx|t[22]~73 at LCCOMB_X22_Y16_N16
+E1L180 = (E1_t[22] & (E1L178 $ (GND))) # (!E1_t[22] & (!E1L178 & VCC));
+
+--E1L181 is MorseCode:RxTx|t[22]~74 at LCCOMB_X22_Y16_N16
+E1L181 = CARRY((E1_t[22] & !E1L178));
+
+
+--E1L183 is MorseCode:RxTx|t[23]~75 at LCCOMB_X22_Y16_N18
+E1L183 = (E1_t[23] & (!E1L181)) # (!E1_t[23] & ((E1L181) # (GND)));
+
+--E1L184 is MorseCode:RxTx|t[23]~76 at LCCOMB_X22_Y16_N18
+E1L184 = CARRY((!E1L181) # (!E1_t[23]));
+
+
+--E1L186 is MorseCode:RxTx|t[24]~77 at LCCOMB_X22_Y16_N20
+E1L186 = (E1_t[24] & (E1L184 $ (GND))) # (!E1_t[24] & (!E1L184 & VCC));
+
+--E1L187 is MorseCode:RxTx|t[24]~78 at LCCOMB_X22_Y16_N20
+E1L187 = CARRY((E1_t[24] & !E1L184));
+
+
+--E1L189 is MorseCode:RxTx|t[25]~90 at LCCOMB_X22_Y16_N22
+E1L189 = (E1_t[25] & (!E1L187)) # (!E1_t[25] & ((E1L187) # (GND)));
+
+--E1L190 is MorseCode:RxTx|t[25]~91 at LCCOMB_X22_Y16_N22
+E1L190 = CARRY((!E1L187) # (!E1_t[25]));
+
+
+--E1L192 is MorseCode:RxTx|t[26]~92 at LCCOMB_X22_Y16_N24
+E1L192 = (E1_t[26] & (E1L190 $ (GND))) # (!E1_t[26] & (!E1L190 & VCC));
+
+--E1L193 is MorseCode:RxTx|t[26]~93 at LCCOMB_X22_Y16_N24
+E1L193 = CARRY((E1_t[26] & !E1L190));
+
+
+--E1L195 is MorseCode:RxTx|t[27]~94 at LCCOMB_X22_Y16_N26
+E1L195 = (E1_t[27] & (!E1L193)) # (!E1_t[27] & ((E1L193) # (GND)));
+
+--E1L196 is MorseCode:RxTx|t[27]~95 at LCCOMB_X22_Y16_N26
+E1L196 = CARRY((!E1L193) # (!E1_t[27]));
+
+
+--E1L198 is MorseCode:RxTx|t[28]~96 at LCCOMB_X22_Y16_N28
+E1L198 = E1L196 $ (!E1_t[28]);
+
+
+--C1_cont_up[0] is DEBOUNCE:db_button|cont_up[0] at FF_X14_Y23_N1
+--register power-up is low
+
+C1_cont_up[0] = DFFEAS(C1L104, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[1] is DEBOUNCE:db_button|cont_up[1] at FF_X14_Y23_N3
+--register power-up is low
+
+C1_cont_up[1] = DFFEAS(C1L107, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[2] is DEBOUNCE:db_button|cont_up[2] at FF_X14_Y23_N5
+--register power-up is low
+
+C1_cont_up[2] = DFFEAS(C1L110, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[3] is DEBOUNCE:db_button|cont_up[3] at FF_X14_Y23_N7
+--register power-up is low
+
+C1_cont_up[3] = DFFEAS(C1L113, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[5] is DEBOUNCE:db_button|cont_up[5] at FF_X14_Y23_N11
+--register power-up is low
+
+C1_cont_up[5] = DFFEAS(C1L119, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[7] is DEBOUNCE:db_button|cont_up[7] at FF_X14_Y23_N15
+--register power-up is low
+
+C1_cont_up[7] = DFFEAS(C1L125, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[4] is DEBOUNCE:db_button|cont_up[4] at FF_X14_Y23_N9
+--register power-up is low
+
+C1_cont_up[4] = DFFEAS(C1L116, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[6] is DEBOUNCE:db_button|cont_up[6] at FF_X14_Y23_N13
+--register power-up is low
+
+C1_cont_up[6] = DFFEAS(C1L122, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[8] is DEBOUNCE:db_button|cont_up[8] at FF_X14_Y23_N17
+--register power-up is low
+
+C1_cont_up[8] = DFFEAS(C1L128, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[10] is DEBOUNCE:db_button|cont_up[10] at FF_X14_Y23_N21
+--register power-up is low
+
+C1_cont_up[10] = DFFEAS(C1L134, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[9] is DEBOUNCE:db_button|cont_up[9] at FF_X14_Y23_N19
+--register power-up is low
+
+C1_cont_up[9] = DFFEAS(C1L131, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[11] is DEBOUNCE:db_button|cont_up[11] at FF_X14_Y23_N23
+--register power-up is low
+
+C1_cont_up[11] = DFFEAS(C1L137, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[13] is DEBOUNCE:db_button|cont_up[13] at FF_X14_Y23_N27
+--register power-up is low
+
+C1_cont_up[13] = DFFEAS(C1L143, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[12] is DEBOUNCE:db_button|cont_up[12] at FF_X14_Y23_N25
+--register power-up is low
+
+C1_cont_up[12] = DFFEAS(C1L140, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[14] is DEBOUNCE:db_button|cont_up[14] at FF_X14_Y23_N29
+--register power-up is low
+
+C1_cont_up[14] = DFFEAS(C1L146, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[15] is DEBOUNCE:db_button|cont_up[15] at FF_X14_Y23_N31
+--register power-up is low
+
+C1_cont_up[15] = DFFEAS(C1L149, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[17] is DEBOUNCE:db_button|cont_up[17] at FF_X14_Y22_N3
+--register power-up is low
+
+C1_cont_up[17] = DFFEAS(C1L155, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[18] is DEBOUNCE:db_button|cont_up[18] at FF_X14_Y22_N5
+--register power-up is low
+
+C1_cont_up[18] = DFFEAS(C1L158, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[16] is DEBOUNCE:db_button|cont_up[16] at FF_X14_Y22_N1
+--register power-up is low
+
+C1_cont_up[16] = DFFEAS(C1L152, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[19] is DEBOUNCE:db_button|cont_up[19] at FF_X14_Y22_N7
+--register power-up is low
+
+C1_cont_up[19] = DFFEAS(C1L161, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[21] is DEBOUNCE:db_button|cont_up[21] at FF_X14_Y22_N11
+--register power-up is low
+
+C1_cont_up[21] = DFFEAS(C1L167, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[20] is DEBOUNCE:db_button|cont_up[20] at FF_X14_Y22_N9
+--register power-up is low
+
+C1_cont_up[20] = DFFEAS(C1L164, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[22] is DEBOUNCE:db_button|cont_up[22] at FF_X14_Y22_N13
+--register power-up is low
+
+C1_cont_up[22] = DFFEAS(C1L170, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[23] is DEBOUNCE:db_button|cont_up[23] at FF_X14_Y22_N15
+--register power-up is low
+
+C1_cont_up[23] = DFFEAS(C1L173, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[26] is DEBOUNCE:db_button|cont_up[26] at FF_X14_Y22_N21
+--register power-up is low
+
+C1_cont_up[26] = DFFEAS(C1L182, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[27] is DEBOUNCE:db_button|cont_up[27] at FF_X14_Y22_N23
+--register power-up is low
+
+C1_cont_up[27] = DFFEAS(C1L185, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[28] is DEBOUNCE:db_button|cont_up[28] at FF_X14_Y22_N25
+--register power-up is low
+
+C1_cont_up[28] = DFFEAS(C1L188, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[29] is DEBOUNCE:db_button|cont_up[29] at FF_X14_Y22_N27
+--register power-up is low
+
+C1_cont_up[29] = DFFEAS(C1L191, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[30] is DEBOUNCE:db_button|cont_up[30] at FF_X14_Y22_N29
+--register power-up is low
+
+C1_cont_up[30] = DFFEAS(C1L194, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[31] is DEBOUNCE:db_button|cont_up[31] at FF_X14_Y22_N31
+--register power-up is low
+
+C1_cont_up[31] = DFFEAS(C1L197, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[24] is DEBOUNCE:db_button|cont_up[24] at FF_X14_Y22_N17
+--register power-up is low
+
+C1_cont_up[24] = DFFEAS(C1L176, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_up[25] is DEBOUNCE:db_button|cont_up[25] at FF_X14_Y22_N19
+--register power-up is low
+
+C1_cont_up[25] = DFFEAS(C1L179, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L209, C1L223);
+
+
+--C1_cont_down[0] is DEBOUNCE:db_button|cont_down[0] at FF_X14_Y21_N1
+--register power-up is low
+
+C1_cont_down[0] = DFFEAS(C1L7, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[1] is DEBOUNCE:db_button|cont_down[1] at FF_X14_Y21_N3
+--register power-up is low
+
+C1_cont_down[1] = DFFEAS(C1L10, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[2] is DEBOUNCE:db_button|cont_down[2] at FF_X14_Y21_N5
+--register power-up is low
+
+C1_cont_down[2] = DFFEAS(C1L13, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[3] is DEBOUNCE:db_button|cont_down[3] at FF_X14_Y21_N7
+--register power-up is low
+
+C1_cont_down[3] = DFFEAS(C1L16, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[5] is DEBOUNCE:db_button|cont_down[5] at FF_X14_Y21_N11
+--register power-up is low
+
+C1_cont_down[5] = DFFEAS(C1L22, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[7] is DEBOUNCE:db_button|cont_down[7] at FF_X14_Y21_N15
+--register power-up is low
+
+C1_cont_down[7] = DFFEAS(C1L28, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[4] is DEBOUNCE:db_button|cont_down[4] at FF_X14_Y21_N9
+--register power-up is low
+
+C1_cont_down[4] = DFFEAS(C1L19, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[6] is DEBOUNCE:db_button|cont_down[6] at FF_X14_Y21_N13
+--register power-up is low
+
+C1_cont_down[6] = DFFEAS(C1L25, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[8] is DEBOUNCE:db_button|cont_down[8] at FF_X14_Y21_N17
+--register power-up is low
+
+C1_cont_down[8] = DFFEAS(C1L31, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[10] is DEBOUNCE:db_button|cont_down[10] at FF_X14_Y21_N21
+--register power-up is low
+
+C1_cont_down[10] = DFFEAS(C1L37, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[9] is DEBOUNCE:db_button|cont_down[9] at FF_X14_Y21_N19
+--register power-up is low
+
+C1_cont_down[9] = DFFEAS(C1L34, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[11] is DEBOUNCE:db_button|cont_down[11] at FF_X14_Y21_N23
+--register power-up is low
+
+C1_cont_down[11] = DFFEAS(C1L40, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[13] is DEBOUNCE:db_button|cont_down[13] at FF_X14_Y21_N27
+--register power-up is low
+
+C1_cont_down[13] = DFFEAS(C1L46, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[12] is DEBOUNCE:db_button|cont_down[12] at FF_X14_Y21_N25
+--register power-up is low
+
+C1_cont_down[12] = DFFEAS(C1L43, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[14] is DEBOUNCE:db_button|cont_down[14] at FF_X14_Y21_N29
+--register power-up is low
+
+C1_cont_down[14] = DFFEAS(C1L49, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[15] is DEBOUNCE:db_button|cont_down[15] at FF_X14_Y21_N31
+--register power-up is low
+
+C1_cont_down[15] = DFFEAS(C1L52, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[17] is DEBOUNCE:db_button|cont_down[17] at FF_X14_Y20_N3
+--register power-up is low
+
+C1_cont_down[17] = DFFEAS(C1L58, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[16] is DEBOUNCE:db_button|cont_down[16] at FF_X14_Y20_N1
+--register power-up is low
+
+C1_cont_down[16] = DFFEAS(C1L55, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[18] is DEBOUNCE:db_button|cont_down[18] at FF_X14_Y20_N5
+--register power-up is low
+
+C1_cont_down[18] = DFFEAS(C1L61, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[21] is DEBOUNCE:db_button|cont_down[21] at FF_X14_Y20_N11
+--register power-up is low
+
+C1_cont_down[21] = DFFEAS(C1L70, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[20] is DEBOUNCE:db_button|cont_down[20] at FF_X14_Y20_N9
+--register power-up is low
+
+C1_cont_down[20] = DFFEAS(C1L67, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[22] is DEBOUNCE:db_button|cont_down[22] at FF_X14_Y20_N13
+--register power-up is low
+
+C1_cont_down[22] = DFFEAS(C1L73, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[23] is DEBOUNCE:db_button|cont_down[23] at FF_X14_Y20_N15
+--register power-up is low
+
+C1_cont_down[23] = DFFEAS(C1L76, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[19] is DEBOUNCE:db_button|cont_down[19] at FF_X14_Y20_N7
+--register power-up is low
+
+C1_cont_down[19] = DFFEAS(C1L64, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[24] is DEBOUNCE:db_button|cont_down[24] at FF_X14_Y20_N17
+--register power-up is low
+
+C1_cont_down[24] = DFFEAS(C1L79, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[25] is DEBOUNCE:db_button|cont_down[25] at FF_X14_Y20_N19
+--register power-up is low
+
+C1_cont_down[25] = DFFEAS(C1L82, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[26] is DEBOUNCE:db_button|cont_down[26] at FF_X14_Y20_N21
+--register power-up is low
+
+C1_cont_down[26] = DFFEAS(C1L85, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[27] is DEBOUNCE:db_button|cont_down[27] at FF_X14_Y20_N23
+--register power-up is low
+
+C1_cont_down[27] = DFFEAS(C1L88, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[28] is DEBOUNCE:db_button|cont_down[28] at FF_X14_Y20_N25
+--register power-up is low
+
+C1_cont_down[28] = DFFEAS(C1L91, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[29] is DEBOUNCE:db_button|cont_down[29] at FF_X14_Y20_N27
+--register power-up is low
+
+C1_cont_down[29] = DFFEAS(C1L94, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[30] is DEBOUNCE:db_button|cont_down[30] at FF_X14_Y20_N29
+--register power-up is low
+
+C1_cont_down[30] = DFFEAS(C1L97, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--C1_cont_down[31] is DEBOUNCE:db_button|cont_down[31] at FF_X14_Y20_N31
+--register power-up is low
+
+C1_cont_down[31] = DFFEAS(C1L100, GLOBAL(A1L58),  ,  ,  , A1L494,  , C1L220, C1L225);
+
+
+--D1_cont_down[0] is DEBOUNCE_PULSE:db_rst|cont_down[0] at FF_X10_Y17_N1
+--register power-up is low
+
+D1_cont_down[0] = DFFEAS(D1L8, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[1] is DEBOUNCE_PULSE:db_rst|cont_down[1] at FF_X10_Y17_N3
+--register power-up is low
+
+D1_cont_down[1] = DFFEAS(D1L11, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[2] is DEBOUNCE_PULSE:db_rst|cont_down[2] at FF_X10_Y17_N5
+--register power-up is low
+
+D1_cont_down[2] = DFFEAS(D1L14, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[3] is DEBOUNCE_PULSE:db_rst|cont_down[3] at FF_X10_Y17_N7
+--register power-up is low
+
+D1_cont_down[3] = DFFEAS(D1L17, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[5] is DEBOUNCE_PULSE:db_rst|cont_down[5] at FF_X10_Y17_N11
+--register power-up is low
+
+D1_cont_down[5] = DFFEAS(D1L23, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[7] is DEBOUNCE_PULSE:db_rst|cont_down[7] at FF_X10_Y17_N15
+--register power-up is low
+
+D1_cont_down[7] = DFFEAS(D1L29, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[4] is DEBOUNCE_PULSE:db_rst|cont_down[4] at FF_X10_Y17_N9
+--register power-up is low
+
+D1_cont_down[4] = DFFEAS(D1L20, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[6] is DEBOUNCE_PULSE:db_rst|cont_down[6] at FF_X10_Y17_N13
+--register power-up is low
+
+D1_cont_down[6] = DFFEAS(D1L26, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[8] is DEBOUNCE_PULSE:db_rst|cont_down[8] at FF_X10_Y17_N17
+--register power-up is low
+
+D1_cont_down[8] = DFFEAS(D1L32, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[10] is DEBOUNCE_PULSE:db_rst|cont_down[10] at FF_X10_Y17_N21
+--register power-up is low
+
+D1_cont_down[10] = DFFEAS(D1L38, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[9] is DEBOUNCE_PULSE:db_rst|cont_down[9] at FF_X10_Y17_N19
+--register power-up is low
+
+D1_cont_down[9] = DFFEAS(D1L35, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[11] is DEBOUNCE_PULSE:db_rst|cont_down[11] at FF_X10_Y17_N23
+--register power-up is low
+
+D1_cont_down[11] = DFFEAS(D1L41, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[13] is DEBOUNCE_PULSE:db_rst|cont_down[13] at FF_X10_Y17_N27
+--register power-up is low
+
+D1_cont_down[13] = DFFEAS(D1L47, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[12] is DEBOUNCE_PULSE:db_rst|cont_down[12] at FF_X10_Y17_N25
+--register power-up is low
+
+D1_cont_down[12] = DFFEAS(D1L44, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[14] is DEBOUNCE_PULSE:db_rst|cont_down[14] at FF_X10_Y17_N29
+--register power-up is low
+
+D1_cont_down[14] = DFFEAS(D1L50, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[15] is DEBOUNCE_PULSE:db_rst|cont_down[15] at FF_X10_Y17_N31
+--register power-up is low
+
+D1_cont_down[15] = DFFEAS(D1L53, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[17] is DEBOUNCE_PULSE:db_rst|cont_down[17] at FF_X10_Y16_N3
+--register power-up is low
+
+D1_cont_down[17] = DFFEAS(D1L59, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[18] is DEBOUNCE_PULSE:db_rst|cont_down[18] at FF_X10_Y16_N5
+--register power-up is low
+
+D1_cont_down[18] = DFFEAS(D1L63, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[16] is DEBOUNCE_PULSE:db_rst|cont_down[16] at FF_X10_Y16_N1
+--register power-up is low
+
+D1_cont_down[16] = DFFEAS(D1L56, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[19] is DEBOUNCE_PULSE:db_rst|cont_down[19] at FF_X10_Y16_N7
+--register power-up is low
+
+D1_cont_down[19] = DFFEAS(D1L66, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[21] is DEBOUNCE_PULSE:db_rst|cont_down[21] at FF_X10_Y16_N11
+--register power-up is low
+
+D1_cont_down[21] = DFFEAS(D1L72, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[20] is DEBOUNCE_PULSE:db_rst|cont_down[20] at FF_X10_Y16_N9
+--register power-up is low
+
+D1_cont_down[20] = DFFEAS(D1L69, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[22] is DEBOUNCE_PULSE:db_rst|cont_down[22] at FF_X10_Y16_N13
+--register power-up is low
+
+D1_cont_down[22] = DFFEAS(D1L75, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[23] is DEBOUNCE_PULSE:db_rst|cont_down[23] at FF_X10_Y16_N15
+--register power-up is low
+
+D1_cont_down[23] = DFFEAS(D1L78, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[24] is DEBOUNCE_PULSE:db_rst|cont_down[24] at FF_X10_Y16_N17
+--register power-up is low
+
+D1_cont_down[24] = DFFEAS(D1L81, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[25] is DEBOUNCE_PULSE:db_rst|cont_down[25] at FF_X10_Y16_N19
+--register power-up is low
+
+D1_cont_down[25] = DFFEAS(D1L84, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[26] is DEBOUNCE_PULSE:db_rst|cont_down[26] at FF_X10_Y16_N21
+--register power-up is low
+
+D1_cont_down[26] = DFFEAS(D1L87, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[27] is DEBOUNCE_PULSE:db_rst|cont_down[27] at FF_X10_Y16_N23
+--register power-up is low
+
+D1_cont_down[27] = DFFEAS(D1L90, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[28] is DEBOUNCE_PULSE:db_rst|cont_down[28] at FF_X10_Y16_N25
+--register power-up is low
+
+D1_cont_down[28] = DFFEAS(D1L93, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[29] is DEBOUNCE_PULSE:db_rst|cont_down[29] at FF_X10_Y16_N27
+--register power-up is low
+
+D1_cont_down[29] = DFFEAS(D1L96, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[30] is DEBOUNCE_PULSE:db_rst|cont_down[30] at FF_X10_Y16_N29
+--register power-up is low
+
+D1_cont_down[30] = DFFEAS(D1L99, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--D1_cont_down[31] is DEBOUNCE_PULSE:db_rst|cont_down[31] at FF_X10_Y16_N31
+--register power-up is low
+
+D1_cont_down[31] = DFFEAS(D1L102, GLOBAL(A1L58),  ,  ,  ,  ,  , D1L62,  );
+
+
+--C1L104 is DEBOUNCE:db_button|cont_up[0]~32 at LCCOMB_X14_Y23_N0
+C1L104 = (C1L222 & (C1_cont_up[0] $ (VCC))) # (!C1L222 & (C1_cont_up[0] & VCC));
+
+--C1L105 is DEBOUNCE:db_button|cont_up[0]~33 at LCCOMB_X14_Y23_N0
+C1L105 = CARRY((C1L222 & C1_cont_up[0]));
+
+
+--C1L107 is DEBOUNCE:db_button|cont_up[1]~34 at LCCOMB_X14_Y23_N2
+C1L107 = (C1_cont_up[1] & (!C1L105)) # (!C1_cont_up[1] & ((C1L105) # (GND)));
+
+--C1L108 is DEBOUNCE:db_button|cont_up[1]~35 at LCCOMB_X14_Y23_N2
+C1L108 = CARRY((!C1L105) # (!C1_cont_up[1]));
+
+
+--C1L110 is DEBOUNCE:db_button|cont_up[2]~36 at LCCOMB_X14_Y23_N4
+C1L110 = (C1_cont_up[2] & (C1L108 $ (GND))) # (!C1_cont_up[2] & (!C1L108 & VCC));
+
+--C1L111 is DEBOUNCE:db_button|cont_up[2]~37 at LCCOMB_X14_Y23_N4
+C1L111 = CARRY((C1_cont_up[2] & !C1L108));
+
+
+--C1L113 is DEBOUNCE:db_button|cont_up[3]~38 at LCCOMB_X14_Y23_N6
+C1L113 = (C1_cont_up[3] & (!C1L111)) # (!C1_cont_up[3] & ((C1L111) # (GND)));
+
+--C1L114 is DEBOUNCE:db_button|cont_up[3]~39 at LCCOMB_X14_Y23_N6
+C1L114 = CARRY((!C1L111) # (!C1_cont_up[3]));
+
+
+--C1L116 is DEBOUNCE:db_button|cont_up[4]~40 at LCCOMB_X14_Y23_N8
+C1L116 = (C1_cont_up[4] & (C1L114 $ (GND))) # (!C1_cont_up[4] & (!C1L114 & VCC));
+
+--C1L117 is DEBOUNCE:db_button|cont_up[4]~41 at LCCOMB_X14_Y23_N8
+C1L117 = CARRY((C1_cont_up[4] & !C1L114));
+
+
+--C1L119 is DEBOUNCE:db_button|cont_up[5]~42 at LCCOMB_X14_Y23_N10
+C1L119 = (C1_cont_up[5] & (!C1L117)) # (!C1_cont_up[5] & ((C1L117) # (GND)));
+
+--C1L120 is DEBOUNCE:db_button|cont_up[5]~43 at LCCOMB_X14_Y23_N10
+C1L120 = CARRY((!C1L117) # (!C1_cont_up[5]));
+
+
+--C1L122 is DEBOUNCE:db_button|cont_up[6]~44 at LCCOMB_X14_Y23_N12
+C1L122 = (C1_cont_up[6] & (C1L120 $ (GND))) # (!C1_cont_up[6] & (!C1L120 & VCC));
+
+--C1L123 is DEBOUNCE:db_button|cont_up[6]~45 at LCCOMB_X14_Y23_N12
+C1L123 = CARRY((C1_cont_up[6] & !C1L120));
+
+
+--C1L125 is DEBOUNCE:db_button|cont_up[7]~46 at LCCOMB_X14_Y23_N14
+C1L125 = (C1_cont_up[7] & (!C1L123)) # (!C1_cont_up[7] & ((C1L123) # (GND)));
+
+--C1L126 is DEBOUNCE:db_button|cont_up[7]~47 at LCCOMB_X14_Y23_N14
+C1L126 = CARRY((!C1L123) # (!C1_cont_up[7]));
+
+
+--C1L128 is DEBOUNCE:db_button|cont_up[8]~48 at LCCOMB_X14_Y23_N16
+C1L128 = (C1_cont_up[8] & (C1L126 $ (GND))) # (!C1_cont_up[8] & (!C1L126 & VCC));
+
+--C1L129 is DEBOUNCE:db_button|cont_up[8]~49 at LCCOMB_X14_Y23_N16
+C1L129 = CARRY((C1_cont_up[8] & !C1L126));
+
+
+--C1L131 is DEBOUNCE:db_button|cont_up[9]~50 at LCCOMB_X14_Y23_N18
+C1L131 = (C1_cont_up[9] & (!C1L129)) # (!C1_cont_up[9] & ((C1L129) # (GND)));
+
+--C1L132 is DEBOUNCE:db_button|cont_up[9]~51 at LCCOMB_X14_Y23_N18
+C1L132 = CARRY((!C1L129) # (!C1_cont_up[9]));
+
+
+--C1L134 is DEBOUNCE:db_button|cont_up[10]~52 at LCCOMB_X14_Y23_N20
+C1L134 = (C1_cont_up[10] & (C1L132 $ (GND))) # (!C1_cont_up[10] & (!C1L132 & VCC));
+
+--C1L135 is DEBOUNCE:db_button|cont_up[10]~53 at LCCOMB_X14_Y23_N20
+C1L135 = CARRY((C1_cont_up[10] & !C1L132));
+
+
+--C1L137 is DEBOUNCE:db_button|cont_up[11]~54 at LCCOMB_X14_Y23_N22
+C1L137 = (C1_cont_up[11] & (!C1L135)) # (!C1_cont_up[11] & ((C1L135) # (GND)));
+
+--C1L138 is DEBOUNCE:db_button|cont_up[11]~55 at LCCOMB_X14_Y23_N22
+C1L138 = CARRY((!C1L135) # (!C1_cont_up[11]));
+
+
+--C1L140 is DEBOUNCE:db_button|cont_up[12]~56 at LCCOMB_X14_Y23_N24
+C1L140 = (C1_cont_up[12] & (C1L138 $ (GND))) # (!C1_cont_up[12] & (!C1L138 & VCC));
+
+--C1L141 is DEBOUNCE:db_button|cont_up[12]~57 at LCCOMB_X14_Y23_N24
+C1L141 = CARRY((C1_cont_up[12] & !C1L138));
+
+
+--C1L143 is DEBOUNCE:db_button|cont_up[13]~58 at LCCOMB_X14_Y23_N26
+C1L143 = (C1_cont_up[13] & (!C1L141)) # (!C1_cont_up[13] & ((C1L141) # (GND)));
+
+--C1L144 is DEBOUNCE:db_button|cont_up[13]~59 at LCCOMB_X14_Y23_N26
+C1L144 = CARRY((!C1L141) # (!C1_cont_up[13]));
+
+
+--C1L146 is DEBOUNCE:db_button|cont_up[14]~60 at LCCOMB_X14_Y23_N28
+C1L146 = (C1_cont_up[14] & (C1L144 $ (GND))) # (!C1_cont_up[14] & (!C1L144 & VCC));
+
+--C1L147 is DEBOUNCE:db_button|cont_up[14]~61 at LCCOMB_X14_Y23_N28
+C1L147 = CARRY((C1_cont_up[14] & !C1L144));
+
+
+--C1L149 is DEBOUNCE:db_button|cont_up[15]~62 at LCCOMB_X14_Y23_N30
+C1L149 = (C1_cont_up[15] & (!C1L147)) # (!C1_cont_up[15] & ((C1L147) # (GND)));
+
+--C1L150 is DEBOUNCE:db_button|cont_up[15]~63 at LCCOMB_X14_Y23_N30
+C1L150 = CARRY((!C1L147) # (!C1_cont_up[15]));
+
+
+--C1L152 is DEBOUNCE:db_button|cont_up[16]~64 at LCCOMB_X14_Y22_N0
+C1L152 = (C1_cont_up[16] & (C1L150 $ (GND))) # (!C1_cont_up[16] & (!C1L150 & VCC));
+
+--C1L153 is DEBOUNCE:db_button|cont_up[16]~65 at LCCOMB_X14_Y22_N0
+C1L153 = CARRY((C1_cont_up[16] & !C1L150));
+
+
+--C1L155 is DEBOUNCE:db_button|cont_up[17]~66 at LCCOMB_X14_Y22_N2
+C1L155 = (C1_cont_up[17] & (!C1L153)) # (!C1_cont_up[17] & ((C1L153) # (GND)));
+
+--C1L156 is DEBOUNCE:db_button|cont_up[17]~67 at LCCOMB_X14_Y22_N2
+C1L156 = CARRY((!C1L153) # (!C1_cont_up[17]));
+
+
+--C1L158 is DEBOUNCE:db_button|cont_up[18]~68 at LCCOMB_X14_Y22_N4
+C1L158 = (C1_cont_up[18] & (C1L156 $ (GND))) # (!C1_cont_up[18] & (!C1L156 & VCC));
+
+--C1L159 is DEBOUNCE:db_button|cont_up[18]~69 at LCCOMB_X14_Y22_N4
+C1L159 = CARRY((C1_cont_up[18] & !C1L156));
+
+
+--C1L161 is DEBOUNCE:db_button|cont_up[19]~70 at LCCOMB_X14_Y22_N6
+C1L161 = (C1_cont_up[19] & (!C1L159)) # (!C1_cont_up[19] & ((C1L159) # (GND)));
+
+--C1L162 is DEBOUNCE:db_button|cont_up[19]~71 at LCCOMB_X14_Y22_N6
+C1L162 = CARRY((!C1L159) # (!C1_cont_up[19]));
+
+
+--C1L164 is DEBOUNCE:db_button|cont_up[20]~72 at LCCOMB_X14_Y22_N8
+C1L164 = (C1_cont_up[20] & (C1L162 $ (GND))) # (!C1_cont_up[20] & (!C1L162 & VCC));
+
+--C1L165 is DEBOUNCE:db_button|cont_up[20]~73 at LCCOMB_X14_Y22_N8
+C1L165 = CARRY((C1_cont_up[20] & !C1L162));
+
+
+--C1L167 is DEBOUNCE:db_button|cont_up[21]~74 at LCCOMB_X14_Y22_N10
+C1L167 = (C1_cont_up[21] & (!C1L165)) # (!C1_cont_up[21] & ((C1L165) # (GND)));
+
+--C1L168 is DEBOUNCE:db_button|cont_up[21]~75 at LCCOMB_X14_Y22_N10
+C1L168 = CARRY((!C1L165) # (!C1_cont_up[21]));
+
+
+--C1L170 is DEBOUNCE:db_button|cont_up[22]~76 at LCCOMB_X14_Y22_N12
+C1L170 = (C1_cont_up[22] & (C1L168 $ (GND))) # (!C1_cont_up[22] & (!C1L168 & VCC));
+
+--C1L171 is DEBOUNCE:db_button|cont_up[22]~77 at LCCOMB_X14_Y22_N12
+C1L171 = CARRY((C1_cont_up[22] & !C1L168));
+
+
+--C1L173 is DEBOUNCE:db_button|cont_up[23]~78 at LCCOMB_X14_Y22_N14
+C1L173 = (C1_cont_up[23] & (!C1L171)) # (!C1_cont_up[23] & ((C1L171) # (GND)));
+
+--C1L174 is DEBOUNCE:db_button|cont_up[23]~79 at LCCOMB_X14_Y22_N14
+C1L174 = CARRY((!C1L171) # (!C1_cont_up[23]));
+
+
+--C1L176 is DEBOUNCE:db_button|cont_up[24]~80 at LCCOMB_X14_Y22_N16
+C1L176 = (C1_cont_up[24] & (C1L174 $ (GND))) # (!C1_cont_up[24] & (!C1L174 & VCC));
+
+--C1L177 is DEBOUNCE:db_button|cont_up[24]~81 at LCCOMB_X14_Y22_N16
+C1L177 = CARRY((C1_cont_up[24] & !C1L174));
+
+
+--C1L179 is DEBOUNCE:db_button|cont_up[25]~82 at LCCOMB_X14_Y22_N18
+C1L179 = (C1_cont_up[25] & (!C1L177)) # (!C1_cont_up[25] & ((C1L177) # (GND)));
+
+--C1L180 is DEBOUNCE:db_button|cont_up[25]~83 at LCCOMB_X14_Y22_N18
+C1L180 = CARRY((!C1L177) # (!C1_cont_up[25]));
+
+
+--C1L182 is DEBOUNCE:db_button|cont_up[26]~84 at LCCOMB_X14_Y22_N20
+C1L182 = (C1_cont_up[26] & (C1L180 $ (GND))) # (!C1_cont_up[26] & (!C1L180 & VCC));
+
+--C1L183 is DEBOUNCE:db_button|cont_up[26]~85 at LCCOMB_X14_Y22_N20
+C1L183 = CARRY((C1_cont_up[26] & !C1L180));
+
+
+--C1L185 is DEBOUNCE:db_button|cont_up[27]~86 at LCCOMB_X14_Y22_N22
+C1L185 = (C1_cont_up[27] & (!C1L183)) # (!C1_cont_up[27] & ((C1L183) # (GND)));
+
+--C1L186 is DEBOUNCE:db_button|cont_up[27]~87 at LCCOMB_X14_Y22_N22
+C1L186 = CARRY((!C1L183) # (!C1_cont_up[27]));
+
+
+--C1L188 is DEBOUNCE:db_button|cont_up[28]~88 at LCCOMB_X14_Y22_N24
+C1L188 = (C1_cont_up[28] & (C1L186 $ (GND))) # (!C1_cont_up[28] & (!C1L186 & VCC));
+
+--C1L189 is DEBOUNCE:db_button|cont_up[28]~89 at LCCOMB_X14_Y22_N24
+C1L189 = CARRY((C1_cont_up[28] & !C1L186));
+
+
+--C1L191 is DEBOUNCE:db_button|cont_up[29]~90 at LCCOMB_X14_Y22_N26
+C1L191 = (C1_cont_up[29] & (!C1L189)) # (!C1_cont_up[29] & ((C1L189) # (GND)));
+
+--C1L192 is DEBOUNCE:db_button|cont_up[29]~91 at LCCOMB_X14_Y22_N26
+C1L192 = CARRY((!C1L189) # (!C1_cont_up[29]));
+
+
+--C1L194 is DEBOUNCE:db_button|cont_up[30]~92 at LCCOMB_X14_Y22_N28
+C1L194 = (C1_cont_up[30] & (C1L192 $ (GND))) # (!C1_cont_up[30] & (!C1L192 & VCC));
+
+--C1L195 is DEBOUNCE:db_button|cont_up[30]~93 at LCCOMB_X14_Y22_N28
+C1L195 = CARRY((C1_cont_up[30] & !C1L192));
+
+
+--C1L197 is DEBOUNCE:db_button|cont_up[31]~94 at LCCOMB_X14_Y22_N30
+C1L197 = C1_cont_up[31] $ (C1L195);
+
+
+--C1L7 is DEBOUNCE:db_button|cont_down[0]~32 at LCCOMB_X14_Y21_N0
+C1L7 = (C1L224 & (C1_cont_down[0] $ (VCC))) # (!C1L224 & (C1_cont_down[0] & VCC));
+
+--C1L8 is DEBOUNCE:db_button|cont_down[0]~33 at LCCOMB_X14_Y21_N0
+C1L8 = CARRY((C1L224 & C1_cont_down[0]));
+
+
+--C1L10 is DEBOUNCE:db_button|cont_down[1]~34 at LCCOMB_X14_Y21_N2
+C1L10 = (C1_cont_down[1] & (!C1L8)) # (!C1_cont_down[1] & ((C1L8) # (GND)));
+
+--C1L11 is DEBOUNCE:db_button|cont_down[1]~35 at LCCOMB_X14_Y21_N2
+C1L11 = CARRY((!C1L8) # (!C1_cont_down[1]));
+
+
+--C1L13 is DEBOUNCE:db_button|cont_down[2]~36 at LCCOMB_X14_Y21_N4
+C1L13 = (C1_cont_down[2] & (C1L11 $ (GND))) # (!C1_cont_down[2] & (!C1L11 & VCC));
+
+--C1L14 is DEBOUNCE:db_button|cont_down[2]~37 at LCCOMB_X14_Y21_N4
+C1L14 = CARRY((C1_cont_down[2] & !C1L11));
+
+
+--C1L16 is DEBOUNCE:db_button|cont_down[3]~38 at LCCOMB_X14_Y21_N6
+C1L16 = (C1_cont_down[3] & (!C1L14)) # (!C1_cont_down[3] & ((C1L14) # (GND)));
+
+--C1L17 is DEBOUNCE:db_button|cont_down[3]~39 at LCCOMB_X14_Y21_N6
+C1L17 = CARRY((!C1L14) # (!C1_cont_down[3]));
+
+
+--C1L19 is DEBOUNCE:db_button|cont_down[4]~40 at LCCOMB_X14_Y21_N8
+C1L19 = (C1_cont_down[4] & (C1L17 $ (GND))) # (!C1_cont_down[4] & (!C1L17 & VCC));
+
+--C1L20 is DEBOUNCE:db_button|cont_down[4]~41 at LCCOMB_X14_Y21_N8
+C1L20 = CARRY((C1_cont_down[4] & !C1L17));
+
+
+--C1L22 is DEBOUNCE:db_button|cont_down[5]~42 at LCCOMB_X14_Y21_N10
+C1L22 = (C1_cont_down[5] & (!C1L20)) # (!C1_cont_down[5] & ((C1L20) # (GND)));
+
+--C1L23 is DEBOUNCE:db_button|cont_down[5]~43 at LCCOMB_X14_Y21_N10
+C1L23 = CARRY((!C1L20) # (!C1_cont_down[5]));
+
+
+--C1L25 is DEBOUNCE:db_button|cont_down[6]~44 at LCCOMB_X14_Y21_N12
+C1L25 = (C1_cont_down[6] & (C1L23 $ (GND))) # (!C1_cont_down[6] & (!C1L23 & VCC));
+
+--C1L26 is DEBOUNCE:db_button|cont_down[6]~45 at LCCOMB_X14_Y21_N12
+C1L26 = CARRY((C1_cont_down[6] & !C1L23));
+
+
+--C1L28 is DEBOUNCE:db_button|cont_down[7]~46 at LCCOMB_X14_Y21_N14
+C1L28 = (C1_cont_down[7] & (!C1L26)) # (!C1_cont_down[7] & ((C1L26) # (GND)));
+
+--C1L29 is DEBOUNCE:db_button|cont_down[7]~47 at LCCOMB_X14_Y21_N14
+C1L29 = CARRY((!C1L26) # (!C1_cont_down[7]));
+
+
+--C1L31 is DEBOUNCE:db_button|cont_down[8]~48 at LCCOMB_X14_Y21_N16
+C1L31 = (C1_cont_down[8] & (C1L29 $ (GND))) # (!C1_cont_down[8] & (!C1L29 & VCC));
+
+--C1L32 is DEBOUNCE:db_button|cont_down[8]~49 at LCCOMB_X14_Y21_N16
+C1L32 = CARRY((C1_cont_down[8] & !C1L29));
+
+
+--C1L34 is DEBOUNCE:db_button|cont_down[9]~50 at LCCOMB_X14_Y21_N18
+C1L34 = (C1_cont_down[9] & (!C1L32)) # (!C1_cont_down[9] & ((C1L32) # (GND)));
+
+--C1L35 is DEBOUNCE:db_button|cont_down[9]~51 at LCCOMB_X14_Y21_N18
+C1L35 = CARRY((!C1L32) # (!C1_cont_down[9]));
+
+
+--C1L37 is DEBOUNCE:db_button|cont_down[10]~52 at LCCOMB_X14_Y21_N20
+C1L37 = (C1_cont_down[10] & (C1L35 $ (GND))) # (!C1_cont_down[10] & (!C1L35 & VCC));
+
+--C1L38 is DEBOUNCE:db_button|cont_down[10]~53 at LCCOMB_X14_Y21_N20
+C1L38 = CARRY((C1_cont_down[10] & !C1L35));
+
+
+--C1L40 is DEBOUNCE:db_button|cont_down[11]~54 at LCCOMB_X14_Y21_N22
+C1L40 = (C1_cont_down[11] & (!C1L38)) # (!C1_cont_down[11] & ((C1L38) # (GND)));
+
+--C1L41 is DEBOUNCE:db_button|cont_down[11]~55 at LCCOMB_X14_Y21_N22
+C1L41 = CARRY((!C1L38) # (!C1_cont_down[11]));
+
+
+--C1L43 is DEBOUNCE:db_button|cont_down[12]~56 at LCCOMB_X14_Y21_N24
+C1L43 = (C1_cont_down[12] & (C1L41 $ (GND))) # (!C1_cont_down[12] & (!C1L41 & VCC));
+
+--C1L44 is DEBOUNCE:db_button|cont_down[12]~57 at LCCOMB_X14_Y21_N24
+C1L44 = CARRY((C1_cont_down[12] & !C1L41));
+
+
+--C1L46 is DEBOUNCE:db_button|cont_down[13]~58 at LCCOMB_X14_Y21_N26
+C1L46 = (C1_cont_down[13] & (!C1L44)) # (!C1_cont_down[13] & ((C1L44) # (GND)));
+
+--C1L47 is DEBOUNCE:db_button|cont_down[13]~59 at LCCOMB_X14_Y21_N26
+C1L47 = CARRY((!C1L44) # (!C1_cont_down[13]));
+
+
+--C1L49 is DEBOUNCE:db_button|cont_down[14]~60 at LCCOMB_X14_Y21_N28
+C1L49 = (C1_cont_down[14] & (C1L47 $ (GND))) # (!C1_cont_down[14] & (!C1L47 & VCC));
+
+--C1L50 is DEBOUNCE:db_button|cont_down[14]~61 at LCCOMB_X14_Y21_N28
+C1L50 = CARRY((C1_cont_down[14] & !C1L47));
+
+
+--C1L52 is DEBOUNCE:db_button|cont_down[15]~62 at LCCOMB_X14_Y21_N30
+C1L52 = (C1_cont_down[15] & (!C1L50)) # (!C1_cont_down[15] & ((C1L50) # (GND)));
+
+--C1L53 is DEBOUNCE:db_button|cont_down[15]~63 at LCCOMB_X14_Y21_N30
+C1L53 = CARRY((!C1L50) # (!C1_cont_down[15]));
+
+
+--C1L55 is DEBOUNCE:db_button|cont_down[16]~64 at LCCOMB_X14_Y20_N0
+C1L55 = (C1_cont_down[16] & (C1L53 $ (GND))) # (!C1_cont_down[16] & (!C1L53 & VCC));
+
+--C1L56 is DEBOUNCE:db_button|cont_down[16]~65 at LCCOMB_X14_Y20_N0
+C1L56 = CARRY((C1_cont_down[16] & !C1L53));
+
+
+--C1L58 is DEBOUNCE:db_button|cont_down[17]~66 at LCCOMB_X14_Y20_N2
+C1L58 = (C1_cont_down[17] & (!C1L56)) # (!C1_cont_down[17] & ((C1L56) # (GND)));
+
+--C1L59 is DEBOUNCE:db_button|cont_down[17]~67 at LCCOMB_X14_Y20_N2
+C1L59 = CARRY((!C1L56) # (!C1_cont_down[17]));
+
+
+--C1L61 is DEBOUNCE:db_button|cont_down[18]~68 at LCCOMB_X14_Y20_N4
+C1L61 = (C1_cont_down[18] & (C1L59 $ (GND))) # (!C1_cont_down[18] & (!C1L59 & VCC));
+
+--C1L62 is DEBOUNCE:db_button|cont_down[18]~69 at LCCOMB_X14_Y20_N4
+C1L62 = CARRY((C1_cont_down[18] & !C1L59));
+
+
+--C1L64 is DEBOUNCE:db_button|cont_down[19]~70 at LCCOMB_X14_Y20_N6
+C1L64 = (C1_cont_down[19] & (!C1L62)) # (!C1_cont_down[19] & ((C1L62) # (GND)));
+
+--C1L65 is DEBOUNCE:db_button|cont_down[19]~71 at LCCOMB_X14_Y20_N6
+C1L65 = CARRY((!C1L62) # (!C1_cont_down[19]));
+
+
+--C1L67 is DEBOUNCE:db_button|cont_down[20]~72 at LCCOMB_X14_Y20_N8
+C1L67 = (C1_cont_down[20] & (C1L65 $ (GND))) # (!C1_cont_down[20] & (!C1L65 & VCC));
+
+--C1L68 is DEBOUNCE:db_button|cont_down[20]~73 at LCCOMB_X14_Y20_N8
+C1L68 = CARRY((C1_cont_down[20] & !C1L65));
+
+
+--C1L70 is DEBOUNCE:db_button|cont_down[21]~74 at LCCOMB_X14_Y20_N10
+C1L70 = (C1_cont_down[21] & (!C1L68)) # (!C1_cont_down[21] & ((C1L68) # (GND)));
+
+--C1L71 is DEBOUNCE:db_button|cont_down[21]~75 at LCCOMB_X14_Y20_N10
+C1L71 = CARRY((!C1L68) # (!C1_cont_down[21]));
+
+
+--C1L73 is DEBOUNCE:db_button|cont_down[22]~76 at LCCOMB_X14_Y20_N12
+C1L73 = (C1_cont_down[22] & (C1L71 $ (GND))) # (!C1_cont_down[22] & (!C1L71 & VCC));
+
+--C1L74 is DEBOUNCE:db_button|cont_down[22]~77 at LCCOMB_X14_Y20_N12
+C1L74 = CARRY((C1_cont_down[22] & !C1L71));
+
+
+--C1L76 is DEBOUNCE:db_button|cont_down[23]~78 at LCCOMB_X14_Y20_N14
+C1L76 = (C1_cont_down[23] & (!C1L74)) # (!C1_cont_down[23] & ((C1L74) # (GND)));
+
+--C1L77 is DEBOUNCE:db_button|cont_down[23]~79 at LCCOMB_X14_Y20_N14
+C1L77 = CARRY((!C1L74) # (!C1_cont_down[23]));
+
+
+--C1L79 is DEBOUNCE:db_button|cont_down[24]~80 at LCCOMB_X14_Y20_N16
+C1L79 = (C1_cont_down[24] & (C1L77 $ (GND))) # (!C1_cont_down[24] & (!C1L77 & VCC));
+
+--C1L80 is DEBOUNCE:db_button|cont_down[24]~81 at LCCOMB_X14_Y20_N16
+C1L80 = CARRY((C1_cont_down[24] & !C1L77));
+
+
+--C1L82 is DEBOUNCE:db_button|cont_down[25]~82 at LCCOMB_X14_Y20_N18
+C1L82 = (C1_cont_down[25] & (!C1L80)) # (!C1_cont_down[25] & ((C1L80) # (GND)));
+
+--C1L83 is DEBOUNCE:db_button|cont_down[25]~83 at LCCOMB_X14_Y20_N18
+C1L83 = CARRY((!C1L80) # (!C1_cont_down[25]));
+
+
+--C1L85 is DEBOUNCE:db_button|cont_down[26]~84 at LCCOMB_X14_Y20_N20
+C1L85 = (C1_cont_down[26] & (C1L83 $ (GND))) # (!C1_cont_down[26] & (!C1L83 & VCC));
+
+--C1L86 is DEBOUNCE:db_button|cont_down[26]~85 at LCCOMB_X14_Y20_N20
+C1L86 = CARRY((C1_cont_down[26] & !C1L83));
+
+
+--C1L88 is DEBOUNCE:db_button|cont_down[27]~86 at LCCOMB_X14_Y20_N22
+C1L88 = (C1_cont_down[27] & (!C1L86)) # (!C1_cont_down[27] & ((C1L86) # (GND)));
+
+--C1L89 is DEBOUNCE:db_button|cont_down[27]~87 at LCCOMB_X14_Y20_N22
+C1L89 = CARRY((!C1L86) # (!C1_cont_down[27]));
+
+
+--C1L91 is DEBOUNCE:db_button|cont_down[28]~88 at LCCOMB_X14_Y20_N24
+C1L91 = (C1_cont_down[28] & (C1L89 $ (GND))) # (!C1_cont_down[28] & (!C1L89 & VCC));
+
+--C1L92 is DEBOUNCE:db_button|cont_down[28]~89 at LCCOMB_X14_Y20_N24
+C1L92 = CARRY((C1_cont_down[28] & !C1L89));
+
+
+--C1L94 is DEBOUNCE:db_button|cont_down[29]~90 at LCCOMB_X14_Y20_N26
+C1L94 = (C1_cont_down[29] & (!C1L92)) # (!C1_cont_down[29] & ((C1L92) # (GND)));
+
+--C1L95 is DEBOUNCE:db_button|cont_down[29]~91 at LCCOMB_X14_Y20_N26
+C1L95 = CARRY((!C1L92) # (!C1_cont_down[29]));
+
+
+--C1L97 is DEBOUNCE:db_button|cont_down[30]~92 at LCCOMB_X14_Y20_N28
+C1L97 = (C1_cont_down[30] & (C1L95 $ (GND))) # (!C1_cont_down[30] & (!C1L95 & VCC));
+
+--C1L98 is DEBOUNCE:db_button|cont_down[30]~93 at LCCOMB_X14_Y20_N28
+C1L98 = CARRY((C1_cont_down[30] & !C1L95));
+
+
+--C1L100 is DEBOUNCE:db_button|cont_down[31]~94 at LCCOMB_X14_Y20_N30
+C1L100 = C1_cont_down[31] $ (C1L98);
+
+
+--D1L8 is DEBOUNCE_PULSE:db_rst|cont_down[0]~32 at LCCOMB_X10_Y17_N0
+D1L8 = (D1_aux[1] & (D1_cont_down[0] $ (VCC))) # (!D1_aux[1] & (D1_cont_down[0] & VCC));
+
+--D1L9 is DEBOUNCE_PULSE:db_rst|cont_down[0]~33 at LCCOMB_X10_Y17_N0
+D1L9 = CARRY((D1_aux[1] & D1_cont_down[0]));
+
+
+--D1L11 is DEBOUNCE_PULSE:db_rst|cont_down[1]~35 at LCCOMB_X10_Y17_N2
+D1L11 = (D1_cont_down[1] & (!D1L9)) # (!D1_cont_down[1] & ((D1L9) # (GND)));
+
+--D1L12 is DEBOUNCE_PULSE:db_rst|cont_down[1]~36 at LCCOMB_X10_Y17_N2
+D1L12 = CARRY((!D1L9) # (!D1_cont_down[1]));
+
+
+--D1L14 is DEBOUNCE_PULSE:db_rst|cont_down[2]~37 at LCCOMB_X10_Y17_N4
+D1L14 = (D1_cont_down[2] & (D1L12 $ (GND))) # (!D1_cont_down[2] & (!D1L12 & VCC));
+
+--D1L15 is DEBOUNCE_PULSE:db_rst|cont_down[2]~38 at LCCOMB_X10_Y17_N4
+D1L15 = CARRY((D1_cont_down[2] & !D1L12));
+
+
+--D1L17 is DEBOUNCE_PULSE:db_rst|cont_down[3]~39 at LCCOMB_X10_Y17_N6
+D1L17 = (D1_cont_down[3] & (!D1L15)) # (!D1_cont_down[3] & ((D1L15) # (GND)));
+
+--D1L18 is DEBOUNCE_PULSE:db_rst|cont_down[3]~40 at LCCOMB_X10_Y17_N6
+D1L18 = CARRY((!D1L15) # (!D1_cont_down[3]));
+
+
+--D1L20 is DEBOUNCE_PULSE:db_rst|cont_down[4]~41 at LCCOMB_X10_Y17_N8
+D1L20 = (D1_cont_down[4] & (D1L18 $ (GND))) # (!D1_cont_down[4] & (!D1L18 & VCC));
+
+--D1L21 is DEBOUNCE_PULSE:db_rst|cont_down[4]~42 at LCCOMB_X10_Y17_N8
+D1L21 = CARRY((D1_cont_down[4] & !D1L18));
+
+
+--D1L23 is DEBOUNCE_PULSE:db_rst|cont_down[5]~43 at LCCOMB_X10_Y17_N10
+D1L23 = (D1_cont_down[5] & (!D1L21)) # (!D1_cont_down[5] & ((D1L21) # (GND)));
+
+--D1L24 is DEBOUNCE_PULSE:db_rst|cont_down[5]~44 at LCCOMB_X10_Y17_N10
+D1L24 = CARRY((!D1L21) # (!D1_cont_down[5]));
+
+
+--D1L26 is DEBOUNCE_PULSE:db_rst|cont_down[6]~45 at LCCOMB_X10_Y17_N12
+D1L26 = (D1_cont_down[6] & (D1L24 $ (GND))) # (!D1_cont_down[6] & (!D1L24 & VCC));
+
+--D1L27 is DEBOUNCE_PULSE:db_rst|cont_down[6]~46 at LCCOMB_X10_Y17_N12
+D1L27 = CARRY((D1_cont_down[6] & !D1L24));
+
+
+--D1L29 is DEBOUNCE_PULSE:db_rst|cont_down[7]~47 at LCCOMB_X10_Y17_N14
+D1L29 = (D1_cont_down[7] & (!D1L27)) # (!D1_cont_down[7] & ((D1L27) # (GND)));
+
+--D1L30 is DEBOUNCE_PULSE:db_rst|cont_down[7]~48 at LCCOMB_X10_Y17_N14
+D1L30 = CARRY((!D1L27) # (!D1_cont_down[7]));
+
+
+--D1L32 is DEBOUNCE_PULSE:db_rst|cont_down[8]~49 at LCCOMB_X10_Y17_N16
+D1L32 = (D1_cont_down[8] & (D1L30 $ (GND))) # (!D1_cont_down[8] & (!D1L30 & VCC));
+
+--D1L33 is DEBOUNCE_PULSE:db_rst|cont_down[8]~50 at LCCOMB_X10_Y17_N16
+D1L33 = CARRY((D1_cont_down[8] & !D1L30));
+
+
+--D1L35 is DEBOUNCE_PULSE:db_rst|cont_down[9]~51 at LCCOMB_X10_Y17_N18
+D1L35 = (D1_cont_down[9] & (!D1L33)) # (!D1_cont_down[9] & ((D1L33) # (GND)));
+
+--D1L36 is DEBOUNCE_PULSE:db_rst|cont_down[9]~52 at LCCOMB_X10_Y17_N18
+D1L36 = CARRY((!D1L33) # (!D1_cont_down[9]));
+
+
+--D1L38 is DEBOUNCE_PULSE:db_rst|cont_down[10]~53 at LCCOMB_X10_Y17_N20
+D1L38 = (D1_cont_down[10] & (D1L36 $ (GND))) # (!D1_cont_down[10] & (!D1L36 & VCC));
+
+--D1L39 is DEBOUNCE_PULSE:db_rst|cont_down[10]~54 at LCCOMB_X10_Y17_N20
+D1L39 = CARRY((D1_cont_down[10] & !D1L36));
+
+
+--D1L41 is DEBOUNCE_PULSE:db_rst|cont_down[11]~55 at LCCOMB_X10_Y17_N22
+D1L41 = (D1_cont_down[11] & (!D1L39)) # (!D1_cont_down[11] & ((D1L39) # (GND)));
+
+--D1L42 is DEBOUNCE_PULSE:db_rst|cont_down[11]~56 at LCCOMB_X10_Y17_N22
+D1L42 = CARRY((!D1L39) # (!D1_cont_down[11]));
+
+
+--D1L44 is DEBOUNCE_PULSE:db_rst|cont_down[12]~57 at LCCOMB_X10_Y17_N24
+D1L44 = (D1_cont_down[12] & (D1L42 $ (GND))) # (!D1_cont_down[12] & (!D1L42 & VCC));
+
+--D1L45 is DEBOUNCE_PULSE:db_rst|cont_down[12]~58 at LCCOMB_X10_Y17_N24
+D1L45 = CARRY((D1_cont_down[12] & !D1L42));
+
+
+--D1L47 is DEBOUNCE_PULSE:db_rst|cont_down[13]~59 at LCCOMB_X10_Y17_N26
+D1L47 = (D1_cont_down[13] & (!D1L45)) # (!D1_cont_down[13] & ((D1L45) # (GND)));
+
+--D1L48 is DEBOUNCE_PULSE:db_rst|cont_down[13]~60 at LCCOMB_X10_Y17_N26
+D1L48 = CARRY((!D1L45) # (!D1_cont_down[13]));
+
+
+--D1L50 is DEBOUNCE_PULSE:db_rst|cont_down[14]~61 at LCCOMB_X10_Y17_N28
+D1L50 = (D1_cont_down[14] & (D1L48 $ (GND))) # (!D1_cont_down[14] & (!D1L48 & VCC));
+
+--D1L51 is DEBOUNCE_PULSE:db_rst|cont_down[14]~62 at LCCOMB_X10_Y17_N28
+D1L51 = CARRY((D1_cont_down[14] & !D1L48));
+
+
+--D1L53 is DEBOUNCE_PULSE:db_rst|cont_down[15]~63 at LCCOMB_X10_Y17_N30
+D1L53 = (D1_cont_down[15] & (!D1L51)) # (!D1_cont_down[15] & ((D1L51) # (GND)));
+
+--D1L54 is DEBOUNCE_PULSE:db_rst|cont_down[15]~64 at LCCOMB_X10_Y17_N30
+D1L54 = CARRY((!D1L51) # (!D1_cont_down[15]));
+
+
+--D1L56 is DEBOUNCE_PULSE:db_rst|cont_down[16]~65 at LCCOMB_X10_Y16_N0
+D1L56 = (D1_cont_down[16] & (D1L54 $ (GND))) # (!D1_cont_down[16] & (!D1L54 & VCC));
+
+--D1L57 is DEBOUNCE_PULSE:db_rst|cont_down[16]~66 at LCCOMB_X10_Y16_N0
+D1L57 = CARRY((D1_cont_down[16] & !D1L54));
+
+
+--D1L59 is DEBOUNCE_PULSE:db_rst|cont_down[17]~67 at LCCOMB_X10_Y16_N2
+D1L59 = (D1_cont_down[17] & (!D1L57)) # (!D1_cont_down[17] & ((D1L57) # (GND)));
+
+--D1L60 is DEBOUNCE_PULSE:db_rst|cont_down[17]~68 at LCCOMB_X10_Y16_N2
+D1L60 = CARRY((!D1L57) # (!D1_cont_down[17]));
+
+
+--D1L63 is DEBOUNCE_PULSE:db_rst|cont_down[18]~69 at LCCOMB_X10_Y16_N4
+D1L63 = (D1_cont_down[18] & (D1L60 $ (GND))) # (!D1_cont_down[18] & (!D1L60 & VCC));
+
+--D1L64 is DEBOUNCE_PULSE:db_rst|cont_down[18]~70 at LCCOMB_X10_Y16_N4
+D1L64 = CARRY((D1_cont_down[18] & !D1L60));
+
+
+--D1L66 is DEBOUNCE_PULSE:db_rst|cont_down[19]~71 at LCCOMB_X10_Y16_N6
+D1L66 = (D1_cont_down[19] & (!D1L64)) # (!D1_cont_down[19] & ((D1L64) # (GND)));
+
+--D1L67 is DEBOUNCE_PULSE:db_rst|cont_down[19]~72 at LCCOMB_X10_Y16_N6
+D1L67 = CARRY((!D1L64) # (!D1_cont_down[19]));
+
+
+--D1L69 is DEBOUNCE_PULSE:db_rst|cont_down[20]~73 at LCCOMB_X10_Y16_N8
+D1L69 = (D1_cont_down[20] & (D1L67 $ (GND))) # (!D1_cont_down[20] & (!D1L67 & VCC));
+
+--D1L70 is DEBOUNCE_PULSE:db_rst|cont_down[20]~74 at LCCOMB_X10_Y16_N8
+D1L70 = CARRY((D1_cont_down[20] & !D1L67));
+
+
+--D1L72 is DEBOUNCE_PULSE:db_rst|cont_down[21]~75 at LCCOMB_X10_Y16_N10
+D1L72 = (D1_cont_down[21] & (!D1L70)) # (!D1_cont_down[21] & ((D1L70) # (GND)));
+
+--D1L73 is DEBOUNCE_PULSE:db_rst|cont_down[21]~76 at LCCOMB_X10_Y16_N10
+D1L73 = CARRY((!D1L70) # (!D1_cont_down[21]));
+
+
+--D1L75 is DEBOUNCE_PULSE:db_rst|cont_down[22]~77 at LCCOMB_X10_Y16_N12
+D1L75 = (D1_cont_down[22] & (D1L73 $ (GND))) # (!D1_cont_down[22] & (!D1L73 & VCC));
+
+--D1L76 is DEBOUNCE_PULSE:db_rst|cont_down[22]~78 at LCCOMB_X10_Y16_N12
+D1L76 = CARRY((D1_cont_down[22] & !D1L73));
+
+
+--D1L78 is DEBOUNCE_PULSE:db_rst|cont_down[23]~79 at LCCOMB_X10_Y16_N14
+D1L78 = (D1_cont_down[23] & (!D1L76)) # (!D1_cont_down[23] & ((D1L76) # (GND)));
+
+--D1L79 is DEBOUNCE_PULSE:db_rst|cont_down[23]~80 at LCCOMB_X10_Y16_N14
+D1L79 = CARRY((!D1L76) # (!D1_cont_down[23]));
+
+
+--D1L81 is DEBOUNCE_PULSE:db_rst|cont_down[24]~81 at LCCOMB_X10_Y16_N16
+D1L81 = (D1_cont_down[24] & (D1L79 $ (GND))) # (!D1_cont_down[24] & (!D1L79 & VCC));
+
+--D1L82 is DEBOUNCE_PULSE:db_rst|cont_down[24]~82 at LCCOMB_X10_Y16_N16
+D1L82 = CARRY((D1_cont_down[24] & !D1L79));
+
+
+--D1L84 is DEBOUNCE_PULSE:db_rst|cont_down[25]~83 at LCCOMB_X10_Y16_N18
+D1L84 = (D1_cont_down[25] & (!D1L82)) # (!D1_cont_down[25] & ((D1L82) # (GND)));
+
+--D1L85 is DEBOUNCE_PULSE:db_rst|cont_down[25]~84 at LCCOMB_X10_Y16_N18
+D1L85 = CARRY((!D1L82) # (!D1_cont_down[25]));
+
+
+--D1L87 is DEBOUNCE_PULSE:db_rst|cont_down[26]~85 at LCCOMB_X10_Y16_N20
+D1L87 = (D1_cont_down[26] & (D1L85 $ (GND))) # (!D1_cont_down[26] & (!D1L85 & VCC));
+
+--D1L88 is DEBOUNCE_PULSE:db_rst|cont_down[26]~86 at LCCOMB_X10_Y16_N20
+D1L88 = CARRY((D1_cont_down[26] & !D1L85));
+
+
+--D1L90 is DEBOUNCE_PULSE:db_rst|cont_down[27]~87 at LCCOMB_X10_Y16_N22
+D1L90 = (D1_cont_down[27] & (!D1L88)) # (!D1_cont_down[27] & ((D1L88) # (GND)));
+
+--D1L91 is DEBOUNCE_PULSE:db_rst|cont_down[27]~88 at LCCOMB_X10_Y16_N22
+D1L91 = CARRY((!D1L88) # (!D1_cont_down[27]));
+
+
+--D1L93 is DEBOUNCE_PULSE:db_rst|cont_down[28]~89 at LCCOMB_X10_Y16_N24
+D1L93 = (D1_cont_down[28] & (D1L91 $ (GND))) # (!D1_cont_down[28] & (!D1L91 & VCC));
+
+--D1L94 is DEBOUNCE_PULSE:db_rst|cont_down[28]~90 at LCCOMB_X10_Y16_N24
+D1L94 = CARRY((D1_cont_down[28] & !D1L91));
+
+
+--D1L96 is DEBOUNCE_PULSE:db_rst|cont_down[29]~91 at LCCOMB_X10_Y16_N26
+D1L96 = (D1_cont_down[29] & (!D1L94)) # (!D1_cont_down[29] & ((D1L94) # (GND)));
+
+--D1L97 is DEBOUNCE_PULSE:db_rst|cont_down[29]~92 at LCCOMB_X10_Y16_N26
+D1L97 = CARRY((!D1L94) # (!D1_cont_down[29]));
+
+
+--D1L99 is DEBOUNCE_PULSE:db_rst|cont_down[30]~93 at LCCOMB_X10_Y16_N28
+D1L99 = (D1_cont_down[30] & (D1L97 $ (GND))) # (!D1_cont_down[30] & (!D1L97 & VCC));
+
+--D1L100 is DEBOUNCE_PULSE:db_rst|cont_down[30]~94 at LCCOMB_X10_Y16_N28
+D1L100 = CARRY((D1_cont_down[30] & !D1L97));
+
+
+--D1L102 is DEBOUNCE_PULSE:db_rst|cont_down[31]~95 at LCCOMB_X10_Y16_N30
+D1L102 = D1_cont_down[31] $ (D1L100);
+
+
+--pr_state.processChar is pr_state.processChar at FF_X16_Y18_N9
+--register power-up is low
+
+pr_state.processChar = DFFEAS(A1L146, GLOBAL(A1L58), !D1_aux[2],  ,  ,  ,  ,  ,  );
+
+
+--pr_state.processDash is pr_state.processDash at FF_X20_Y18_N19
+--register power-up is low
+
+pr_state.processDash = DFFEAS(A1L147, GLOBAL(A1L58), !D1_aux[2],  ,  ,  ,  ,  ,  );
+
+
+--pr_state.msgFull is pr_state.msgFull at FF_X17_Y20_N19
+--register power-up is low
+
+pr_state.msgFull = DFFEAS(A1L287, A1L57, !D1_aux[2],  ,  ,  ,  ,  ,  );
+
+
+--pr_state.idleInput is pr_state.idleInput at FF_X17_Y20_N17
+--register power-up is low
+
+pr_state.idleInput = DFFEAS( , A1L57, !D1_aux[2],  ,  , A1L278,  ,  , VCC);
+
+
+--A1L483 is WideOr4~0 at LCCOMB_X17_Y20_N16
+A1L483 = (pr_state.processDash) # ((pr_state.msgFull) # ((pr_state.processChar) # (!pr_state.idleInput)));
+
+
+--pr_state.processDot is pr_state.processDot at FF_X16_Y18_N23
+--register power-up is low
+
+pr_state.processDot = DFFEAS(A1L149, GLOBAL(A1L58), !D1_aux[2],  ,  ,  ,  ,  ,  );
+
+
+--pr_state.communication is pr_state.communication at FF_X17_Y20_N7
+--register power-up is low
+
+pr_state.communication = DFFEAS( , GLOBAL(A1L58), !D1_aux[2],  ,  , A1L289,  ,  , VCC);
+
+
+--A1L482 is WideOr3~0 at LCCOMB_X17_Y20_N6
+A1L482 = ((pr_state.processChar) # ((pr_state.communication) # (pr_state.processDot))) # (!pr_state.idleInput);
+
+
+--pr_state.buttonPress is pr_state.buttonPress at FF_X17_Y20_N21
+--register power-up is low
+
+pr_state.buttonPress = DFFEAS(A1L284, A1L57, !D1_aux[2],  ,  ,  ,  ,  ,  );
+
+
+--WideOr2 is WideOr2 at LCCOMB_X17_Y20_N0
+WideOr2 = (pr_state.communication) # ((pr_state.buttonPress) # ((pr_state.processDash) # (!pr_state.idleInput)));
+
+
+--E1_pr_state.idle is MorseCode:RxTx|pr_state.idle at FF_X21_Y17_N3
+--register power-up is low
+
+E1_pr_state.idle = DFFEAS(E1L82, GLOBAL(A1L58), A1L270,  ,  ,  ,  ,  ,  );
+
+
+--E1_pr_state.communication is MorseCode:RxTx|pr_state.communication at FF_X21_Y19_N9
+--register power-up is low
+
+E1_pr_state.communication = DFFEAS( , GLOBAL(A1L58), A1L270,  ,  , E1L84,  ,  , VCC);
+
+
+--E1L222 is MorseCode:RxTx|WideOr14~0 at LCCOMB_X22_Y19_N28
+E1L222 = (E1_pr_state.idle & !E1_pr_state.communication);
+
+
+--E1_pr_state.tx_dash is MorseCode:RxTx|pr_state.tx_dash at FF_X21_Y19_N7
+--register power-up is low
+
+E1_pr_state.tx_dash = DFFEAS(E1L93, GLOBAL(A1L58), A1L270,  ,  ,  ,  ,  ,  );
+
+
+--E1_pr_state.transmiting is MorseCode:RxTx|pr_state.transmiting at FF_X21_Y17_N17
+--register power-up is low
+
+E1_pr_state.transmiting = DFFEAS(E1L89, GLOBAL(A1L58), A1L270,  ,  ,  ,  ,  ,  );
+
+
+--E1_pr_state.tx_dot is MorseCode:RxTx|pr_state.tx_dot at FF_X23_Y17_N9
+--register power-up is low
+
+E1_pr_state.tx_dot = DFFEAS( , GLOBAL(A1L58), A1L270,  ,  , E1L91,  ,  , VCC);
+
+
+--F1L59 is MorseCode:RxTx|print_debug:texto_comp|char~32 at LCCOMB_X23_Y21_N0
+F1L59 = (E1_pr_state.tx_dash) # ((!E1_pr_state.tx_dot & F1L33));
+
+
+--E1_WideOr14 is MorseCode:RxTx|WideOr14 at LCCOMB_X23_Y21_N10
+E1_WideOr14 = (E1_pr_state.idle & (!E1_pr_state.tx_dash & (!E1_pr_state.transmiting & !E1_pr_state.communication)));
+
+
+--E1L210 is MorseCode:RxTx|WideOr2~0 at LCCOMB_X22_Y19_N18
+E1L210 = (!E1_pr_state.tx_dash & !E1_pr_state.tx_dot);
+
+
+--F1L60 is MorseCode:RxTx|print_debug:texto_comp|char~33 at LCCOMB_X24_Y20_N0
+F1L60 = (E1_pr_state.tx_dot & (((E1_pr_state.transmiting) # (E1_pr_state.communication)) # (!E1_pr_state.idle)));
+
+
+--E1_pr_state.transmit_hs is MorseCode:RxTx|pr_state.transmit_hs at FF_X21_Y19_N25
+--register power-up is low
+
+E1_pr_state.transmit_hs = DFFEAS( , GLOBAL(A1L58), A1L270,  ,  , E1L86,  ,  , VCC);
+
+
+--E1_pr_state.btw_symb is MorseCode:RxTx|pr_state.btw_symb at FF_X22_Y18_N13
+--register power-up is low
+
+E1_pr_state.btw_symb = DFFEAS(E1L97, GLOBAL(A1L58), A1L270,  ,  ,  ,  ,  ,  );
+
+
+--E1_pr_state.btw_char is MorseCode:RxTx|pr_state.btw_char at FF_X22_Y18_N15
+--register power-up is low
+
+E1_pr_state.btw_char = DFFEAS(E1L95, GLOBAL(A1L58), A1L270,  ,  ,  ,  ,  ,  );
+
+
+--E1_WideOr13 is MorseCode:RxTx|WideOr13 at LCCOMB_X21_Y19_N24
+E1_WideOr13 = (!E1_pr_state.transmiting & (!E1_pr_state.btw_symb & (!E1_pr_state.transmit_hs & !E1_pr_state.btw_char)));
+
+
+--E1_pr_state.btw_word is MorseCode:RxTx|pr_state.btw_word at FF_X20_Y17_N17
+--register power-up is low
+
+E1_pr_state.btw_word = DFFEAS(E1L71, GLOBAL(A1L58), A1L270,  ,  ,  ,  ,  ,  );
+
+
+--E1L217 is MorseCode:RxTx|WideOr11~0 at LCCOMB_X21_Y19_N22
+E1L217 = (E1_pr_state.btw_symb) # ((E1_pr_state.transmit_hs) # ((E1_pr_state.transmiting) # (E1_pr_state.btw_word)));
+
+
+--E1L218 is MorseCode:RxTx|WideOr12~0 at LCCOMB_X24_Y20_N6
+E1L218 = (E1_pr_state.tx_dash) # ((E1_pr_state.tx_dot) # ((E1_pr_state.transmiting) # (E1_pr_state.communication)));
+
+
+--F1L104 is MorseCode:RxTx|print_debug:texto_comp|Mux7~0 at LCCOMB_X24_Y22_N24
+F1L104 = (F1L45 & ((F1L67 & (F1L47)) # (!F1L67 & ((F1L59))))) # (!F1L45 & ((F1L59 & ((F1L67))) # (!F1L59 & (F1L47 & !F1L67))));
+
+
+--F1L105 is MorseCode:RxTx|print_debug:texto_comp|Mux7~1 at LCCOMB_X24_Y22_N10
+F1L105 = (F1L47 & ((F1L59) # (F1L45 $ (F1L67)))) # (!F1L47 & (!F1L67 & (F1L45 $ (F1L59))));
+
+
+--F1L106 is MorseCode:RxTx|print_debug:texto_comp|Mux7~2 at LCCOMB_X24_Y22_N28
+F1L106 = (!F1L48 & ((F1L46 & ((F1L104))) # (!F1L46 & (F1L105))));
+
+
+--F1L75 is MorseCode:RxTx|print_debug:texto_comp|Mux1~0 at LCCOMB_X23_Y21_N12
+F1L75 = ((!F1L41 & (!F1L39 & F1L43))) # (!E1L210);
+
+
+--F1L107 is MorseCode:RxTx|print_debug:texto_comp|Mux7~3 at LCCOMB_X24_Y22_N14
+F1L107 = (F1L106) # ((F1L75 & ((!F1L67) # (!F1L59))));
+
+
+--F1L100 is MorseCode:RxTx|print_debug:texto_comp|Mux6~0 at LCCOMB_X24_Y21_N28
+F1L100 = (F1L59 & ((F1L46 & ((F1L67))) # (!F1L46 & (F1L45 & !F1L67)))) # (!F1L59 & (F1L45));
+
+
+--F1L101 is MorseCode:RxTx|print_debug:texto_comp|Mux6~1 at LCCOMB_X24_Y21_N30
+F1L101 = (F1L67 & ((F1L46 & ((!F1L59))) # (!F1L46 & (F1L45)))) # (!F1L67 & (F1L59 & ((!F1L46) # (!F1L45))));
+
+
+--F1L102 is MorseCode:RxTx|print_debug:texto_comp|Mux6~2 at LCCOMB_X24_Y21_N12
+F1L102 = (F1L48 & (!F1L46 & ((!F1L47)))) # (!F1L48 & ((F1L46 & ((!F1L47) # (!F1L101))) # (!F1L46 & (F1L101))));
+
+
+--F1L103 is MorseCode:RxTx|print_debug:texto_comp|Mux6~3 at LCCOMB_X24_Y21_N10
+F1L103 = (F1L102 & ((F1L47) # (F1L100)));
+
+
+--F1L95 is MorseCode:RxTx|print_debug:texto_comp|Mux5~0 at LCCOMB_X24_Y21_N16
+F1L95 = (F1L59 & ((F1L45 & ((!F1L67))) # (!F1L45 & (F1L46))));
+
+
+--F1L96 is MorseCode:RxTx|print_debug:texto_comp|Mux5~1 at LCCOMB_X24_Y21_N6
+F1L96 = (F1L45 & (F1L46 & ((F1L67) # (!F1L59)))) # (!F1L45 & (!F1L46 & (F1L67 & !F1L59)));
+
+
+--F1L97 is MorseCode:RxTx|print_debug:texto_comp|Mux5~2 at LCCOMB_X24_Y21_N24
+F1L97 = (!F1L48 & ((F1L47 & ((F1L95))) # (!F1L47 & (F1L96))));
+
+
+--F1L98 is MorseCode:RxTx|print_debug:texto_comp|Mux5~3 at LCCOMB_X24_Y21_N14
+F1L98 = (F1L46) # ((F1L45 & (F1L67 & F1L59)) # (!F1L45 & (F1L67 $ (F1L59))));
+
+
+--F1L99 is MorseCode:RxTx|print_debug:texto_comp|Mux5~4 at LCCOMB_X24_Y21_N8
+F1L99 = (F1L97) # ((F1L48 & (!F1L47 & !F1L98)));
+
+
+--F1L90 is MorseCode:RxTx|print_debug:texto_comp|Mux4~0 at LCCOMB_X24_Y22_N20
+F1L90 = (F1L47 & (!F1L45 & ((F1L59) # (F1L67)))) # (!F1L47 & (F1L67 & (F1L45 $ (!F1L59))));
+
+
+--F1L91 is MorseCode:RxTx|print_debug:texto_comp|Mux4~1 at LCCOMB_X24_Y22_N22
+F1L91 = (F1L59 & ((F1L45 $ (!F1L67)))) # (!F1L59 & ((F1L67 & (F1L47)) # (!F1L67 & ((F1L45)))));
+
+
+--F1L92 is MorseCode:RxTx|print_debug:texto_comp|Mux4~2 at LCCOMB_X24_Y22_N12
+F1L92 = (!F1L48 & ((F1L46 & ((F1L90))) # (!F1L46 & (F1L91))));
+
+
+--F1L93 is MorseCode:RxTx|print_debug:texto_comp|Mux4~3 at LCCOMB_X24_Y22_N18
+F1L93 = (!F1L47 & ((F1L59 & ((!F1L67))) # (!F1L59 & ((F1L45) # (F1L67)))));
+
+
+--F1L94 is MorseCode:RxTx|print_debug:texto_comp|Mux4~4 at LCCOMB_X24_Y22_N4
+F1L94 = (F1L92) # ((!F1L46 & (F1L48 & F1L93)));
+
+
+--F1L85 is MorseCode:RxTx|print_debug:texto_comp|Mux3~0 at LCCOMB_X23_Y21_N6
+F1L85 = (!F1L59 & (!F1L37 & (E1L210 & !F1L43)));
+
+
+--F1L86 is MorseCode:RxTx|print_debug:texto_comp|Mux3~1 at LCCOMB_X24_Y21_N22
+F1L86 = (F1L67 & (F1L48 $ (((F1L59))))) # (!F1L67 & ((F1L45) # (F1L48 $ (F1L59))));
+
+
+--F1L87 is MorseCode:RxTx|print_debug:texto_comp|Mux3~2 at LCCOMB_X24_Y21_N0
+F1L87 = (F1L47 & (((F1L85) # (F1L46)))) # (!F1L47 & (F1L86 & ((!F1L46))));
+
+
+--F1L80 is MorseCode:RxTx|print_debug:texto_comp|Mux2~0 at LCCOMB_X24_Y21_N18
+F1L80 = (F1L45 & (F1L59 & (F1L47 $ (!F1L67)))) # (!F1L45 & (F1L47 & (F1L67 $ (!F1L59))));
+
+
+--F1L81 is MorseCode:RxTx|print_debug:texto_comp|Mux2~1 at LCCOMB_X24_Y21_N20
+F1L81 = (F1L45 & (F1L67 & ((F1L47) # (F1L59)))) # (!F1L45 & ((F1L67) # ((!F1L47 & F1L59))));
+
+
+--F1L82 is MorseCode:RxTx|print_debug:texto_comp|Mux2~2 at LCCOMB_X24_Y21_N2
+F1L82 = (!F1L48 & ((F1L46 & (F1L80)) # (!F1L46 & ((F1L81)))));
+
+
+--F1L83 is MorseCode:RxTx|print_debug:texto_comp|Mux2~3 at LCCOMB_X24_Y21_N4
+F1L83 = (!F1L47 & (F1L45 $ (((F1L67 & F1L59)))));
+
+
+--F1L84 is MorseCode:RxTx|print_debug:texto_comp|Mux2~4 at LCCOMB_X24_Y21_N26
+F1L84 = (F1L82) # ((F1L48 & (!F1L46 & F1L83)));
+
+
+--F1L76 is MorseCode:RxTx|print_debug:texto_comp|Mux1~1 at LCCOMB_X24_Y22_N26
+F1L76 = (F1L45 & ((F1L47 & ((F1L67))) # (!F1L47 & (!F1L59 & !F1L67))));
+
+
+--F1L77 is MorseCode:RxTx|print_debug:texto_comp|Mux1~2 at LCCOMB_X24_Y22_N16
+F1L77 = (F1L45 & ((F1L47 $ (!F1L67)) # (!F1L59))) # (!F1L45 & (F1L47 $ (((F1L67)))));
+
+
+--F1L78 is MorseCode:RxTx|print_debug:texto_comp|Mux1~3 at LCCOMB_X24_Y22_N6
+F1L78 = (!F1L48 & ((F1L46 & (F1L76)) # (!F1L46 & ((!F1L77)))));
+
+
+--F1L79 is MorseCode:RxTx|print_debug:texto_comp|Mux1~4 at LCCOMB_X24_Y22_N8
+F1L79 = (F1L78) # ((F1L75 & (F1L45 & !F1L59)));
+
+
+--F1L74 is MorseCode:RxTx|print_debug:texto_comp|Mux0~0 at LCCOMB_X24_Y22_N2
+F1L74 = (!F1L59 & (F1L48 & (F1L45 & !F1L67)));
+
+
+--E1_WideOr9 is MorseCode:RxTx|WideOr9 at LCCOMB_X21_Y19_N16
+E1_WideOr9 = (E1_pr_state.btw_word) # ((E1_pr_state.btw_symb) # ((E1_pr_state.transmiting) # (E1_pr_state.btw_char)));
+
+
+--F1L61 is MorseCode:RxTx|print_debug:texto_comp|char~34 at LCCOMB_X21_Y19_N14
+F1L61 = (E1_pr_state.btw_char) # ((E1_pr_state.transmit_hs) # ((E1_pr_state.btw_symb) # (E1_pr_state.btw_word)));
+
+
+--F1L73 is MorseCode:RxTx|print_debug:texto_comp|LessThan13~0 at LCCOMB_X22_Y22_N12
+F1L73 = ((E1_pr_state.tx_dot) # (!F1L61)) # (!E1_WideOr9);
+
+
+--E1L220 is MorseCode:RxTx|WideOr13~0 at LCCOMB_X22_Y22_N10
+E1L220 = (!E1_pr_state.transmit_hs & !E1_pr_state.transmiting);
+
+
+--F1L62 is MorseCode:RxTx|print_debug:texto_comp|char~35 at LCCOMB_X22_Y22_N16
+F1L62 = (!E1_pr_state.transmiting & (((!E1_pr_state.transmit_hs & E1L222)) # (!F1L73)));
+
+
+--F1L63 is MorseCode:RxTx|print_debug:texto_comp|char~36 at LCCOMB_X22_Y22_N2
+F1L63 = (F1L62 & (F1L72)) # (!F1L62 & ((F1L23)));
+
+
+--F1L64 is MorseCode:RxTx|print_debug:texto_comp|char~37 at LCCOMB_X22_Y22_N0
+F1L64 = (F1L62 & (!F1L72 & ((!E1_pr_state.tx_dot)))) # (!F1L62 & (((F1L25))));
+
+
+--F1L49 is MorseCode:RxTx|print_debug:texto_comp|char[2][2]~38 at LCCOMB_X22_Y22_N6
+F1L49 = ((F1L27) # ((E1L222 & E1L220))) # (!F1L73);
+
+
+--F1L51 is MorseCode:RxTx|print_debug:texto_comp|char[2][4]~39 at LCCOMB_X22_Y22_N4
+F1L51 = (F1L73 & (F1L31 & ((!E1L220) # (!E1L222))));
+
+
+--F1L133 is MorseCode:RxTx|print_debug:texto_comp|Mux15~0 at LCCOMB_X22_Y25_N28
+F1L133 = (F1L49 & ((F1L64 & ((F1L51))) # (!F1L64 & (F1L63)))) # (!F1L49 & ((F1L64 & (F1L63)) # (!F1L64 & (!F1L63 & F1L51))));
+
+
+--F1L134 is MorseCode:RxTx|print_debug:texto_comp|Mux15~1 at LCCOMB_X22_Y25_N14
+F1L134 = (F1L49 & ((F1L63 & ((F1L51))) # (!F1L63 & (!F1L64)))) # (!F1L49 & ((F1L64 & ((F1L51))) # (!F1L64 & (F1L63))));
+
+
+--F1L135 is MorseCode:RxTx|print_debug:texto_comp|Mux15~2 at LCCOMB_X22_Y25_N12
+F1L135 = (F1L52 & (((F1L134)))) # (!F1L52 & (((!F1L64)) # (!F1L63)));
+
+
+--F1L50 is MorseCode:RxTx|print_debug:texto_comp|char[2][3]~40 at LCCOMB_X22_Y22_N14
+F1L50 = (F1L73 & (F1L29 & ((!E1L220) # (!E1L222))));
+
+
+--F1L136 is MorseCode:RxTx|print_debug:texto_comp|Mux15~3 at LCCOMB_X22_Y25_N2
+F1L136 = (F1L50 & (((F1L52 & F1L133)))) # (!F1L50 & (F1L135));
+
+
+--F1L128 is MorseCode:RxTx|print_debug:texto_comp|Mux13~0 at LCCOMB_X22_Y25_N20
+F1L128 = (F1L63 & ((F1L49 & ((!F1L64))) # (!F1L49 & (F1L50))));
+
+
+--F1L129 is MorseCode:RxTx|print_debug:texto_comp|Mux13~1 at LCCOMB_X22_Y25_N22
+F1L129 = (F1L49 & (F1L50 & ((F1L64) # (!F1L63)))) # (!F1L49 & (!F1L63 & (!F1L50 & F1L64)));
+
+
+--F1L130 is MorseCode:RxTx|print_debug:texto_comp|Mux13~2 at LCCOMB_X22_Y25_N8
+F1L130 = (F1L52 & ((F1L51 & (F1L128)) # (!F1L51 & ((F1L129)))));
+
+
+--F1L131 is MorseCode:RxTx|print_debug:texto_comp|Mux13~3 at LCCOMB_X22_Y25_N26
+F1L131 = (F1L50) # ((F1L49 & (F1L63 & F1L64)) # (!F1L49 & (F1L63 $ (F1L64))));
+
+
+--F1L132 is MorseCode:RxTx|print_debug:texto_comp|Mux13~4 at LCCOMB_X22_Y25_N4
+F1L132 = (F1L130) # ((!F1L131 & !F1L52));
+
+
+--F1L123 is MorseCode:RxTx|print_debug:texto_comp|Mux12~0 at LCCOMB_X22_Y24_N16
+F1L123 = (F1L64 & (F1L49 $ (((F1L51) # (!F1L63))))) # (!F1L64 & (F1L63 & (F1L51 & !F1L49)));
+
+
+--F1L124 is MorseCode:RxTx|print_debug:texto_comp|Mux12~1 at LCCOMB_X22_Y24_N22
+F1L124 = (F1L64 & ((F1L63 & ((F1L49))) # (!F1L63 & (F1L51)))) # (!F1L64 & (F1L63 $ (((F1L49)))));
+
+
+--F1L125 is MorseCode:RxTx|print_debug:texto_comp|Mux12~2 at LCCOMB_X22_Y24_N28
+F1L125 = (F1L52 & ((F1L50 & ((F1L123))) # (!F1L50 & (F1L124))));
+
+
+--F1L126 is MorseCode:RxTx|print_debug:texto_comp|Mux12~3 at LCCOMB_X22_Y24_N30
+F1L126 = (!F1L51 & ((F1L64 & (!F1L63)) # (!F1L64 & ((F1L63) # (F1L49)))));
+
+
+--F1L127 is MorseCode:RxTx|print_debug:texto_comp|Mux12~4 at LCCOMB_X22_Y24_N8
+F1L127 = (F1L125) # ((F1L126 & !F1L52));
+
+
+--F1L117 is MorseCode:RxTx|print_debug:texto_comp|Mux11~0 at LCCOMB_X22_Y25_N30
+F1L117 = (!F1L49 & (F1L63 & (F1L52 & !F1L64)));
+
+
+--F1L118 is MorseCode:RxTx|print_debug:texto_comp|Mux11~1 at LCCOMB_X22_Y25_N16
+F1L118 = (!F1L49 & (!F1L63 & F1L52));
+
+
+--F1L119 is MorseCode:RxTx|print_debug:texto_comp|Mux11~2 at LCCOMB_X22_Y25_N18
+F1L119 = (F1L52 & ((F1L63) # ((F1L27 & !F1L64)))) # (!F1L52 & (((!F1L64)) # (!F1L63)));
+
+
+--F1L120 is MorseCode:RxTx|print_debug:texto_comp|Mux11~3 at LCCOMB_X22_Y25_N24
+F1L120 = (F1L51 & ((F1L118) # ((F1L50)))) # (!F1L51 & (((!F1L50 & F1L119))));
+
+
+--F1L121 is MorseCode:RxTx|print_debug:texto_comp|Mux11~4 at LCCOMB_X22_Y25_N10
+F1L121 = (F1L52 & (!F1L63 & (F1L27 $ (F1L64))));
+
+
+--F1L122 is MorseCode:RxTx|print_debug:texto_comp|Mux11~5 at LCCOMB_X22_Y25_N0
+F1L122 = (F1L50 & ((F1L120 & (F1L121)) # (!F1L120 & ((F1L117))))) # (!F1L50 & (((F1L120))));
+
+
+--F1L112 is MorseCode:RxTx|print_debug:texto_comp|Mux10~0 at LCCOMB_X22_Y24_N6
+F1L112 = (F1L49 & (F1L63 & (F1L64 $ (!F1L51)))) # (!F1L49 & (F1L51 & (F1L64 $ (!F1L63))));
+
+
+--F1L113 is MorseCode:RxTx|print_debug:texto_comp|Mux10~1 at LCCOMB_X22_Y24_N24
+F1L113 = (F1L64 & ((F1L63) # ((F1L51) # (!F1L49)))) # (!F1L64 & (F1L63 & (!F1L51 & !F1L49)));
+
+
+--F1L114 is MorseCode:RxTx|print_debug:texto_comp|Mux10~2 at LCCOMB_X22_Y24_N18
+F1L114 = (F1L52 & ((F1L50 & (F1L112)) # (!F1L50 & ((F1L113)))));
+
+
+--F1L115 is MorseCode:RxTx|print_debug:texto_comp|Mux10~3 at LCCOMB_X22_Y24_N12
+F1L115 = (!F1L51 & (F1L49 $ (((F1L64 & F1L63)))));
+
+
+--F1L116 is MorseCode:RxTx|print_debug:texto_comp|Mux10~4 at LCCOMB_X22_Y24_N2
+F1L116 = (F1L114) # ((F1L115 & !F1L52));
+
+
+--F1L109 is MorseCode:RxTx|print_debug:texto_comp|Mux9~0 at LCCOMB_X22_Y24_N20
+F1L109 = (F1L50 & (((!F1L64) # (!F1L49)) # (!F1L51))) # (!F1L50 & (F1L51 $ (F1L49 $ (F1L64))));
+
+
+--F1L110 is MorseCode:RxTx|print_debug:texto_comp|Mux9~1 at LCCOMB_X22_Y24_N26
+F1L110 = (F1L49 & ((F1L51 & (!F1L50 & !F1L64)) # (!F1L51 & (F1L50 $ (F1L64)))));
+
+
+--F1L111 is MorseCode:RxTx|print_debug:texto_comp|Mux9~2 at LCCOMB_X22_Y24_N0
+F1L111 = (F1L52 & (F1L109 $ (((F1L63) # (!F1L110))))) # (!F1L52 & (((!F1L63))));
+
+
+--F1L108 is MorseCode:RxTx|print_debug:texto_comp|Mux8~0 at LCCOMB_X22_Y24_N10
+F1L108 = (!F1L64 & (!F1L52 & !F1L63));
+
+
+--E1_WideOr7 is MorseCode:RxTx|WideOr7 at LCCOMB_X21_Y19_N20
+E1_WideOr7 = (E1_pr_state.btw_char) # (((E1_pr_state.btw_symb) # (E1_pr_state.btw_word)) # (!E1_pr_state.idle));
+
+
+--F1L65 is MorseCode:RxTx|print_debug:texto_comp|char~41 at LCCOMB_X27_Y23_N20
+F1L65 = (E1_pr_state.tx_dash) # ((F1L11 & (!F1L68 & !E1_pr_state.tx_dot)));
+
+
+--E1_WideOr6 is MorseCode:RxTx|WideOr6 at LCCOMB_X27_Y23_N22
+E1_WideOr6 = ((E1_pr_state.tx_dash) # ((E1_pr_state.tx_dot) # (E1_pr_state.communication))) # (!E1_pr_state.idle);
+
+
+--F1L167 is MorseCode:RxTx|print_debug:texto_comp|Mux23~0 at LCCOMB_X30_Y26_N0
+F1L167 = (F1L69 & ((F1L53 & (F1L55)) # (!F1L53 & ((F1L65))))) # (!F1L69 & ((F1L65 & ((F1L53))) # (!F1L65 & (F1L55 & !F1L53))));
+
+
+--F1L168 is MorseCode:RxTx|print_debug:texto_comp|Mux23~1 at LCCOMB_X30_Y26_N30
+F1L168 = (F1L55 & ((F1L65) # (F1L69 $ (F1L53)))) # (!F1L55 & (!F1L69 & (F1L65 $ (F1L53))));
+
+
+--F1L169 is MorseCode:RxTx|print_debug:texto_comp|Mux23~2 at LCCOMB_X30_Y26_N4
+F1L169 = (!F1L56 & ((F1L54 & ((F1L167))) # (!F1L54 & (F1L168))));
+
+
+--F1L138 is MorseCode:RxTx|print_debug:texto_comp|Mux17~0 at LCCOMB_X27_Y23_N4
+F1L138 = ((!F1L17 & (!F1L19 & F1L21))) # (!E1L210);
+
+
+--F1L170 is MorseCode:RxTx|print_debug:texto_comp|Mux23~3 at LCCOMB_X30_Y26_N18
+F1L170 = (F1L169) # ((F1L138 & ((!F1L69) # (!F1L65))));
+
+
+--F1L163 is MorseCode:RxTx|print_debug:texto_comp|Mux22~0 at LCCOMB_X30_Y26_N28
+F1L163 = (F1L65 & ((F1L54 & (F1L69)) # (!F1L54 & (!F1L69 & F1L53)))) # (!F1L65 & (((F1L53))));
+
+
+--F1L164 is MorseCode:RxTx|print_debug:texto_comp|Mux22~1 at LCCOMB_X30_Y26_N10
+F1L164 = (F1L69 & ((F1L54 & (!F1L65)) # (!F1L54 & ((F1L53))))) # (!F1L69 & (F1L65 & ((!F1L53) # (!F1L54))));
+
+
+--F1L165 is MorseCode:RxTx|print_debug:texto_comp|Mux22~2 at LCCOMB_X30_Y26_N12
+F1L165 = (F1L54 & (!F1L56 & ((!F1L164) # (!F1L55)))) # (!F1L54 & ((F1L56 & (!F1L55)) # (!F1L56 & ((F1L164)))));
+
+
+--F1L166 is MorseCode:RxTx|print_debug:texto_comp|Mux22~3 at LCCOMB_X30_Y26_N2
+F1L166 = (F1L165 & ((F1L55) # (F1L163)));
+
+
+--F1L158 is MorseCode:RxTx|print_debug:texto_comp|Mux21~0 at LCCOMB_X29_Y27_N12
+F1L158 = (F1L65 & ((F1L53 & ((!F1L69))) # (!F1L53 & (F1L54))));
+
+
+--F1L159 is MorseCode:RxTx|print_debug:texto_comp|Mux21~1 at LCCOMB_X29_Y27_N14
+F1L159 = (F1L53 & (F1L54 & ((F1L69) # (!F1L65)))) # (!F1L53 & (!F1L65 & (!F1L54 & F1L69)));
+
+
+--F1L160 is MorseCode:RxTx|print_debug:texto_comp|Mux21~2 at LCCOMB_X29_Y27_N8
+F1L160 = (!F1L56 & ((F1L55 & ((F1L158))) # (!F1L55 & (F1L159))));
+
+
+--F1L161 is MorseCode:RxTx|print_debug:texto_comp|Mux21~3 at LCCOMB_X29_Y27_N18
+F1L161 = (F1L54) # ((F1L53 & (F1L65 & F1L69)) # (!F1L53 & (F1L65 $ (F1L69))));
+
+
+--F1L162 is MorseCode:RxTx|print_debug:texto_comp|Mux21~4 at LCCOMB_X29_Y27_N0
+F1L162 = (F1L160) # ((!F1L55 & (F1L56 & !F1L161)));
+
+
+--F1L153 is MorseCode:RxTx|print_debug:texto_comp|Mux20~0 at LCCOMB_X29_Y27_N2
+F1L153 = (F1L53 & (F1L65 & (!F1L55 & F1L69))) # (!F1L53 & ((F1L65 & (F1L55)) # (!F1L65 & ((F1L69)))));
+
+
+--F1L154 is MorseCode:RxTx|print_debug:texto_comp|Mux20~1 at LCCOMB_X29_Y27_N4
+F1L154 = (F1L65 & (F1L53 $ (((!F1L69))))) # (!F1L65 & ((F1L69 & ((F1L55))) # (!F1L69 & (F1L53))));
+
+
+--F1L155 is MorseCode:RxTx|print_debug:texto_comp|Mux20~2 at LCCOMB_X29_Y27_N10
+F1L155 = (!F1L56 & ((F1L54 & ((F1L153))) # (!F1L54 & (F1L154))));
+
+
+--F1L156 is MorseCode:RxTx|print_debug:texto_comp|Mux20~3 at LCCOMB_X29_Y27_N20
+F1L156 = (!F1L55 & ((F1L65 & ((!F1L69))) # (!F1L65 & ((F1L53) # (F1L69)))));
+
+
+--F1L157 is MorseCode:RxTx|print_debug:texto_comp|Mux20~4 at LCCOMB_X29_Y27_N22
+F1L157 = (F1L155) # ((!F1L54 & (F1L156 & F1L56)));
+
+
+--F1L148 is MorseCode:RxTx|print_debug:texto_comp|Mux19~0 at LCCOMB_X27_Y23_N26
+F1L148 = (!F1L65 & (!F1L21 & (E1L210 & !F1L53)));
+
+
+--F1L149 is MorseCode:RxTx|print_debug:texto_comp|Mux19~1 at LCCOMB_X29_Y27_N28
+F1L149 = (F1L53 & ((F1L65 $ (F1L56)) # (!F1L69))) # (!F1L53 & (F1L65 $ ((F1L56))));
+
+
+--F1L150 is MorseCode:RxTx|print_debug:texto_comp|Mux19~2 at LCCOMB_X29_Y27_N26
+F1L150 = (F1L55 & ((F1L148) # ((F1L54)))) # (!F1L55 & (((!F1L54 & F1L149))));
+
+
+--F1L143 is MorseCode:RxTx|print_debug:texto_comp|Mux18~0 at LCCOMB_X30_Y26_N24
+F1L143 = (F1L53 & (F1L65 & (F1L55 $ (!F1L69)))) # (!F1L53 & (F1L55 & (F1L69 $ (!F1L65))));
+
+
+--F1L144 is MorseCode:RxTx|print_debug:texto_comp|Mux18~1 at LCCOMB_X30_Y26_N26
+F1L144 = (F1L55 & (F1L69)) # (!F1L55 & ((F1L69 & ((F1L65) # (!F1L53))) # (!F1L69 & (F1L65 & !F1L53))));
+
+
+--F1L145 is MorseCode:RxTx|print_debug:texto_comp|Mux18~2 at LCCOMB_X30_Y26_N20
+F1L145 = (!F1L56 & ((F1L54 & ((F1L143))) # (!F1L54 & (F1L144))));
+
+
+--F1L146 is MorseCode:RxTx|print_debug:texto_comp|Mux18~3 at LCCOMB_X30_Y26_N6
+F1L146 = (!F1L55 & (F1L53 $ (((F1L69 & F1L65)))));
+
+
+--F1L147 is MorseCode:RxTx|print_debug:texto_comp|Mux18~4 at LCCOMB_X30_Y26_N8
+F1L147 = (F1L145) # ((!F1L54 & (F1L56 & F1L146)));
+
+
+--F1L139 is MorseCode:RxTx|print_debug:texto_comp|Mux17~1 at LCCOMB_X30_Y26_N22
+F1L139 = (F1L53 & ((F1L55 & (F1L69)) # (!F1L55 & (!F1L69 & !F1L65))));
+
+
+--F1L140 is MorseCode:RxTx|print_debug:texto_comp|Mux17~2 at LCCOMB_X30_Y26_N16
+F1L140 = (F1L53 & ((F1L55 $ (!F1L69)) # (!F1L65))) # (!F1L53 & (F1L55 $ ((F1L69))));
+
+
+--F1L141 is MorseCode:RxTx|print_debug:texto_comp|Mux17~3 at LCCOMB_X30_Y26_N14
+F1L141 = (!F1L56 & ((F1L54 & (F1L139)) # (!F1L54 & ((!F1L140)))));
+
+
+--F1L142 is MorseCode:RxTx|print_debug:texto_comp|Mux17~4 at LCCOMB_X29_Y27_N24
+F1L142 = (F1L141) # ((F1L53 & (!F1L65 & F1L138)));
+
+
+--F1L137 is MorseCode:RxTx|print_debug:texto_comp|Mux16~0 at LCCOMB_X29_Y27_N6
+F1L137 = (F1L53 & (!F1L65 & (F1L56 & !F1L69)));
+
+
+--E1_WideOr5 is MorseCode:RxTx|WideOr5 at LCCOMB_X27_Y25_N0
+E1_WideOr5 = (E1_pr_state.tx_dash) # ((E1_pr_state.communication) # (!E1_pr_state.idle));
+
+
+--F1L71 is MorseCode:RxTx|print_debug:texto_comp|Equal1~0 at LCCOMB_X22_Y22_N8
+F1L71 = (E1L220 & ((E1_pr_state.tx_dash) # ((!E1_pr_state.idle & E1_pr_state.tx_dot))));
+
+
+--E1L212 is MorseCode:RxTx|WideOr4~0 at LCCOMB_X27_Y25_N30
+E1L212 = ((E1_pr_state.tx_dash) # ((E1_pr_state.transmit_hs) # (E1_pr_state.transmiting))) # (!E1_pr_state.idle);
+
+
+--F1L66 is MorseCode:RxTx|print_debug:texto_comp|char~42 at LCCOMB_X27_Y25_N16
+F1L66 = (E1L210 & (((F1L3)))) # (!E1L210 & (E1_WideOr5 & ((!F1L71))));
+
+
+--E1_WideOr3 is MorseCode:RxTx|WideOr3 at LCCOMB_X27_Y25_N28
+E1_WideOr3 = (E1_pr_state.tx_dot) # ((E1_pr_state.transmit_hs) # ((E1_pr_state.tx_dash) # (E1_pr_state.transmiting)));
+
+
+--E1_WideOr2 is MorseCode:RxTx|WideOr2 at LCCOMB_X27_Y25_N26
+E1_WideOr2 = ((E1_pr_state.tx_dash) # (E1_pr_state.tx_dot)) # (!E1_pr_state.idle);
+
+
+--F1L201 is MorseCode:RxTx|print_debug:texto_comp|Mux31~0 at LCCOMB_X28_Y25_N0
+F1L201 = (F1L70 & ((F1L66 & ((F1L58) # (F1L200))) # (!F1L66 & ((!F1L200))))) # (!F1L70 & (F1L58 & (F1L66 $ (F1L200))));
+
+
+--F1L202 is MorseCode:RxTx|print_debug:texto_comp|Mux31~1 at LCCOMB_X28_Y25_N14
+F1L202 = (F1L58 & ((F1L70) # (F1L66 $ (!F1L200)))) # (!F1L58 & (!F1L66 & (F1L70 $ (!F1L200))));
+
+
+--F1L203 is MorseCode:RxTx|print_debug:texto_comp|Mux31~2 at LCCOMB_X28_Y25_N4
+F1L203 = ((F1L7 & ((F1L201))) # (!F1L7 & (F1L202))) # (!E1L210);
+
+
+--F1L195 is MorseCode:RxTx|print_debug:texto_comp|Mux30~2 at LCCOMB_X28_Y25_N10
+F1L195 = (F1L70 & ((F1L58) # (F1L66 $ (!F1L57)))) # (!F1L70 & ((F1L66 & ((!F1L57) # (!F1L58))) # (!F1L66 & ((F1L57)))));
+
+
+--F1L196 is MorseCode:RxTx|print_debug:texto_comp|Mux30~3 at LCCOMB_X28_Y25_N24
+F1L196 = (F1L58) # ((F1L57) # ((F1L70 & F1L66)));
+
+
+--F1L197 is MorseCode:RxTx|print_debug:texto_comp|Mux30~4 at LCCOMB_X28_Y25_N30
+F1L197 = (E1L210 & (F1L5 & ((F1L195)))) # (!E1L210 & (((!F1L196))));
+
+
+--F1L198 is MorseCode:RxTx|print_debug:texto_comp|Mux30~5 at LCCOMB_X28_Y25_N8
+F1L198 = (F1L66 & (F1L70 & ((F1L57)))) # (!F1L66 & (F1L58 & (F1L70 $ (F1L57))));
+
+
+--F1L199 is MorseCode:RxTx|print_debug:texto_comp|Mux30~6 at LCCOMB_X28_Y25_N22
+F1L199 = (F1L197) # ((F1L200 & F1L198));
+
+
+--F1L190 is MorseCode:RxTx|print_debug:texto_comp|Mux29~0 at LCCOMB_X30_Y25_N8
+F1L190 = (F1L70 & ((F1L200 & ((F1L57))) # (!F1L200 & (!F1L66))));
+
+
+--F1L191 is MorseCode:RxTx|print_debug:texto_comp|Mux29~1 at LCCOMB_X30_Y25_N14
+F1L191 = (F1L57) # ((F1L200 & (F1L70 $ (F1L66))) # (!F1L200 & (F1L70 & F1L66)));
+
+
+--F1L192 is MorseCode:RxTx|print_debug:texto_comp|Mux29~2 at LCCOMB_X30_Y25_N16
+F1L192 = (E1L210 & (F1L58 & ((F1L190)))) # (!E1L210 & (((!F1L191))));
+
+
+--F1L193 is MorseCode:RxTx|print_debug:texto_comp|Mux29~3 at LCCOMB_X30_Y25_N26
+F1L193 = (F1L200 & (!F1L70 & (F1L66 & !F1L57))) # (!F1L200 & (F1L57 & ((F1L66) # (!F1L70))));
+
+
+--F1L194 is MorseCode:RxTx|print_debug:texto_comp|Mux29~4 at LCCOMB_X30_Y25_N12
+F1L194 = (F1L192) # ((!F1L58 & (F1L193 & E1L210)));
+
+
+--F1L185 is MorseCode:RxTx|print_debug:texto_comp|Mux28~0 at LCCOMB_X30_Y25_N22
+F1L185 = (F1L58 & (F1L200 & ((F1L70) # (F1L66)))) # (!F1L58 & (F1L66 & (F1L70 $ (F1L200))));
+
+
+--F1L186 is MorseCode:RxTx|print_debug:texto_comp|Mux28~1 at LCCOMB_X30_Y25_N24
+F1L186 = (!F1L58 & ((F1L70 & (!F1L66)) # (!F1L70 & ((F1L66) # (!F1L200)))));
+
+
+--F1L187 is MorseCode:RxTx|print_debug:texto_comp|Mux28~2 at LCCOMB_X30_Y25_N2
+F1L187 = (E1L210 & (F1L185 & (F1L57))) # (!E1L210 & (((F1L186))));
+
+
+--F1L188 is MorseCode:RxTx|print_debug:texto_comp|Mux28~3 at LCCOMB_X30_Y25_N4
+F1L188 = (F1L70 & ((F1L66 $ (F1L200)))) # (!F1L70 & ((F1L66 & (F1L58)) # (!F1L66 & ((!F1L200)))));
+
+
+--F1L189 is MorseCode:RxTx|print_debug:texto_comp|Mux28~4 at LCCOMB_X30_Y25_N18
+F1L189 = (F1L187) # ((E1L210 & (!F1L57 & F1L188)));
+
+
+--F1L180 is MorseCode:RxTx|print_debug:texto_comp|Mux27~2 at LCCOMB_X27_Y25_N24
+F1L180 = (E1L210 & ((F1L70) # ((!F1L66 & F1L5)))) # (!E1L210 & (((!F1L70)) # (!F1L66)));
+
+
+--F1L181 is MorseCode:RxTx|print_debug:texto_comp|Mux27~3 at LCCOMB_X28_Y25_N12
+F1L181 = (F1L58 & (((F1L182) # (F1L57)))) # (!F1L58 & (F1L180 & ((!F1L57))));
+
+
+--F1L175 is MorseCode:RxTx|print_debug:texto_comp|Mux26~0 at LCCOMB_X30_Y25_N20
+F1L175 = (F1L200 & (F1L58 & (F1L70 $ (!F1L66)))) # (!F1L200 & (F1L70 & (F1L58 $ (!F1L66))));
+
+
+--F1L176 is MorseCode:RxTx|print_debug:texto_comp|Mux26~1 at LCCOMB_X30_Y25_N10
+F1L176 = (!F1L58 & (F1L200 $ (((!F1L66) # (!F1L70)))));
+
+
+--F1L177 is MorseCode:RxTx|print_debug:texto_comp|Mux26~2 at LCCOMB_X30_Y25_N28
+F1L177 = (E1L210 & (((F1L57 & F1L175)))) # (!E1L210 & (F1L176));
+
+
+--F1L178 is MorseCode:RxTx|print_debug:texto_comp|Mux26~3 at LCCOMB_X30_Y25_N6
+F1L178 = (F1L58 & (((F1L66)))) # (!F1L58 & ((F1L70 & ((F1L66) # (F1L200))) # (!F1L70 & (F1L66 & F1L200))));
+
+
+--F1L179 is MorseCode:RxTx|print_debug:texto_comp|Mux26~4 at LCCOMB_X30_Y25_N0
+F1L179 = (F1L177) # ((F1L178 & (!F1L57 & E1L210)));
+
+
+--F1L172 is MorseCode:RxTx|print_debug:texto_comp|Mux25~0 at LCCOMB_X28_Y25_N18
+F1L172 = (F1L57 & (((F1L200) # (!F1L66)) # (!F1L58))) # (!F1L57 & (F1L58 $ (F1L200 $ (!F1L66))));
+
+
+--F1L173 is MorseCode:RxTx|print_debug:texto_comp|Mux25~1 at LCCOMB_X28_Y25_N28
+F1L173 = (!F1L200 & ((F1L58 & (!F1L66 & !F1L57)) # (!F1L58 & (F1L66 $ (F1L57)))));
+
+
+--F1L174 is MorseCode:RxTx|print_debug:texto_comp|Mux25~2 at LCCOMB_X28_Y25_N26
+F1L174 = (E1L210 & (F1L172 $ (((F1L70) # (!F1L173))))) # (!E1L210 & (!F1L70));
+
+
+--C1_output_debounce is DEBOUNCE:db_button|output_debounce at FF_X16_Y17_N27
+--register power-up is low
+
+C1_output_debounce = DFFEAS( , GLOBAL(A1L58),  ,  ,  , C1_aux[1],  ,  , VCC);
+
+
+--A1L124 is LessThan5~0 at LCCOMB_X15_Y17_N18
+A1L124 = (!pointer[7] & (!pointer[6] & (!pointer[8] & !pointer[9])));
+
+
+--A1L125 is LessThan5~1 at LCCOMB_X14_Y17_N0
+A1L125 = (!pointer[13] & (!pointer[10] & (!pointer[11] & !pointer[12])));
+
+
+--A1L126 is LessThan5~2 at LCCOMB_X15_Y17_N0
+A1L126 = (!pointer[4] & (!pointer[3] & ((!pointer[1]) # (!pointer[2]))));
+
+
+--A1L127 is LessThan5~3 at LCCOMB_X15_Y17_N16
+A1L127 = (A1L125 & (A1L124 & ((A1L126) # (!pointer[5]))));
+
+
+--A1L128 is LessThan5~4 at LCCOMB_X15_Y17_N22
+A1L128 = (!pointer[16] & (!pointer[14] & (!pointer[17] & !pointer[15])));
+
+
+--A1L129 is LessThan5~5 at LCCOMB_X15_Y17_N14
+A1L129 = (!pointer[18] & (!pointer[20] & (!pointer[21] & !pointer[19])));
+
+
+--A1L130 is LessThan5~6 at LCCOMB_X15_Y17_N2
+A1L130 = (!pointer[24] & (!pointer[22] & (!pointer[25] & !pointer[23])));
+
+
+--A1L131 is LessThan5~7 at LCCOMB_X15_Y17_N12
+A1L131 = (!pointer[27] & (!pointer[28] & (!pointer[29] & !pointer[26])));
+
+
+--A1L132 is LessThan5~8 at LCCOMB_X15_Y17_N26
+A1L132 = (A1L128 & (A1L130 & (A1L129 & A1L131)));
+
+
+--A1L133 is LessThan5~9 at LCCOMB_X15_Y17_N10
+A1L133 = (pointer[31]) # ((!pointer[30] & (A1L132 & A1L127)));
+
+
+--A1L264 is process_3~0 at LCCOMB_X16_Y17_N26
+A1L264 = (C1_output_debounce & A1L133);
+
+
+--A1L134 is LessThan6~0 at LCCOMB_X15_Y19_N4
+A1L134 = (t[23] & (t[21] & (t[20] & t[22])));
+
+
+--A1L96 is LessThan0~0 at LCCOMB_X15_Y19_N26
+A1L96 = (!t[17] & (!t[19] & (!t[18] & !t[16])));
+
+
+--A1L383 is t[2]~29 at LCCOMB_X16_Y20_N0
+A1L383 = (!t[1] & (!t[0] & (!t[2] & !t[3])));
+
+
+--A1L384 is t[2]~30 at LCCOMB_X15_Y20_N28
+A1L384 = (!t[5] & (!t[4] & (A1L383 & !t[6])));
+
+
+--A1L140 is LessThan7~0 at LCCOMB_X15_Y20_N30
+A1L140 = (!t[9] & (!t[11] & !t[10]));
+
+
+--A1L102 is LessThan1~0 at LCCOMB_X15_Y20_N24
+A1L102 = ((t[8] & (t[7] & !A1L384))) # (!A1L140);
+
+
+--A1L103 is LessThan1~1 at LCCOMB_X15_Y20_N6
+A1L103 = (t[15] & ((t[13]) # ((t[12] & A1L102))));
+
+
+--A1L104 is LessThan1~2 at LCCOMB_X15_Y20_N20
+A1L104 = (A1L134 & (((t[14] & A1L103)) # (!A1L96)));
+
+
+--A1L105 is LessThan1~3 at LCCOMB_X15_Y20_N2
+A1L105 = (t[26]) # ((t[24]) # ((t[25]) # (A1L104)));
+
+
+--A1L106 is LessThan2~0 at LCCOMB_X17_Y19_N12
+A1L106 = (!t[19] & (!t[24] & !t[20]));
+
+
+--A1L107 is LessThan2~1 at LCCOMB_X17_Y19_N2
+A1L107 = (!t[11] & (!t[16] & (!t[14] & !t[10])));
+
+
+--A1L108 is LessThan2~2 at LCCOMB_X17_Y19_N28
+A1L108 = (A1L107 & (((!t[7] & !t[8])) # (!t[9])));
+
+
+--A1L109 is LessThan2~3 at LCCOMB_X17_Y19_N30
+A1L109 = (!t[14] & (!t[16] & ((!t[12]) # (!t[13]))));
+
+
+--A1L110 is LessThan2~4 at LCCOMB_X17_Y19_N4
+A1L110 = (((!t[16] & !t[15])) # (!t[17])) # (!t[18]);
+
+
+--A1L111 is LessThan2~5 at LCCOMB_X17_Y19_N18
+A1L111 = (A1L106 & ((A1L110) # ((A1L109) # (A1L108))));
+
+
+--A1L112 is LessThan2~6 at LCCOMB_X17_Y19_N8
+A1L112 = (!t[24] & (((!t[22]) # (!t[23])) # (!t[21])));
+
+
+--A1L113 is LessThan2~7 at LCCOMB_X17_Y19_N22
+A1L113 = ((A1L112) # (!t[25])) # (!t[26]);
+
+
+--A1L265 is process_3~1 at LCCOMB_X17_Y19_N20
+A1L265 = (t[27] & (!t[28] & ((A1L113) # (A1L111))));
+
+
+--A1L97 is LessThan0~1 at LCCOMB_X15_Y19_N28
+A1L97 = (t[9]) # ((t[10]) # ((t[7] & t[8])));
+
+
+--A1L98 is LessThan0~2 at LCCOMB_X15_Y19_N2
+A1L98 = (t[13]) # ((t[12] & ((t[11]) # (A1L97))));
+
+
+--A1L99 is LessThan0~3 at LCCOMB_X15_Y19_N16
+A1L99 = (A1L96 & (((!A1L98) # (!t[14])) # (!t[15])));
+
+
+--A1L100 is LessThan0~4 at LCCOMB_X15_Y19_N18
+A1L100 = (t[24]) # ((t[25]) # ((A1L134 & !A1L99)));
+
+
+--A1L101 is LessThan0~5 at LCCOMB_X15_Y19_N0
+A1L101 = (!t[28] & (((!t[26] & !A1L100)) # (!t[27])));
+
+
+--A1L150 is nx_state.processSpace~0 at LCCOMB_X16_Y18_N4
+A1L150 = (!pr_state.idleInput & (((!A1L101) # (!A1L133)) # (!C1_output_debounce)));
+
+
+--A1L146 is nx_state.processChar~0 at LCCOMB_X16_Y18_N8
+A1L146 = (A1L265 & (A1L264 & (A1L150 & A1L105)));
+
+
+--D1_aux[2] is DEBOUNCE_PULSE:db_rst|aux[2] at FF_X15_Y18_N13
+--register power-up is low
+
+D1_aux[2] = DFFEAS(D1L4, GLOBAL(A1L58),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L279 is Selector3~0 at LCCOMB_X17_Y19_N10
+A1L279 = (!t[27] & (!t[26] & ((!t[25]) # (!t[24]))));
+
+
+--A1L135 is LessThan6~1 at LCCOMB_X17_Y19_N0
+A1L135 = (t[21] & (t[22] & t[23]));
+
+
+--A1L136 is LessThan6~2 at LCCOMB_X15_Y20_N12
+A1L136 = (t[25] & (t[20] & (t[19] & A1L135)));
+
+
+--A1L137 is LessThan6~3 at LCCOMB_X15_Y20_N22
+A1L137 = (t[18]) # ((t[17] & t[16]));
+
+
+--A1L280 is Selector3~1 at LCCOMB_X15_Y20_N8
+A1L280 = (!t[28] & (A1L279 & ((!A1L136) # (!A1L137))));
+
+
+--A1L138 is LessThan6~4 at LCCOMB_X15_Y20_N26
+A1L138 = (t[8]) # (((t[7] & !A1L384)) # (!A1L140));
+
+
+--A1L141 is LessThan7~1 at LCCOMB_X15_Y20_N0
+A1L141 = (t[15] & (t[12] & (t[14] & t[13])));
+
+
+--A1L139 is LessThan6~5 at LCCOMB_X15_Y20_N10
+A1L139 = (t[25] & (A1L141 & (A1L134 & t[19])));
+
+
+--A1L281 is Selector3~2 at LCCOMB_X15_Y20_N4
+A1L281 = (A1L280 & (((!A1L139) # (!t[17])) # (!A1L138)));
+
+
+--A1L147 is nx_state.processDash~0 at LCCOMB_X20_Y18_N18
+A1L147 = (pr_state.buttonPress & (!A1L281 & !C1_output_debounce));
+
+
+--A1L286 is Selector4~0 at LCCOMB_X15_Y18_N26
+A1L286 = (C1_output_debounce & !pr_state.idleInput);
+
+
+--A1L115 is LessThan3~0 at LCCOMB_X17_Y19_N14
+A1L115 = (t[24]) # ((A1L135 & ((t[19]) # (t[20]))));
+
+
+--A1L116 is LessThan3~1 at LCCOMB_X15_Y19_N10
+A1L116 = (t[26] & (t[27] & (t[25] & A1L115)));
+
+
+--A1L117 is LessThan3~2 at LCCOMB_X15_Y19_N8
+A1L117 = (t[27] & (t[26] & t[25]));
+
+
+--A1L118 is LessThan3~3 at LCCOMB_X15_Y19_N22
+A1L118 = (t[17] & (t[18] & (A1L135 & A1L117)));
+
+
+--A1L119 is LessThan3~4 at LCCOMB_X15_Y19_N20
+A1L119 = (t[16]) # ((t[15] & t[14]));
+
+
+--A1L120 is LessThan3~5 at LCCOMB_X15_Y19_N6
+A1L120 = (t[28]) # ((A1L116) # ((A1L119 & A1L118)));
+
+
+--A1L121 is LessThan3~6 at LCCOMB_X15_Y19_N12
+A1L121 = (t[13] & (t[15] & (A1L118 & t[12])));
+
+
+--A1L122 is LessThan3~7 at LCCOMB_X15_Y19_N14
+A1L122 = (t[9] & ((t[8]) # ((t[7] & !A1L384))));
+
+
+--A1L114 is LessThan2~8 at LCCOMB_X15_Y19_N24
+A1L114 = (!t[11] & !t[10]);
+
+
+--A1L123 is LessThan3~8 at LCCOMB_X15_Y19_N30
+A1L123 = (A1L120) # ((A1L121 & ((A1L122) # (!A1L114))));
+
+
+--A1L287 is Selector4~1 at LCCOMB_X17_Y20_N18
+A1L287 = (A1L286 & (((pr_state.msgFull & !A1L123)) # (!A1L133))) # (!A1L286 & (((pr_state.msgFull & !A1L123))));
+
+
+--A1L276 is Selector2~0 at LCCOMB_X17_Y20_N26
+A1L276 = (pr_state.processDash) # ((pr_state.processDot) # ((pr_state.msgFull & A1L123)));
+
+
+--A1L152 is nx_state~0 at LCCOMB_X17_Y20_N12
+A1L152 = ((!A1L101 & (A1L133 & !A1L123))) # (!C1_output_debounce);
+
+
+--A1L288 is Selector5~0 at LCCOMB_X17_Y20_N30
+A1L288 = (!pr_state.idleInput & (((!A1L265) # (!A1L264)) # (!A1L105)));
+
+
+--A1L277 is Selector2~1 at LCCOMB_X17_Y20_N2
+A1L277 = (A1L288 & A1L152);
+
+
+--A1L278 is Selector2~2 at LCCOMB_X17_Y20_N24
+A1L278 = (!A1L276 & ((A1L369) # ((!pr_state.communication & !A1L277))));
+
+
+--A1L148 is nx_state.processDot~0 at LCCOMB_X16_Y18_N14
+A1L148 = (!C1_output_debounce & (pr_state.buttonPress & !t[28]));
+
+
+--A1L142 is LessThan7~2 at LCCOMB_X15_Y20_N18
+A1L142 = ((!t[8] & (!t[7] & A1L140))) # (!A1L141);
+
+
+--A1L143 is LessThan7~3 at LCCOMB_X15_Y20_N16
+A1L143 = (t[18]) # ((t[17] & ((t[16]) # (!A1L142))));
+
+
+--A1L144 is LessThan7~4 at LCCOMB_X15_Y20_N14
+A1L144 = (t[24]) # ((t[19] & (A1L134 & A1L143)));
+
+
+--A1L145 is LessThan7~5 at LCCOMB_X16_Y18_N28
+A1L145 = (!t[26] & (!t[27] & ((!A1L144) # (!t[25]))));
+
+
+--A1L149 is nx_state.processDot~1 at LCCOMB_X16_Y18_N22
+A1L149 = (A1L148 & (A1L145 & ((C1_output_debounce) # (A1L281))));
+
+
+--A1L289 is Selector5~1 at LCCOMB_X17_Y20_N8
+A1L289 = (A1L369 & ((pr_state.communication) # ((A1L152 & A1L288))));
+
+
+--A1L282 is Selector3~3 at LCCOMB_X16_Y18_N26
+A1L282 = (pr_state.buttonPress & ((C1_output_debounce) # ((A1L281 & !A1L145))));
+
+
+--A1L283 is Selector3~4 at LCCOMB_X16_Y18_N16
+A1L283 = (C1_output_debounce & (!pr_state.idleInput & (A1L133 & A1L101)));
+
+
+--pr_state.processSpace is pr_state.processSpace at FF_X16_Y18_N3
+--register power-up is low
+
+pr_state.processSpace = DFFEAS(A1L151, GLOBAL(A1L58), !D1_aux[2],  ,  ,  ,  ,  ,  );
+
+
+--A1L284 is Selector3~5 at LCCOMB_X17_Y20_N20
+A1L284 = (A1L283) # ((pr_state.processChar) # ((pr_state.processSpace) # (A1L282)));
+
+
+--E1_I[0] is MorseCode:RxTx|I[0] at FF_X20_Y18_N17
+--register power-up is low
+
+E1_I[0] = DFFEAS(E1L10, GLOBAL(A1L58), A1L270,  , E1L6,  ,  ,  ,  );
+
+
+--E1L67 is MorseCode:RxTx|nx_state~0 at LCCOMB_X20_Y18_N26
+E1L67 = (!A1L371 & ((E1_I[2]) # ((E1_I[1] & E1_I[0]))));
+
+
+--E1L80 is MorseCode:RxTx|Selector2~0 at LCCOMB_X21_Y17_N22
+E1L80 = (E1_pr_state.transmiting & (((E1_I[3] & E1L67)) # (!A1L369)));
+
+
+--E1L81 is MorseCode:RxTx|Selector2~1 at LCCOMB_X21_Y19_N2
+E1L81 = (A1L274 & E1_pr_state.transmit_hs);
+
+
+--E1L82 is MorseCode:RxTx|Selector2~2 at LCCOMB_X21_Y17_N2
+E1L82 = (!E1L80 & ((A1L369) # ((!E1L81 & E1L222))));
+
+
+--E1L83 is MorseCode:RxTx|Selector3~0 at LCCOMB_X21_Y19_N0
+E1L83 = (A1L274 & ((E1_pr_state.transmit_hs) # ((!A1L371 & E1_pr_state.communication)))) # (!A1L274 & (!A1L371 & (E1_pr_state.communication)));
+
+
+--E1L84 is MorseCode:RxTx|Selector3~1 at LCCOMB_X21_Y19_N26
+E1L84 = (A1L369 & (((!A1L373 & E1L83)) # (!E1_pr_state.idle)));
+
+
+--E1L57 is MorseCode:RxTx|Mux1~0 at LCCOMB_X20_Y18_N28
+E1L57 = (E1_I[1] & ((E1_I[3]) # ((char[3][0])))) # (!E1_I[1] & (!E1_I[3] & (char[1][0])));
+
+
+--E1L58 is MorseCode:RxTx|Mux1~1 at LCCOMB_X20_Y18_N6
+E1L58 = (E1_I[3] & ((E1L57 & (char[11][0])) # (!E1L57 & ((char[9][0]))))) # (!E1_I[3] & (((E1L57))));
+
+
+--E1L59 is MorseCode:RxTx|Mux1~2 at LCCOMB_X21_Y16_N12
+E1L59 = (E1_I[1] & (((E1_I[3])))) # (!E1_I[1] & ((E1_I[3] & (char[12][0])) # (!E1_I[3] & ((char[4][0])))));
+
+
+--E1L60 is MorseCode:RxTx|Mux1~3 at LCCOMB_X21_Y16_N2
+E1L60 = (E1_I[1] & ((E1L59 & (char[14][0])) # (!E1L59 & ((char[6][0]))))) # (!E1_I[1] & (((E1L59))));
+
+
+--E1L61 is MorseCode:RxTx|Mux1~4 at LCCOMB_X21_Y17_N28
+E1L61 = (E1_I[1] & ((E1_I[3] & (char[10][0])) # (!E1_I[3] & ((char[2][0]))))) # (!E1_I[1] & (((E1_I[3]))));
+
+
+--E1L62 is MorseCode:RxTx|Mux1~5 at LCCOMB_X21_Y17_N24
+E1L62 = (E1_I[1] & (((E1L61)))) # (!E1_I[1] & ((E1L61 & ((char[8][0]))) # (!E1L61 & (char[0][0]))));
+
+
+--E1L63 is MorseCode:RxTx|Mux1~6 at LCCOMB_X21_Y17_N0
+E1L63 = (E1_I[2] & ((E1_I[0]) # ((E1L60)))) # (!E1_I[2] & (!E1_I[0] & ((E1L62))));
+
+
+--E1L64 is MorseCode:RxTx|Mux1~7 at LCCOMB_X20_Y18_N8
+E1L64 = (E1_I[1] & (E1_I[3])) # (!E1_I[1] & ((E1_I[3] & ((char[13][0]))) # (!E1_I[3] & (char[5][0]))));
+
+
+--E1L65 is MorseCode:RxTx|Mux1~8 at LCCOMB_X20_Y18_N30
+E1L65 = (E1_I[1] & ((E1L64 & (char[15][0])) # (!E1L64 & ((char[7][0]))))) # (!E1_I[1] & (E1L64));
+
+
+--E1L66 is MorseCode:RxTx|Mux1~9 at LCCOMB_X21_Y17_N12
+E1L66 = (E1_I[0] & ((E1L63 & ((E1L65))) # (!E1L63 & (E1L58)))) # (!E1_I[0] & (((E1L63))));
+
+
+--E1L98 is MorseCode:RxTx|Selector10~0 at LCCOMB_X21_Y17_N18
+E1L98 = (A1L369 & (E1_pr_state.transmiting & ((!E1L67) # (!E1_I[3]))));
+
+
+--E1L47 is MorseCode:RxTx|Mux0~0 at LCCOMB_X20_Y17_N18
+E1L47 = (E1_I[0] & (E1_I[2])) # (!E1_I[0] & ((E1_I[2] & (char[12][1])) # (!E1_I[2] & ((char[8][1])))));
+
+
+--E1L48 is MorseCode:RxTx|Mux0~1 at LCCOMB_X20_Y17_N20
+E1L48 = (E1_I[0] & ((E1L47 & ((char[13][1]))) # (!E1L47 & (char[9][1])))) # (!E1_I[0] & (((E1L47))));
+
+
+--E1L49 is MorseCode:RxTx|Mux0~2 at LCCOMB_X20_Y17_N30
+E1L49 = (E1_I[0] & (((E1_I[2]) # (char[3][1])))) # (!E1_I[0] & (char[2][1] & (!E1_I[2])));
+
+
+--E1L50 is MorseCode:RxTx|Mux0~3 at LCCOMB_X20_Y17_N8
+E1L50 = (E1_I[2] & ((E1L49 & (char[7][1])) # (!E1L49 & ((char[6][1]))))) # (!E1_I[2] & (((E1L49))));
+
+
+--E1L51 is MorseCode:RxTx|Mux0~4 at LCCOMB_X20_Y17_N6
+E1L51 = (E1_I[0] & ((E1_I[2]) # ((char[1][1])))) # (!E1_I[0] & (!E1_I[2] & ((char[0][1]))));
+
+
+--E1L52 is MorseCode:RxTx|Mux0~5 at LCCOMB_X20_Y17_N0
+E1L52 = (E1_I[2] & ((E1L51 & (char[5][1])) # (!E1L51 & ((char[4][1]))))) # (!E1_I[2] & (((E1L51))));
+
+
+--E1L53 is MorseCode:RxTx|Mux0~6 at LCCOMB_X20_Y17_N14
+E1L53 = (E1_I[1] & ((E1_I[3]) # ((E1L50)))) # (!E1_I[1] & (!E1_I[3] & ((E1L52))));
+
+
+--E1L54 is MorseCode:RxTx|Mux0~7 at LCCOMB_X20_Y17_N12
+E1L54 = (E1_I[0] & ((E1_I[2]) # ((char[11][1])))) # (!E1_I[0] & (!E1_I[2] & ((char[10][1]))));
+
+
+--E1L55 is MorseCode:RxTx|Mux0~8 at LCCOMB_X20_Y17_N26
+E1L55 = (E1L54 & (((char[15][1])) # (!E1_I[2]))) # (!E1L54 & (E1_I[2] & ((char[14][1]))));
+
+
+--E1L56 is MorseCode:RxTx|Mux0~9 at LCCOMB_X20_Y17_N4
+E1L56 = (E1_I[3] & ((E1L53 & (E1L55)) # (!E1L53 & ((E1L48))))) # (!E1_I[3] & (((E1L53))));
+
+
+--E1L92 is MorseCode:RxTx|Selector7~0 at LCCOMB_X21_Y19_N4
+E1L92 = (E1L98 & (E1L66 & !E1L56));
+
+
+--E1L11 is MorseCode:RxTx|LessThan1~0 at LCCOMB_X23_Y16_N4
+E1L11 = (!E1_t[26] & (!E1_t[24] & !E1_t[25]));
+
+
+--E1L12 is MorseCode:RxTx|LessThan1~1 at LCCOMB_X22_Y18_N8
+E1L12 = (!E1_t[19] & (!E1_t[16] & (!E1_t[18] & !E1_t[17])));
+
+
+--E1L17 is MorseCode:RxTx|LessThan2~0 at LCCOMB_X24_Y17_N24
+E1L17 = (E1_t[0] & (E1_t[1] & (E1_t[2] & E1_t[3])));
+
+
+--E1L18 is MorseCode:RxTx|LessThan2~1 at LCCOMB_X23_Y17_N30
+E1L18 = (E1_t[5] & (E1_t[6] & E1_t[4]));
+
+
+--E1L13 is MorseCode:RxTx|LessThan1~2 at LCCOMB_X23_Y17_N0
+E1L13 = ((!E1_t[7] & ((!E1L17) # (!E1L18)))) # (!E1_t[8]);
+
+
+--E1L38 is MorseCode:RxTx|LessThan4~0 at LCCOMB_X23_Y17_N26
+E1L38 = (!E1_t[9] & (!E1_t[11] & !E1_t[10]));
+
+
+--E1L14 is MorseCode:RxTx|LessThan1~3 at LCCOMB_X22_Y18_N18
+E1L14 = (!E1_t[13] & (((E1L38 & E1L13)) # (!E1_t[12])));
+
+
+--E1L15 is MorseCode:RxTx|LessThan1~4 at LCCOMB_X22_Y18_N20
+E1L15 = (E1L12 & (((E1L14) # (!E1_t[15])) # (!E1_t[14])));
+
+
+--E1L39 is MorseCode:RxTx|LessThan4~1 at LCCOMB_X22_Y18_N22
+E1L39 = (E1_t[20] & (E1_t[23] & (E1_t[22] & E1_t[21])));
+
+
+--E1L16 is MorseCode:RxTx|LessThan1~5 at LCCOMB_X22_Y18_N16
+E1L16 = ((E1L11 & ((E1L15) # (!E1L39)))) # (!E1_t[27]);
+
+
+--E1L93 is MorseCode:RxTx|Selector7~1 at LCCOMB_X21_Y19_N6
+E1L93 = (E1L92) # ((!E1_t[28] & (E1L16 & E1_pr_state.tx_dash)));
+
+
+--E1L87 is MorseCode:RxTx|Selector5~0 at LCCOMB_X21_Y19_N10
+E1L87 = (!A1L274 & E1_pr_state.transmit_hs);
+
+
+--E1L26 is MorseCode:RxTx|LessThan3~0 at LCCOMB_X23_Y16_N10
+E1L26 = (!E1_t[18] & (!E1_t[25] & (!E1_t[17] & !E1_t[19])));
+
+
+--E1L27 is MorseCode:RxTx|LessThan3~1 at LCCOMB_X23_Y16_N16
+E1L27 = (E1_t[14]) # ((E1_t[27]) # (E1_t[20]));
+
+
+--E1L28 is MorseCode:RxTx|LessThan3~2 at LCCOMB_X23_Y17_N8
+E1L28 = ((E1L38 & !E1_t[12])) # (!E1_t[13]);
+
+
+--E1L29 is MorseCode:RxTx|LessThan3~3 at LCCOMB_X23_Y17_N4
+E1L29 = (!E1_t[12] & !E1_t[8]);
+
+
+--E1L30 is MorseCode:RxTx|LessThan3~4 at LCCOMB_X23_Y17_N18
+E1L30 = (E1L29 & (((!E1L17) # (!E1_t[7])) # (!E1L18)));
+
+
+--E1L31 is MorseCode:RxTx|LessThan3~5 at LCCOMB_X23_Y17_N24
+E1L31 = (E1L28) # ((!E1_t[11] & (!E1_t[10] & E1L30)));
+
+
+--E1L32 is MorseCode:RxTx|LessThan3~6 at LCCOMB_X23_Y17_N14
+E1L32 = (!E1_t[26] & (E1L26 & (!E1L27 & E1L31)));
+
+
+--E1L33 is MorseCode:RxTx|LessThan3~7 at LCCOMB_X23_Y16_N14
+E1L33 = (((!E1_t[24]) # (!E1_t[21])) # (!E1_t[23])) # (!E1_t[22]);
+
+
+--E1L34 is MorseCode:RxTx|LessThan3~8 at LCCOMB_X23_Y16_N24
+E1L34 = (!E1_t[27] & (!E1_t[25] & (E1L33 & !E1_t[26])));
+
+
+--E1L35 is MorseCode:RxTx|LessThan3~9 at LCCOMB_X23_Y16_N6
+E1L35 = (E1_t[20]) # ((E1_t[16] & E1_t[15]));
+
+
+--E1L36 is MorseCode:RxTx|LessThan3~10 at LCCOMB_X23_Y16_N28
+E1L36 = (E1L26 & (!E1_t[26] & (!E1_t[27] & !E1L35)));
+
+
+--E1L37 is MorseCode:RxTx|LessThan3~11 at LCCOMB_X23_Y17_N16
+E1L37 = ((E1L34) # ((E1L32) # (E1L36))) # (!E1_t[28]);
+
+
+--E1L19 is MorseCode:RxTx|LessThan2~2 at LCCOMB_X22_Y18_N6
+E1L19 = (!E1_t[28] & !E1_t[27]);
+
+
+--E1L20 is MorseCode:RxTx|LessThan2~3 at LCCOMB_X22_Y18_N24
+E1L20 = (((!E1_t[15]) # (!E1_t[16])) # (!E1_t[14])) # (!E1_t[13]);
+
+
+--E1L21 is MorseCode:RxTx|LessThan2~4 at LCCOMB_X22_Y18_N10
+E1L21 = (E1_t[18] & ((E1_t[17]) # (!E1L20)));
+
+
+--E1L22 is MorseCode:RxTx|LessThan2~5 at LCCOMB_X22_Y18_N0
+E1L22 = (E1L39 & ((E1_t[19]) # (E1L21)));
+
+
+--E1L23 is MorseCode:RxTx|LessThan2~6 at LCCOMB_X22_Y18_N26
+E1L23 = ((!E1_t[25] & ((!E1L22) # (!E1_t[24])))) # (!E1_t[26]);
+
+
+--E1L24 is MorseCode:RxTx|LessThan2~7 at LCCOMB_X22_Y18_N4
+E1L24 = (!E1_t[19] & (!E1_t[17] & (E1L38 & !E1_t[25])));
+
+
+--E1L25 is MorseCode:RxTx|LessThan2~8 at LCCOMB_X22_Y18_N30
+E1L25 = (E1L19 & ((E1L23) # ((E1L24 & E1L30))));
+
+
+--E1L88 is MorseCode:RxTx|Selector5~1 at LCCOMB_X21_Y17_N20
+E1L88 = (E1_pr_state.btw_char & (((E1_pr_state.btw_word & !E1L37)) # (!E1L25))) # (!E1_pr_state.btw_char & (E1_pr_state.btw_word & (!E1L37)));
+
+
+--E1L40 is MorseCode:RxTx|LessThan4~2 at LCCOMB_X23_Y16_N22
+E1L40 = (!E1_t[28] & (!E1_t[27] & !E1_t[26]));
+
+
+--E1L41 is MorseCode:RxTx|LessThan4~3 at LCCOMB_X23_Y16_N0
+E1L41 = (((!E1_t[13]) # (!E1_t[14])) # (!E1_t[12])) # (!E1_t[15]);
+
+
+--E1L42 is MorseCode:RxTx|LessThan4~4 at LCCOMB_X23_Y17_N22
+E1L42 = (!E1_t[7] & ((!E1L17) # (!E1L18)));
+
+
+--E1L43 is MorseCode:RxTx|LessThan4~5 at LCCOMB_X23_Y17_N12
+E1L43 = (E1L41) # ((E1L38 & (!E1_t[8] & E1L42)));
+
+
+--E1L44 is MorseCode:RxTx|LessThan4~6 at LCCOMB_X23_Y17_N2
+E1L44 = (E1_t[17] & ((E1_t[16]) # (!E1L43)));
+
+
+--E1L45 is MorseCode:RxTx|LessThan4~7 at LCCOMB_X23_Y17_N20
+E1L45 = (E1_t[19] & (E1L39 & ((E1_t[18]) # (E1L44))));
+
+
+--E1L46 is MorseCode:RxTx|LessThan4~8 at LCCOMB_X23_Y17_N10
+E1L46 = (E1L40 & (((!E1_t[24] & !E1L45)) # (!E1_t[25])));
+
+
+--E1L89 is MorseCode:RxTx|Selector5~2 at LCCOMB_X21_Y17_N16
+E1L89 = (E1L87) # ((E1L88) # ((E1_pr_state.btw_symb & !E1L46)));
+
+
+--E1L90 is MorseCode:RxTx|Selector6~0 at LCCOMB_X23_Y17_N28
+E1L90 = (E1_pr_state.tx_dot & E1L46);
+
+
+--E1L91 is MorseCode:RxTx|Selector6~1 at LCCOMB_X23_Y17_N6
+E1L91 = (E1L90) # ((E1L98 & (!E1L56 & !E1L66)));
+
+
+--E1L85 is MorseCode:RxTx|Selector4~0 at LCCOMB_X21_Y19_N12
+E1L85 = (E1_pr_state.communication & ((A1L373) # (A1L371)));
+
+
+--E1L86 is MorseCode:RxTx|Selector4~1 at LCCOMB_X21_Y19_N30
+E1L86 = (A1L369 & ((E1L85) # ((E1L81 & A1L373))));
+
+
+--E1L96 is MorseCode:RxTx|Selector9~0 at LCCOMB_X22_Y18_N28
+E1L96 = (E1_pr_state.tx_dash & ((E1_t[28]) # (!E1L16)));
+
+
+--E1L97 is MorseCode:RxTx|Selector9~1 at LCCOMB_X22_Y18_N12
+E1L97 = (E1L96) # ((E1L46 & ((E1_pr_state.btw_symb))) # (!E1L46 & (E1_pr_state.tx_dot)));
+
+
+--E1L94 is MorseCode:RxTx|Selector8~0 at LCCOMB_X21_Y17_N8
+E1L94 = (E1L98 & !E1L66);
+
+
+--E1L95 is MorseCode:RxTx|Selector8~1 at LCCOMB_X22_Y18_N14
+E1L95 = (E1L56 & ((E1L94) # ((E1L25 & E1_pr_state.btw_char)))) # (!E1L56 & (E1L25 & (E1_pr_state.btw_char)));
+
+
+--E1L99 is MorseCode:RxTx|Selector10~1 at LCCOMB_X20_Y17_N2
+E1L99 = (E1L56 & (E1L66 & E1L98));
+
+
+--E1L100 is MorseCode:RxTx|Selector10~2 at LCCOMB_X20_Y17_N24
+E1L100 = (E1L99) # ((E1_pr_state.btw_word & E1L37));
+
+
+--A1L6 is buzzer~0 at LCCOMB_X17_Y20_N14
+A1L6 = (pr_state.msgFull) # (pr_state.buttonPress);
+
+
+--C1_aux[1] is DEBOUNCE:db_button|aux[1] at FF_X15_Y23_N17
+--register power-up is low
+
+C1_aux[1] = DFFEAS(C1L4, GLOBAL(A1L58),  ,  ,  ,  ,  ,  ,  );
+
+
+--pointer[0] is pointer[0] at FF_X15_Y17_N31
+--register power-up is low
+
+pointer[0] = DFFEAS(A1L157, GLOBAL(A1L58), !D1_aux[2],  ,  ,  ,  ,  ,  );
+
+
+--A1L263 is process_1~0 at LCCOMB_X20_Y18_N24
+A1L263 = (!pr_state.processDot & (!pr_state.processChar & (!pr_state.processDash & !pr_state.processSpace)));
+
+
+--A1L260 is process_0~8 at LCCOMB_X17_Y20_N10
+A1L260 = (pr_state.communication & (!A1L369)) # (!pr_state.communication & (A1L369 & (A1L288 & A1L152)));
+
+
+--A1L266 is process_3~2 at LCCOMB_X15_Y18_N0
+A1L266 = (!t[28] & t[27]);
+
+
+--A1L267 is process_3~3 at LCCOMB_X16_Y18_N20
+A1L267 = (A1L266 & (A1L105 & ((A1L113) # (A1L111))));
+
+
+--A1L476 is WideOr0~0 at LCCOMB_X16_Y18_N30
+A1L476 = (A1L264 & (A1L150 & ((A1L123) # (A1L267))));
+
+
+--A1L285 is Selector3~6 at LCCOMB_X16_Y18_N12
+A1L285 = (pr_state.processSpace) # ((pr_state.processChar) # (A1L283));
+
+
+--A1L477 is WideOr0~1 at LCCOMB_X16_Y18_N6
+A1L477 = (A1L476) # (pr_state.buttonPress $ (((A1L282) # (A1L285))));
+
+
+--A1L261 is process_0~9 at LCCOMB_X15_Y18_N2
+A1L261 = (pr_state.msgFull & (A1L123 & ((A1L133) # (!A1L286)))) # (!pr_state.msgFull & (A1L286 & ((!A1L133))));
+
+
+--A1L478 is WideOr0~2 at LCCOMB_X15_Y18_N16
+A1L478 = (A1L261) # ((pr_state.buttonPress & (!C1_output_debounce & !A1L281)));
+
+
+--A1L479 is WideOr0~3 at LCCOMB_X16_Y18_N0
+A1L479 = (A1L149) # (((A1L478) # (A1L477)) # (!A1L263));
+
+
+--A1L480 is WideOr0~4 at LCCOMB_X16_Y19_N30
+A1L480 = (A1L260) # ((A1L479) # (pr_state.idleInput $ (A1L278)));
+
+
+--A1L262 is process_0~10 at LCCOMB_X17_Y20_N22
+A1L262 = pr_state.idleInput $ (!A1L278);
+
+
+--A1L387 is t[2]~83 at LCCOMB_X17_Y19_N16
+A1L387 = (t[22] & (t[23] & (t[27] & t[26])));
+
+
+--A1L388 is t[2]~84 at LCCOMB_X15_Y18_N30
+A1L388 = (!t[9] & (t[10] & (!t[7] & t[8])));
+
+
+--A1L389 is t[2]~85 at LCCOMB_X15_Y18_N24
+A1L389 = (A1L388 & (A1L384 & A1L387));
+
+
+--A1L390 is t[2]~86 at LCCOMB_X15_Y18_N22
+A1L390 = (t[13] & (!t[11] & (t[14] & !t[12])));
+
+
+--A1L391 is t[2]~87 at LCCOMB_X15_Y18_N28
+A1L391 = (t[16] & (t[18] & (!t[15] & !t[17])));
+
+
+--A1L392 is t[2]~88 at LCCOMB_X17_Y19_N26
+A1L392 = (t[19] & (t[24] & (!t[21] & !t[20])));
+
+
+--A1L393 is t[2]~89 at LCCOMB_X17_Y19_N24
+A1L393 = (t[28] & (A1L392 & !t[25]));
+
+
+--A1L394 is t[2]~90 at LCCOMB_X15_Y18_N6
+A1L394 = (A1L390 & (A1L391 & (A1L393 & A1L389)));
+
+
+--A1L395 is t[2]~91 at LCCOMB_X16_Y20_N2
+A1L395 = (A1L260) # (((A1L479) # (!A1L262)) # (!A1L394));
+
+
+--D1_aux[1] is DEBOUNCE_PULSE:db_rst|aux[1] at FF_X11_Y16_N1
+--register power-up is low
+
+D1_aux[1] = DFFEAS(D1L5, GLOBAL(A1L58),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L4 is DEBOUNCE_PULSE:db_rst|aux~0 at LCCOMB_X15_Y18_N12
+D1L4 = (!D1_aux[1] & ((D1_aux[2]) # (!A1L270)));
+
+
+--A1L151 is nx_state.processSpace~1 at LCCOMB_X16_Y18_N2
+A1L151 = (!A1L267 & (A1L123 & (A1L150 & A1L264)));
+
+
+--E1L1 is MorseCode:RxTx|Add1~0 at LCCOMB_X20_Y18_N20
+E1L1 = E1_I[3] $ (((E1_I[2] & (E1_I[1] & E1_I[0]))));
+
+
+--E1L6 is MorseCode:RxTx|I[0]~0 at LCCOMB_X20_Y18_N10
+E1L6 = (E1_pr_state.transmiting) # (!E1_pr_state.idle);
+
+
+--E1L2 is MorseCode:RxTx|Add1~1 at LCCOMB_X20_Y18_N22
+E1L2 = E1_I[2] $ (((E1_I[1] & E1_I[0])));
+
+
+--E1L10 is MorseCode:RxTx|I~1 at LCCOMB_X20_Y18_N16
+E1L10 = (!E1_I[0] & E1_pr_state.idle);
+
+
+--E1L3 is MorseCode:RxTx|Add1~2 at LCCOMB_X20_Y18_N4
+E1L3 = E1_I[1] $ (E1_I[0]);
+
+
+--A1L290 is Selector8~0 at LCCOMB_X20_Y18_N0
+A1L290 = (pr_state.processDash) # (pr_state.processSpace);
+
+
+--A1L61 is Decoder0~0 at LCCOMB_X17_Y20_N4
+A1L61 = (!pr_state.communication & (!pr_state.msgFull & (!pr_state.buttonPress & pr_state.idleInput)));
+
+
+--A1L62 is Decoder0~1 at LCCOMB_X16_Y17_N4
+A1L62 = (!pointer[4] & (!pointer[5] & (pointer[0] & A1L61)));
+
+
+--A1L63 is Decoder0~2 at LCCOMB_X16_Y17_N28
+A1L63 = (pointer[3] & (A1L62 & (!pointer[1] & !pointer[2])));
+
+
+--A1L65 is Decoder0~3 at LCCOMB_X15_Y17_N24
+A1L65 = (A1L62 & (!pointer[2] & (!pointer[3] & pointer[1])));
+
+
+--A1L67 is Decoder0~4 at LCCOMB_X16_Y17_N6
+A1L67 = (!pointer[3] & (A1L62 & (!pointer[1] & !pointer[2])));
+
+
+--A1L69 is Decoder0~5 at LCCOMB_X16_Y17_N10
+A1L69 = (!pointer[2] & (A1L62 & (pointer[3] & pointer[1])));
+
+
+--A1L71 is Decoder0~6 at LCCOMB_X16_Y17_N22
+A1L71 = (!pointer[4] & (!pointer[5] & (!pointer[0] & A1L61)));
+
+
+--A1L72 is Decoder0~7 at LCCOMB_X16_Y17_N2
+A1L72 = (A1L71 & (!pointer[3] & (pointer[1] & pointer[2])));
+
+
+--A1L74 is Decoder0~8 at LCCOMB_X16_Y17_N8
+A1L74 = (A1L71 & (pointer[2] & (!pointer[1] & pointer[3])));
+
+
+--A1L76 is Decoder0~9 at LCCOMB_X16_Y17_N14
+A1L76 = (!pointer[3] & (pointer[2] & (A1L71 & !pointer[1])));
+
+
+--A1L78 is Decoder0~10 at LCCOMB_X16_Y17_N30
+A1L78 = (pointer[3] & (pointer[2] & (A1L71 & pointer[1])));
+
+
+--A1L80 is Decoder0~11 at LCCOMB_X16_Y17_N0
+A1L80 = (pointer[3] & (!pointer[2] & (A1L71 & !pointer[1])));
+
+
+--A1L82 is Decoder0~12 at LCCOMB_X16_Y17_N18
+A1L82 = (!pointer[3] & (!pointer[2] & (A1L71 & !pointer[1])));
+
+
+--A1L84 is Decoder0~13 at LCCOMB_X16_Y17_N16
+A1L84 = (A1L71 & (!pointer[2] & (pointer[1] & pointer[3])));
+
+
+--A1L86 is Decoder0~14 at LCCOMB_X16_Y17_N20
+A1L86 = (!pointer[3] & (!pointer[2] & (A1L71 & pointer[1])));
+
+
+--A1L88 is Decoder0~15 at LCCOMB_X15_Y17_N20
+A1L88 = (A1L62 & (pointer[2] & (!pointer[3] & pointer[1])));
+
+
+--A1L90 is Decoder0~16 at LCCOMB_X16_Y17_N12
+A1L90 = (pointer[3] & (A1L62 & (!pointer[1] & pointer[2])));
+
+
+--A1L92 is Decoder0~17 at LCCOMB_X16_Y17_N24
+A1L92 = (!pointer[3] & (A1L62 & (!pointer[1] & pointer[2])));
+
+
+--A1L94 is Decoder0~18 at LCCOMB_X15_Y17_N6
+A1L94 = (A1L62 & (pointer[2] & (pointer[3] & pointer[1])));
+
+
+--A1L153 is nx_state~1 at LCCOMB_X16_Y18_N10
+A1L153 = (!pr_state.processChar & !pr_state.processSpace);
+
+
+--E1L78 is MorseCode:RxTx|process_0~9 at LCCOMB_X22_Y18_N2
+E1L78 = (E1L96 & (!E1_pr_state.btw_symb)) # (!E1L96 & (!E1L46 & (E1_pr_state.btw_symb $ (E1_pr_state.tx_dot))));
+
+
+--E1L79 is MorseCode:RxTx|process_0~10 at LCCOMB_X21_Y17_N30
+E1L79 = (E1_pr_state.btw_char & (!E1L25 & ((!E1L94) # (!E1L56)))) # (!E1_pr_state.btw_char & (((E1L56 & E1L94))));
+
+
+--E1L202 is MorseCode:RxTx|WideOr0~0 at LCCOMB_X21_Y19_N28
+E1L202 = (E1L84 & ((E1_pr_state.transmit_hs $ (E1L86)) # (!E1_pr_state.communication))) # (!E1L84 & ((E1_pr_state.communication) # (E1_pr_state.transmit_hs $ (E1L86))));
+
+
+--E1L203 is MorseCode:RxTx|WideOr0~1 at LCCOMB_X21_Y17_N26
+E1L203 = (E1L202) # ((E1_pr_state.transmiting) # (E1_pr_state.idle $ (E1L82)));
+
+
+--E1L204 is MorseCode:RxTx|WideOr0~2 at LCCOMB_X21_Y17_N14
+E1L204 = (E1L79) # ((E1L203) # (E1_pr_state.tx_dot $ (E1L91)));
+
+
+--E1L205 is MorseCode:RxTx|WideOr0~3 at LCCOMB_X21_Y17_N4
+E1L205 = (E1L98 & (!E1L56 & E1L66));
+
+
+--E1L206 is MorseCode:RxTx|WideOr0~4 at LCCOMB_X21_Y17_N6
+E1L206 = (E1_pr_state.tx_dash & (!E1L205 & ((E1_t[28]) # (!E1L16)))) # (!E1_pr_state.tx_dash & (((E1L205))));
+
+
+--E1L207 is MorseCode:RxTx|WideOr0~5 at LCCOMB_X22_Y17_N0
+E1L207 = (E1L206) # ((E1L89) # (E1_pr_state.btw_word $ (E1L100)));
+
+
+--E1L208 is MorseCode:RxTx|WideOr0~6 at LCCOMB_X22_Y16_N30
+E1L208 = (E1L78) # ((E1L204) # (E1L207));
+
+
+--E1L162 is MorseCode:RxTx|t[19]~79 at LCCOMB_X24_Y16_N24
+E1L162 = (!E1_t[17] & !E1_t[25]);
+
+
+--E1L163 is MorseCode:RxTx|t[19]~80 at LCCOMB_X24_Y17_N30
+E1L163 = (!E1_t[3] & (!E1_t[2] & (!E1_t[1] & !E1_t[0])));
+
+
+--E1L164 is MorseCode:RxTx|t[19]~81 at LCCOMB_X23_Y16_N2
+E1L164 = (E1_t[22] & (E1_t[23] & (E1L163 & E1L162)));
+
+
+--E1L165 is MorseCode:RxTx|t[19]~82 at LCCOMB_X23_Y18_N28
+E1L165 = (!E1_t[5] & (!E1_t[4] & (!E1_t[6] & !E1_t[7])));
+
+
+--E1L166 is MorseCode:RxTx|t[19]~83 at LCCOMB_X23_Y16_N20
+E1L166 = (E1_t[8] & (!E1_t[11] & (E1_t[10] & !E1_t[9])));
+
+
+--E1L167 is MorseCode:RxTx|t[19]~84 at LCCOMB_X23_Y16_N30
+E1L167 = (!E1_t[15] & (!E1_t[12] & (E1_t[14] & E1_t[13])));
+
+
+--E1L168 is MorseCode:RxTx|t[19]~85 at LCCOMB_X23_Y16_N12
+E1L168 = (E1_t[18] & (!E1_t[20] & (E1_t[16] & E1_t[19])));
+
+
+--E1L169 is MorseCode:RxTx|t[19]~86 at LCCOMB_X23_Y16_N26
+E1L169 = (E1_t[27] & (E1_t[26] & (!E1_t[21] & E1_t[24])));
+
+
+--E1L170 is MorseCode:RxTx|t[19]~87 at LCCOMB_X23_Y16_N8
+E1L170 = (E1L169 & (E1_t[28] & (E1L167 & E1L168)));
+
+
+--E1L171 is MorseCode:RxTx|t[19]~88 at LCCOMB_X23_Y16_N18
+E1L171 = (E1L165 & (E1L166 & (E1L170 & E1L164)));
+
+
+--E1L172 is MorseCode:RxTx|t[19]~89 at LCCOMB_X22_Y17_N2
+E1L172 = ((E1L207) # ((E1L78) # (E1L204))) # (!E1L171);
+
+
+--C1_aux[0] is DEBOUNCE:db_button|aux[0] at FF_X15_Y23_N23
+--register power-up is low
+
+C1_aux[0] = DFFEAS( , GLOBAL(A1L58),  ,  ,  , A1L3,  ,  , VCC);
+
+
+--C1L199 is DEBOUNCE:db_button|Equal0~0 at LCCOMB_X15_Y23_N0
+C1L199 = (!C1_cont_up[0] & (!C1_cont_up[3] & (!C1_cont_up[2] & !C1_cont_up[1])));
+
+
+--C1L200 is DEBOUNCE:db_button|Equal0~1 at LCCOMB_X15_Y23_N2
+C1L200 = (C1_cont_up[7] & (!C1_cont_up[6] & (!C1_cont_up[4] & C1_cont_up[5])));
+
+
+--C1L201 is DEBOUNCE:db_button|Equal0~2 at LCCOMB_X15_Y23_N12
+C1L201 = (C1_cont_up[10] & (!C1_cont_up[9] & (C1_cont_up[8] & !C1_cont_up[11])));
+
+
+--C1L202 is DEBOUNCE:db_button|Equal0~3 at LCCOMB_X15_Y23_N30
+C1L202 = (!C1_cont_up[15] & (!C1_cont_up[14] & (C1_cont_up[13] & !C1_cont_up[12])));
+
+
+--C1L203 is DEBOUNCE:db_button|Equal0~4 at LCCOMB_X15_Y23_N24
+C1L203 = (C1L201 & (C1L199 & (C1L202 & C1L200)));
+
+
+--C1L204 is DEBOUNCE:db_button|Equal0~5 at LCCOMB_X15_Y22_N0
+C1L204 = (!C1_cont_up[16] & (!C1_cont_up[19] & (C1_cont_up[18] & C1_cont_up[17])));
+
+
+--C1L205 is DEBOUNCE:db_button|Equal0~6 at LCCOMB_X15_Y22_N2
+C1L205 = (C1_cont_up[21] & (!C1_cont_up[22] & (!C1_cont_up[23] & !C1_cont_up[20])));
+
+
+--C1L206 is DEBOUNCE:db_button|Equal0~7 at LCCOMB_X15_Y22_N24
+C1L206 = (!C1_cont_up[27] & !C1_cont_up[26]);
+
+
+--C1L207 is DEBOUNCE:db_button|Equal0~8 at LCCOMB_X15_Y22_N10
+C1L207 = (!C1_cont_up[28] & (!C1_cont_up[30] & (!C1_cont_up[29] & !C1_cont_up[31])));
+
+
+--C1L208 is DEBOUNCE:db_button|Equal0~9 at LCCOMB_X15_Y22_N4
+C1L208 = (C1L207 & (!C1_cont_up[25] & (!C1_cont_up[24] & C1L206)));
+
+
+--C1L209 is DEBOUNCE:db_button|Equal0~10 at LCCOMB_X15_Y23_N26
+C1L209 = (C1L208 & (C1L204 & (C1L205 & C1L203)));
+
+
+--C1L210 is DEBOUNCE:db_button|Equal1~0 at LCCOMB_X15_Y21_N0
+C1L210 = (!C1_cont_down[0] & (!C1_cont_down[3] & (!C1_cont_down[2] & !C1_cont_down[1])));
+
+
+--C1L211 is DEBOUNCE:db_button|Equal1~1 at LCCOMB_X15_Y21_N10
+C1L211 = (!C1_cont_down[6] & (C1_cont_down[7] & (C1_cont_down[5] & !C1_cont_down[4])));
+
+
+--C1L212 is DEBOUNCE:db_button|Equal1~2 at LCCOMB_X15_Y21_N20
+C1L212 = (C1_cont_down[10] & (!C1_cont_down[11] & (C1_cont_down[8] & !C1_cont_down[9])));
+
+
+--C1L213 is DEBOUNCE:db_button|Equal1~3 at LCCOMB_X15_Y21_N22
+C1L213 = (!C1_cont_down[12] & (!C1_cont_down[14] & (C1_cont_down[13] & !C1_cont_down[15])));
+
+
+--C1L214 is DEBOUNCE:db_button|Equal1~4 at LCCOMB_X15_Y21_N28
+C1L214 = (C1L211 & (C1L212 & (C1L213 & C1L210)));
+
+
+--C1L215 is DEBOUNCE:db_button|Equal1~5 at LCCOMB_X12_Y20_N12
+C1L215 = (C1_cont_down[17] & !C1_cont_down[16]);
+
+
+--C1L216 is DEBOUNCE:db_button|Equal1~6 at LCCOMB_X12_Y20_N14
+C1L216 = (!C1_cont_down[22] & (!C1_cont_down[23] & (!C1_cont_down[20] & C1_cont_down[21])));
+
+
+--C1L217 is DEBOUNCE:db_button|Equal1~7 at LCCOMB_X12_Y20_N0
+C1L217 = (C1L215 & (C1L216 & (!C1_cont_down[19] & C1_cont_down[18])));
+
+
+--C1L218 is DEBOUNCE:db_button|Equal1~8 at LCCOMB_X15_Y21_N14
+C1L218 = (!C1_cont_down[27] & (!C1_cont_down[26] & (!C1_cont_down[25] & !C1_cont_down[24])));
+
+
+--C1L219 is DEBOUNCE:db_button|Equal1~9 at LCCOMB_X15_Y21_N12
+C1L219 = (!C1_cont_down[30] & (!C1_cont_down[29] & (!C1_cont_down[31] & !C1_cont_down[28])));
+
+
+--C1L220 is DEBOUNCE:db_button|Equal1~10 at LCCOMB_X15_Y21_N30
+C1L220 = (C1L219 & (C1L217 & (C1L218 & C1L214)));
+
+
+--C1L4 is DEBOUNCE:db_button|aux~0 at LCCOMB_X15_Y23_N16
+C1L4 = (!C1L220 & ((C1L209 & (C1_aux[0])) # (!C1L209 & ((C1_aux[1])))));
+
+
+--A1L156 is pointer[0]~93 at LCCOMB_X15_Y17_N28
+A1L156 = A1L263 $ (!pointer[0]);
+
+
+--D1L104 is DEBOUNCE_PULSE:db_rst|Equal0~0 at LCCOMB_X11_Y16_N10
+D1L104 = (!D1_cont_down[3] & (!D1_cont_down[2] & (!D1_cont_down[1] & !D1_cont_down[0])));
+
+
+--D1L105 is DEBOUNCE_PULSE:db_rst|Equal0~1 at LCCOMB_X11_Y17_N12
+D1L105 = (!D1_cont_down[6] & (D1_cont_down[7] & (!D1_cont_down[4] & D1_cont_down[5])));
+
+
+--D1L106 is DEBOUNCE_PULSE:db_rst|Equal0~2 at LCCOMB_X11_Y16_N20
+D1L106 = (!D1_cont_down[9] & (!D1_cont_down[11] & (D1_cont_down[8] & D1_cont_down[10])));
+
+
+--D1L107 is DEBOUNCE_PULSE:db_rst|Equal0~3 at LCCOMB_X11_Y16_N2
+D1L107 = (!D1_cont_down[14] & (!D1_cont_down[12] & (D1_cont_down[13] & !D1_cont_down[15])));
+
+
+--D1L108 is DEBOUNCE_PULSE:db_rst|Equal0~4 at LCCOMB_X11_Y16_N12
+D1L108 = (D1L104 & (D1L107 & (D1L105 & D1L106)));
+
+
+--D1L109 is DEBOUNCE_PULSE:db_rst|Equal0~5 at LCCOMB_X11_Y16_N14
+D1L109 = (!D1_cont_down[16] & (D1_cont_down[18] & (!D1_cont_down[19] & D1_cont_down[17])));
+
+
+--D1L110 is DEBOUNCE_PULSE:db_rst|Equal0~6 at LCCOMB_X11_Y16_N24
+D1L110 = (!D1_cont_down[23] & (!D1_cont_down[22] & (!D1_cont_down[20] & D1_cont_down[21])));
+
+
+--D1L111 is DEBOUNCE_PULSE:db_rst|Equal0~7 at LCCOMB_X11_Y16_N26
+D1L111 = (D1L109 & D1L110);
+
+
+--D1L112 is DEBOUNCE_PULSE:db_rst|Equal0~8 at LCCOMB_X11_Y16_N16
+D1L112 = (!D1_cont_down[24] & (!D1_cont_down[26] & (!D1_cont_down[25] & !D1_cont_down[27])));
+
+
+--D1L113 is DEBOUNCE_PULSE:db_rst|Equal0~9 at LCCOMB_X11_Y16_N22
+D1L113 = (!D1_cont_down[30] & (!D1_cont_down[28] & (!D1_cont_down[29] & !D1_cont_down[31])));
+
+
+--D1L114 is DEBOUNCE_PULSE:db_rst|Equal0~10 at LCCOMB_X11_Y16_N28
+D1L114 = (D1L113 & (D1L112 & (D1L111 & D1L108)));
+
+
+--D1L5 is DEBOUNCE_PULSE:db_rst|aux~1 at LCCOMB_X11_Y16_N0
+D1L5 = ((D1_aux[1] & !D1L114)) # (!A1L270);
+
+
+--C1L222 is DEBOUNCE:db_button|process_0~0 at LCCOMB_X15_Y23_N4
+C1L222 = (C1_aux[0] & !C1_aux[1]);
+
+
+--C1L223 is DEBOUNCE:db_button|process_0~1 at LCCOMB_X15_Y23_N22
+C1L223 = (!C1_aux[0] & !C1_aux[1]);
+
+
+--C1L224 is DEBOUNCE:db_button|process_0~2 at LCCOMB_X15_Y23_N10
+C1L224 = (!C1_aux[0] & C1_aux[1]);
+
+
+--C1L225 is DEBOUNCE:db_button|process_0~3 at LCCOMB_X15_Y23_N20
+C1L225 = (C1_aux[0] & C1_aux[1]);
+
+
+--D1L62 is DEBOUNCE_PULSE:db_rst|cont_down[18]~34 at LCCOMB_X11_Y16_N30
+D1L62 = (D1L114) # ((!D1_aux[1] & !A1L270));
+
+
+--F1L67 is MorseCode:RxTx|print_debug:texto_comp|char~43 at LCCOMB_X23_Y21_N4
+F1L67 = (!E1_pr_state.tx_dash & ((F1L60) # ((!E1_pr_state.tx_dot & F1L35))));
+
+
+--F1L45 is MorseCode:RxTx|print_debug:texto_comp|char[1][2]~44 at LCCOMB_X23_Y21_N26
+F1L45 = (E1_pr_state.tx_dash) # ((E1_pr_state.tx_dot) # (F1L37));
+
+
+--F1L47 is MorseCode:RxTx|print_debug:texto_comp|char[1][4]~45 at LCCOMB_X23_Y21_N28
+F1L47 = (F1L41 & (!E1_pr_state.tx_dash & !E1_pr_state.tx_dot));
+
+
+--F1L46 is MorseCode:RxTx|print_debug:texto_comp|char[1][3]~46 at LCCOMB_X23_Y21_N30
+F1L46 = (!E1_pr_state.tx_dot & (!E1_pr_state.tx_dash & F1L39));
+
+
+--F1L48 is MorseCode:RxTx|print_debug:texto_comp|char[1][5]~47 at LCCOMB_X23_Y21_N8
+F1L48 = (E1_pr_state.tx_dot) # ((E1_pr_state.tx_dash) # (F1L43));
+
+
+--F1L52 is MorseCode:RxTx|print_debug:texto_comp|char[2][4]~48 at LCCOMB_X22_Y22_N28
+F1L52 = (F1L73 & (((E1_pr_state.communication) # (!E1L220)) # (!E1_pr_state.idle)));
+
+
+--F1L72 is MorseCode:RxTx|print_debug:texto_comp|Equal5~4 at LCCOMB_X22_Y22_N30
+F1L72 = (E1_pr_state.tx_dash & (E1_pr_state.idle & (!E1_pr_state.communication & E1L220)));
+
+
+--F1L68 is MorseCode:RxTx|print_debug:texto_comp|char~49 at LCCOMB_X27_Y23_N0
+F1L68 = (!E1_WideOr7 & (!E1_pr_state.transmiting & (!E1_pr_state.transmit_hs & !E1_pr_state.communication)));
+
+
+--F1L69 is MorseCode:RxTx|print_debug:texto_comp|char~50 at LCCOMB_X27_Y23_N30
+F1L69 = (E1_pr_state.tx_dot & (((!F1L68)))) # (!E1_pr_state.tx_dot & ((E1_pr_state.tx_dash & ((!F1L68))) # (!E1_pr_state.tx_dash & ((F1L13) # (F1L68)))));
+
+
+--F1L53 is MorseCode:RxTx|print_debug:texto_comp|char[3][2]~51 at LCCOMB_X27_Y23_N24
+F1L53 = (E1_pr_state.tx_dot) # ((E1_pr_state.tx_dash) # (F1L15));
+
+
+--F1L55 is MorseCode:RxTx|print_debug:texto_comp|char[3][4]~52 at LCCOMB_X27_Y23_N18
+F1L55 = (!E1_pr_state.tx_dot & (F1L19 & !E1_pr_state.tx_dash));
+
+
+--F1L54 is MorseCode:RxTx|print_debug:texto_comp|char[3][3]~53 at LCCOMB_X27_Y23_N28
+F1L54 = (!E1_pr_state.tx_dot & (!E1_pr_state.tx_dash & F1L17));
+
+
+--F1L56 is MorseCode:RxTx|print_debug:texto_comp|char[3][5]~54 at LCCOMB_X27_Y23_N2
+F1L56 = (E1_pr_state.tx_dot) # ((E1_pr_state.tx_dash) # (F1L21));
+
+
+--F1L70 is MorseCode:RxTx|print_debug:texto_comp|char~55 at LCCOMB_X27_Y25_N18
+F1L70 = (E1_pr_state.tx_dash & (F1L71)) # (!E1_pr_state.tx_dash & ((E1_pr_state.tx_dot & (F1L71)) # (!E1_pr_state.tx_dot & ((F1L1)))));
+
+
+--F1L200 is MorseCode:RxTx|print_debug:texto_comp|Mux30~7 at LCCOMB_X27_Y25_N20
+F1L200 = (!E1_pr_state.tx_dash & (!E1_pr_state.tx_dot & !F1L5));
+
+
+--F1L58 is MorseCode:RxTx|print_debug:texto_comp|char[4][4]~56 at LCCOMB_X27_Y25_N22
+F1L58 = (!E1_pr_state.tx_dot & (!E1_pr_state.tx_dash & F1L9));
+
+
+--F1L57 is MorseCode:RxTx|print_debug:texto_comp|char[4][3]~57 at LCCOMB_X28_Y25_N20
+F1L57 = (!E1_pr_state.tx_dot & (!E1_pr_state.tx_dash & F1L7));
+
+
+--F1L182 is MorseCode:RxTx|print_debug:texto_comp|Mux27~4 at LCCOMB_X27_Y25_N4
+F1L182 = (!F1L1 & (!E1_pr_state.tx_dash & (!E1_pr_state.tx_dot & !F1L5)));
+
+
+--F1L171 is MorseCode:RxTx|print_debug:texto_comp|Mux24~2 at LCCOMB_X28_Y25_N6
+F1L171 = (!F1L66 & (!F1L70 & ((E1_pr_state.tx_dash) # (E1_pr_state.tx_dot))));
+
+
+--F1L183 is MorseCode:RxTx|print_debug:texto_comp|Mux27~5 at LCCOMB_X28_Y25_N16
+F1L183 = (E1L210 & ((F1L66 & (!F1L70 & !F1L5)) # (!F1L66 & (F1L70 $ (F1L5)))));
+
+
+--F1L184 is MorseCode:RxTx|print_debug:texto_comp|Mux27~6 at LCCOMB_X28_Y25_N2
+F1L184 = (F1L57 & (F1L183 & (F1L181 $ (F1L70)))) # (!F1L57 & (F1L181));
+
+
+--F1L151 is MorseCode:RxTx|print_debug:texto_comp|Mux19~3 at LCCOMB_X29_Y27_N16
+F1L151 = (!F1L56 & ((F1L53 & (!F1L65 & !F1L69)) # (!F1L53 & (F1L65 $ (F1L69)))));
+
+
+--F1L152 is MorseCode:RxTx|print_debug:texto_comp|Mux19~4 at LCCOMB_X29_Y27_N30
+F1L152 = (F1L54 & (F1L151 & (F1L150 $ (F1L65)))) # (!F1L54 & (F1L150));
+
+
+--F1L88 is MorseCode:RxTx|print_debug:texto_comp|Mux3~3 at LCCOMB_X24_Y22_N0
+F1L88 = (!F1L48 & ((F1L59 & (!F1L45 & !F1L67)) # (!F1L59 & (F1L45 $ (F1L67)))));
+
+
+--F1L89 is MorseCode:RxTx|print_debug:texto_comp|Mux3~4 at LCCOMB_X24_Y22_N30
+F1L89 = (F1L46 & (F1L88 & (F1L59 $ (F1L87)))) # (!F1L46 & (((F1L87))));
+
+
+--E1_TX is MorseCode:RxTx|TX at LCCOMB_X22_Y19_N4
+E1_TX = (E1_pr_state.transmiting & (E1_TX)) # (!E1_pr_state.transmiting & ((!E1L210)));
+
+
+--buzzer$latch is buzzer$latch at LCCOMB_X17_Y20_N28
+buzzer$latch = (pr_state.communication & ((buzzer$latch))) # (!pr_state.communication & (A1L6));
+
+
+--char[9][0] is char[9][0] at LCCOMB_X19_Y18_N4
+char[9][0] = (GLOBAL(A1L64) & (A1L290)) # (!GLOBAL(A1L64) & ((char[9][0])));
+
+
+--char[3][0] is char[3][0] at LCCOMB_X20_Y18_N2
+char[3][0] = (GLOBAL(A1L66) & ((A1L290))) # (!GLOBAL(A1L66) & (char[3][0]));
+
+
+--char[1][0] is char[1][0] at LCCOMB_X19_Y16_N24
+char[1][0] = (GLOBAL(A1L68) & ((A1L290))) # (!GLOBAL(A1L68) & (char[1][0]));
+
+
+--char[11][0] is char[11][0] at LCCOMB_X20_Y16_N24
+char[11][0] = (GLOBAL(A1L70) & ((A1L290))) # (!GLOBAL(A1L70) & (char[11][0]));
+
+
+--char[6][0] is char[6][0] at LCCOMB_X20_Y16_N6
+char[6][0] = (GLOBAL(A1L73) & (A1L290)) # (!GLOBAL(A1L73) & ((char[6][0])));
+
+
+--char[12][0] is char[12][0] at LCCOMB_X21_Y16_N8
+char[12][0] = (GLOBAL(A1L75) & ((A1L290))) # (!GLOBAL(A1L75) & (char[12][0]));
+
+
+--char[4][0] is char[4][0] at LCCOMB_X21_Y16_N10
+char[4][0] = (GLOBAL(A1L77) & (A1L290)) # (!GLOBAL(A1L77) & ((char[4][0])));
+
+
+--char[14][0] is char[14][0] at LCCOMB_X21_Y16_N4
+char[14][0] = (GLOBAL(A1L79) & (A1L290)) # (!GLOBAL(A1L79) & ((char[14][0])));
+
+
+--char[8][0] is char[8][0] at LCCOMB_X20_Y16_N0
+char[8][0] = (GLOBAL(A1L81) & (A1L290)) # (!GLOBAL(A1L81) & ((char[8][0])));
+
+
+--char[0][0] is char[0][0] at LCCOMB_X21_Y17_N10
+char[0][0] = (GLOBAL(A1L83) & ((A1L290))) # (!GLOBAL(A1L83) & (char[0][0]));
+
+
+--char[10][0] is char[10][0] at LCCOMB_X19_Y17_N24
+char[10][0] = (GLOBAL(A1L85) & (A1L290)) # (!GLOBAL(A1L85) & ((char[10][0])));
+
+
+--char[2][0] is char[2][0] at LCCOMB_X21_Y18_N28
+char[2][0] = (GLOBAL(A1L87) & (A1L290)) # (!GLOBAL(A1L87) & ((char[2][0])));
+
+
+--char[7][0] is char[7][0] at LCCOMB_X19_Y17_N30
+char[7][0] = (GLOBAL(A1L89) & ((A1L290))) # (!GLOBAL(A1L89) & (char[7][0]));
+
+
+--char[13][0] is char[13][0] at LCCOMB_X20_Y18_N12
+char[13][0] = (GLOBAL(A1L91) & (A1L290)) # (!GLOBAL(A1L91) & ((char[13][0])));
+
+
+--char[5][0] is char[5][0] at LCCOMB_X20_Y18_N14
+char[5][0] = (GLOBAL(A1L93) & ((A1L290))) # (!GLOBAL(A1L93) & (char[5][0]));
+
+
+--char[15][0] is char[15][0] at LCCOMB_X19_Y16_N2
+char[15][0] = (GLOBAL(A1L95) & ((A1L290))) # (!GLOBAL(A1L95) & (char[15][0]));
+
+
+--char[9][1] is char[9][1] at LCCOMB_X19_Y17_N28
+char[9][1] = (GLOBAL(A1L64) & ((!A1L153))) # (!GLOBAL(A1L64) & (char[9][1]));
+
+
+--char[12][1] is char[12][1] at LCCOMB_X19_Y15_N8
+char[12][1] = (GLOBAL(A1L75) & (!A1L153)) # (!GLOBAL(A1L75) & ((char[12][1])));
+
+
+--char[8][1] is char[8][1] at LCCOMB_X16_Y18_N24
+char[8][1] = (GLOBAL(A1L81) & ((!A1L153))) # (!GLOBAL(A1L81) & (char[8][1]));
+
+
+--char[13][1] is char[13][1] at LCCOMB_X16_Y18_N18
+char[13][1] = (GLOBAL(A1L91) & ((!A1L153))) # (!GLOBAL(A1L91) & (char[13][1]));
+
+
+--char[6][1] is char[6][1] at LCCOMB_X20_Y19_N20
+char[6][1] = (GLOBAL(A1L73) & ((!A1L153))) # (!GLOBAL(A1L73) & (char[6][1]));
+
+
+--char[3][1] is char[3][1] at LCCOMB_X20_Y17_N10
+char[3][1] = (GLOBAL(A1L66) & (!A1L153)) # (!GLOBAL(A1L66) & ((char[3][1])));
+
+
+--char[2][1] is char[2][1] at LCCOMB_X20_Y17_N28
+char[2][1] = (GLOBAL(A1L87) & (!A1L153)) # (!GLOBAL(A1L87) & ((char[2][1])));
+
+
+--char[7][1] is char[7][1] at LCCOMB_X20_Y17_N22
+char[7][1] = (GLOBAL(A1L89) & (!A1L153)) # (!GLOBAL(A1L89) & ((char[7][1])));
+
+
+--char[4][1] is char[4][1] at LCCOMB_X20_Y19_N2
+char[4][1] = (GLOBAL(A1L77) & ((!A1L153))) # (!GLOBAL(A1L77) & (char[4][1]));
+
+
+--char[1][1] is char[1][1] at LCCOMB_X19_Y16_N0
+char[1][1] = (GLOBAL(A1L68) & ((!A1L153))) # (!GLOBAL(A1L68) & (char[1][1]));
+
+
+--char[0][1] is char[0][1] at LCCOMB_X21_Y18_N30
+char[0][1] = (GLOBAL(A1L83) & (!A1L153)) # (!GLOBAL(A1L83) & ((char[0][1])));
+
+
+--char[5][1] is char[5][1] at LCCOMB_X19_Y15_N14
+char[5][1] = (GLOBAL(A1L93) & ((!A1L153))) # (!GLOBAL(A1L93) & (char[5][1]));
+
+
+--char[14][1] is char[14][1] at LCCOMB_X21_Y18_N24
+char[14][1] = (GLOBAL(A1L79) & ((!A1L153))) # (!GLOBAL(A1L79) & (char[14][1]));
+
+
+--char[11][1] is char[11][1] at LCCOMB_X19_Y19_N12
+char[11][1] = (GLOBAL(A1L70) & ((!A1L153))) # (!GLOBAL(A1L70) & (char[11][1]));
+
+
+--char[10][1] is char[10][1] at LCCOMB_X19_Y17_N22
+char[10][1] = (GLOBAL(A1L85) & (!A1L153)) # (!GLOBAL(A1L85) & ((char[10][1])));
+
+
+--char[15][1] is char[15][1] at LCCOMB_X19_Y16_N26
+char[15][1] = (GLOBAL(A1L95) & (!A1L153)) # (!GLOBAL(A1L95) & ((char[15][1])));
+
+
+--A1L494 is ~GND at LCCOMB_X12_Y23_N8
+A1L494 = GND;
+
+
+--A1L361 is states[0]~output at IOOBUF_X0_Y26_N23
+A1L361 = OUTPUT_BUFFER.O(.I(A1L483), , , , , , , , , , , , , , , , , );
+
+
+--states[0] is states[0] at PIN_C1
+states[0] = OUTPUT();
+
+
+--A1L363 is states[1]~output at IOOBUF_X0_Y26_N16
+A1L363 = OUTPUT_BUFFER.O(.I(!A1L482), , , , , , , , , , , , , , , , , );
+
+
+--states[1] is states[1] at PIN_C2
+states[1] = OUTPUT();
+
+
+--A1L365 is states[2]~output at IOOBUF_X0_Y27_N9
+A1L365 = OUTPUT_BUFFER.O(.I(!WideOr2), , , , , , , , , , , , , , , , , );
+
+
+--states[2] is states[2] at PIN_B2
+states[2] = OUTPUT();
+
+
+--A1L367 is states[3]~output at IOOBUF_X0_Y27_N16
+A1L367 = OUTPUT_BUFFER.O(.I(pr_state.communication), , , , , , , , , , , , , , , , , );
+
+
+--states[3] is states[3] at PIN_B1
+states[3] = OUTPUT();
+
+
+
+--rx is rx at PIN_D2
+rx = INPUT();
+
+
+--A1L475 is tx~output at IOOBUF_X0_Y20_N9
+A1L475 = OUTPUT_BUFFER.O(.I(E1_TX), , , , , , , , , , , , , , , , , );
+
+
+--tx is tx at PIN_J1
+tx = OUTPUT();
+
+
+--A1L374 is s~output at IOOBUF_X0_Y20_N2
+A1L374 = OUTPUT_BUFFER.O(.I(!E1L222), , , , , , , , , , , , , , , , , );
+
+
+--s is s at PIN_J2
+s = OUTPUT();
+
+
+--A1L293 is ssd0[0]~output at IOOBUF_X21_Y29_N23
+A1L293 = OUTPUT_BUFFER.O(.I(F1L107), , , , , , , , , , , , , , , , , );
+
+
+--ssd0[0] is ssd0[0] at PIN_E11
+ssd0[0] = OUTPUT();
+
+
+--A1L295 is ssd0[1]~output at IOOBUF_X21_Y29_N30
+A1L295 = OUTPUT_BUFFER.O(.I(F1L103), , , , , , , , , , , , , , , , , );
+
+
+--ssd0[1] is ssd0[1] at PIN_F11
+ssd0[1] = OUTPUT();
+
+
+--A1L297 is ssd0[2]~output at IOOBUF_X26_Y29_N2
+A1L297 = OUTPUT_BUFFER.O(.I(F1L99), , , , , , , , , , , , , , , , , );
+
+
+--ssd0[2] is ssd0[2] at PIN_H12
+ssd0[2] = OUTPUT();
+
+
+--A1L299 is ssd0[3]~output at IOOBUF_X28_Y29_N30
+A1L299 = OUTPUT_BUFFER.O(.I(F1L94), , , , , , , , , , , , , , , , , );
+
+
+--ssd0[3] is ssd0[3] at PIN_H13
+ssd0[3] = OUTPUT();
+
+
+--A1L301 is ssd0[4]~output at IOOBUF_X26_Y29_N9
+A1L301 = OUTPUT_BUFFER.O(.I(F1L89), , , , , , , , , , , , , , , , , );
+
+
+--ssd0[4] is ssd0[4] at PIN_G12
+ssd0[4] = OUTPUT();
+
+
+--A1L303 is ssd0[5]~output at IOOBUF_X28_Y29_N23
+A1L303 = OUTPUT_BUFFER.O(.I(F1L84), , , , , , , , , , , , , , , , , );
+
+
+--ssd0[5] is ssd0[5] at PIN_F12
+ssd0[5] = OUTPUT();
+
+
+--A1L305 is ssd0[6]~output at IOOBUF_X26_Y29_N16
+A1L305 = OUTPUT_BUFFER.O(.I(F1L79), , , , , , , , , , , , , , , , , );
+
+
+--ssd0[6] is ssd0[6] at PIN_F13
+ssd0[6] = OUTPUT();
+
+
+--A1L307 is ssd0[7]~output at IOOBUF_X23_Y29_N9
+A1L307 = OUTPUT_BUFFER.O(.I(!F1L74), , , , , , , , , , , , , , , , , );
+
+
+--ssd0[7] is ssd0[7] at PIN_D13
+ssd0[7] = OUTPUT();
+
+
+--A1L310 is ssd1[0]~output at IOOBUF_X21_Y29_N2
+A1L310 = OUTPUT_BUFFER.O(.I(F1L136), , , , , , , , , , , , , , , , , );
+
+
+--ssd1[0] is ssd1[0] at PIN_A13
+ssd1[0] = OUTPUT();
+
+
+--A1L312 is ssd1[1]~output at IOOBUF_X21_Y29_N9
+A1L312 = OUTPUT_BUFFER.O(.I(VCC), , , , , , , , , , , , , , , , , );
+
+
+--ssd1[1] is ssd1[1] at PIN_B13
+ssd1[1] = OUTPUT();
+
+
+--A1L314 is ssd1[2]~output at IOOBUF_X23_Y29_N2
+A1L314 = OUTPUT_BUFFER.O(.I(F1L132), , , , , , , , , , , , , , , , , );
+
+
+--ssd1[2] is ssd1[2] at PIN_C13
+ssd1[2] = OUTPUT();
+
+
+--A1L316 is ssd1[3]~output at IOOBUF_X23_Y29_N23
+A1L316 = OUTPUT_BUFFER.O(.I(F1L127), , , , , , , , , , , , , , , , , );
+
+
+--ssd1[3] is ssd1[3] at PIN_A14
+ssd1[3] = OUTPUT();
+
+
+--A1L318 is ssd1[4]~output at IOOBUF_X23_Y29_N30
+A1L318 = OUTPUT_BUFFER.O(.I(F1L122), , , , , , , , , , , , , , , , , );
+
+
+--ssd1[4] is ssd1[4] at PIN_B14
+ssd1[4] = OUTPUT();
+
+
+--A1L320 is ssd1[5]~output at IOOBUF_X28_Y29_N16
+A1L320 = OUTPUT_BUFFER.O(.I(F1L116), , , , , , , , , , , , , , , , , );
+
+
+--ssd1[5] is ssd1[5] at PIN_E14
+ssd1[5] = OUTPUT();
+
+
+--A1L322 is ssd1[6]~output at IOOBUF_X26_Y29_N23
+A1L322 = OUTPUT_BUFFER.O(.I(F1L111), , , , , , , , , , , , , , , , , );
+
+
+--ssd1[6] is ssd1[6] at PIN_A15
+ssd1[6] = OUTPUT();
+
+
+--A1L324 is ssd1[7]~output at IOOBUF_X26_Y29_N30
+A1L324 = OUTPUT_BUFFER.O(.I(!F1L108), , , , , , , , , , , , , , , , , );
+
+
+--ssd1[7] is ssd1[7] at PIN_B15
+ssd1[7] = OUTPUT();
+
+
+--A1L327 is ssd2[0]~output at IOOBUF_X32_Y29_N30
+A1L327 = OUTPUT_BUFFER.O(.I(F1L170), , , , , , , , , , , , , , , , , );
+
+
+--ssd2[0] is ssd2[0] at PIN_D15
+ssd2[0] = OUTPUT();
+
+
+--A1L329 is ssd2[1]~output at IOOBUF_X30_Y29_N30
+A1L329 = OUTPUT_BUFFER.O(.I(F1L166), , , , , , , , , , , , , , , , , );
+
+
+--ssd2[1] is ssd2[1] at PIN_A16
+ssd2[1] = OUTPUT();
+
+
+--A1L331 is ssd2[2]~output at IOOBUF_X28_Y29_N2
+A1L331 = OUTPUT_BUFFER.O(.I(F1L162), , , , , , , , , , , , , , , , , );
+
+
+--ssd2[2] is ssd2[2] at PIN_B16
+ssd2[2] = OUTPUT();
+
+
+--A1L333 is ssd2[3]~output at IOOBUF_X30_Y29_N2
+A1L333 = OUTPUT_BUFFER.O(.I(F1L157), , , , , , , , , , , , , , , , , );
+
+
+--ssd2[3] is ssd2[3] at PIN_E15
+ssd2[3] = OUTPUT();
+
+
+--A1L335 is ssd2[4]~output at IOOBUF_X30_Y29_N16
+A1L335 = OUTPUT_BUFFER.O(.I(F1L152), , , , , , , , , , , , , , , , , );
+
+
+--ssd2[4] is ssd2[4] at PIN_A17
+ssd2[4] = OUTPUT();
+
+
+--A1L337 is ssd2[5]~output at IOOBUF_X30_Y29_N23
+A1L337 = OUTPUT_BUFFER.O(.I(F1L147), , , , , , , , , , , , , , , , , );
+
+
+--ssd2[5] is ssd2[5] at PIN_B17
+ssd2[5] = OUTPUT();
+
+
+--A1L339 is ssd2[6]~output at IOOBUF_X37_Y29_N2
+A1L339 = OUTPUT_BUFFER.O(.I(F1L142), , , , , , , , , , , , , , , , , );
+
+
+--ssd2[6] is ssd2[6] at PIN_F14
+ssd2[6] = OUTPUT();
+
+
+--A1L341 is ssd2[7]~output at IOOBUF_X32_Y29_N16
+A1L341 = OUTPUT_BUFFER.O(.I(!F1L137), , , , , , , , , , , , , , , , , );
+
+
+--ssd2[7] is ssd2[7] at PIN_A18
+ssd2[7] = OUTPUT();
+
+
+--A1L344 is ssd3[0]~output at IOOBUF_X32_Y29_N23
+A1L344 = OUTPUT_BUFFER.O(.I(F1L203), , , , , , , , , , , , , , , , , );
+
+
+--ssd3[0] is ssd3[0] at PIN_B18
+ssd3[0] = OUTPUT();
+
+
+--A1L346 is ssd3[1]~output at IOOBUF_X39_Y29_N16
+A1L346 = OUTPUT_BUFFER.O(.I(F1L199), , , , , , , , , , , , , , , , , );
+
+
+--ssd3[1] is ssd3[1] at PIN_F15
+ssd3[1] = OUTPUT();
+
+
+--A1L348 is ssd3[2]~output at IOOBUF_X32_Y29_N9
+A1L348 = OUTPUT_BUFFER.O(.I(F1L194), , , , , , , , , , , , , , , , , );
+
+
+--ssd3[2] is ssd3[2] at PIN_A19
+ssd3[2] = OUTPUT();
+
+
+--A1L350 is ssd3[3]~output at IOOBUF_X32_Y29_N2
+A1L350 = OUTPUT_BUFFER.O(.I(F1L189), , , , , , , , , , , , , , , , , );
+
+
+--ssd3[3] is ssd3[3] at PIN_B19
+ssd3[3] = OUTPUT();
+
+
+--A1L352 is ssd3[4]~output at IOOBUF_X37_Y29_N23
+A1L352 = OUTPUT_BUFFER.O(.I(F1L184), , , , , , , , , , , , , , , , , );
+
+
+--ssd3[4] is ssd3[4] at PIN_C19
+ssd3[4] = OUTPUT();
+
+
+--A1L354 is ssd3[5]~output at IOOBUF_X37_Y29_N30
+A1L354 = OUTPUT_BUFFER.O(.I(F1L179), , , , , , , , , , , , , , , , , );
+
+
+--ssd3[5] is ssd3[5] at PIN_D19
+ssd3[5] = OUTPUT();
+
+
+--A1L356 is ssd3[6]~output at IOOBUF_X39_Y29_N30
+A1L356 = OUTPUT_BUFFER.O(.I(F1L174), , , , , , , , , , , , , , , , , );
+
+
+--ssd3[6] is ssd3[6] at PIN_G15
+ssd3[6] = OUTPUT();
+
+
+--A1L358 is ssd3[7]~output at IOOBUF_X39_Y29_N23
+A1L358 = OUTPUT_BUFFER.O(.I(!F1L171), , , , , , , , , , , , , , , , , );
+
+
+--ssd3[7] is ssd3[7] at PIN_G16
+ssd3[7] = OUTPUT();
+
+
+--A1L7 is buzzer~output at IOOBUF_X28_Y0_N23
+A1L7 = OUTPUT_BUFFER.O(.I(buzzer$latch), , , , , , , , , , , , , , , , , );
+
+
+--buzzer is buzzer at PIN_AA16
+buzzer = OUTPUT();
+
+
+--A1L57 is clk~input at IOIBUF_X41_Y15_N1
+A1L57 = INPUT_BUFFER(.I(clk), );
+
+
+--clk is clk at PIN_G21
+clk = INPUT();
+
+
+--A1L369 is sw_comm~input at IOIBUF_X0_Y27_N1
+A1L369 = INPUT_BUFFER(.I(sw_comm), );
+
+
+--sw_comm is sw_comm at PIN_H5
+sw_comm = INPUT();
+
+
+--A1L371 is sw_loop_state~input at IOIBUF_X0_Y23_N8
+A1L371 = INPUT_BUFFER(.I(sw_loop_state), );
+
+
+--sw_loop_state is sw_loop_state at PIN_G4
+sw_loop_state = INPUT();
+
+
+--A1L274 is r~input at IOIBUF_X0_Y26_N1
+A1L274 = INPUT_BUFFER(.I(r), );
+
+
+--r is r at PIN_E4
+r = INPUT();
+
+
+--A1L270 is rst~input at IOIBUF_X0_Y23_N1
+A1L270 = INPUT_BUFFER(.I(rst), );
+
+
+--rst is rst at PIN_F1
+rst = INPUT();
+
+
+--A1L373 is sw_tx~input at IOIBUF_X0_Y24_N1
+A1L373 = INPUT_BUFFER(.I(sw_tx), );
+
+
+--sw_tx is sw_tx at PIN_J6
+sw_tx = INPUT();
+
+
+--A1L3 is button~input at IOIBUF_X28_Y0_N15
+A1L3 = INPUT_BUFFER(.I(button), );
+
+
+--button is button at PIN_AB16
+button = INPUT();
+
+
+
+
+
+
+
+
+
+
+
+
+--A1L81 is Decoder0~11clkctrl at CLKCTRL_G5
+A1L81 = cycloneiii_clkctrl(.INCLK[0] = A1L80) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L79 is Decoder0~10clkctrl at CLKCTRL_G3
+A1L79 = cycloneiii_clkctrl(.INCLK[0] = A1L78) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L85 is Decoder0~13clkctrl at CLKCTRL_G17
+A1L85 = cycloneiii_clkctrl(.INCLK[0] = A1L84) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L83 is Decoder0~12clkctrl at CLKCTRL_G2
+A1L83 = cycloneiii_clkctrl(.INCLK[0] = A1L82) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L87 is Decoder0~14clkctrl at CLKCTRL_G16
+A1L87 = cycloneiii_clkctrl(.INCLK[0] = A1L86) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L64 is Decoder0~2clkctrl at CLKCTRL_G15
+A1L64 = cycloneiii_clkctrl(.INCLK[0] = A1L63) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L91 is Decoder0~16clkctrl at CLKCTRL_G14
+A1L91 = cycloneiii_clkctrl(.INCLK[0] = A1L90) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L95 is Decoder0~18clkctrl at CLKCTRL_G1
+A1L95 = cycloneiii_clkctrl(.INCLK[0] = A1L94) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L89 is Decoder0~15clkctrl at CLKCTRL_G4
+A1L89 = cycloneiii_clkctrl(.INCLK[0] = A1L88) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L93 is Decoder0~17clkctrl at CLKCTRL_G13
+A1L93 = cycloneiii_clkctrl(.INCLK[0] = A1L92) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L66 is Decoder0~3clkctrl at CLKCTRL_G0
+A1L66 = cycloneiii_clkctrl(.INCLK[0] = A1L65) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L73 is Decoder0~7clkctrl at CLKCTRL_G19
+A1L73 = cycloneiii_clkctrl(.INCLK[0] = A1L72) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L75 is Decoder0~8clkctrl at CLKCTRL_G10
+A1L75 = cycloneiii_clkctrl(.INCLK[0] = A1L74) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L77 is Decoder0~9clkctrl at CLKCTRL_G6
+A1L77 = cycloneiii_clkctrl(.INCLK[0] = A1L76) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L58 is clk~inputclkctrl at CLKCTRL_G9
+A1L58 = cycloneiii_clkctrl(.INCLK[0] = A1L57) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L68 is Decoder0~4clkctrl at CLKCTRL_G11
+A1L68 = cycloneiii_clkctrl(.INCLK[0] = A1L67) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L70 is Decoder0~5clkctrl at CLKCTRL_G12
+A1L70 = cycloneiii_clkctrl(.INCLK[0] = A1L69) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L176 is pointer[6]~feeder at LCCOMB_X15_Y17_N4
+A1L176 = A1L174;
+
+
+--E1L71 is MorseCode:RxTx|pr_state.btw_word~feeder at LCCOMB_X20_Y17_N16
+E1L71 = E1L100;
+
+
+--A1L157 is pointer[0]~feeder at LCCOMB_X15_Y17_N30
+A1L157 = A1L156;
+
+

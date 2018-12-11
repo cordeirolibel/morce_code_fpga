@@ -1,0 +1,561 @@
+Analysis & Synthesis report for APS
+Tue Dec 11 13:06:04 2018
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |APS|pr_state
+  9. State Machine - |APS|MorseCode:RxTx|pr_state
+ 10. User-Specified and Inferred Latches
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |APS
+ 14. Parameter Settings for User Entity Instance: DEBOUNCE:db_button
+ 15. Parameter Settings for User Entity Instance: DEBOUNCE_PULSE:db_rst
+ 16. Parameter Settings for User Entity Instance: MorseCode:RxTx
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Equations
+ 19. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Dec 11 13:06:03 2018      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; APS                                        ;
+; Top-level Entity Name              ; APS                                        ;
+; Family                             ; Cyclone III                                ;
+; Total logic elements               ; 682                                        ;
+;     Total combinational functions  ; 680                                        ;
+;     Dedicated logic registers      ; 212                                        ;
+; Total registers                    ; 212                                        ;
+; Total pins                         ; 47                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                                      ; APS                ; APS                ;
+; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
+; VHDL Show LMF Mapping Messages                                             ; Off                ;                    ;
+; VHDL Version                                                               ; VHDL_2008          ; VHDL_1993          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                         ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------+---------+
+; mensagem.vhd                     ; yes             ; User VHDL File  ; C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/APS/GERACAO CODIGO MORSE/mensagem.vhd       ;         ;
+; print_debug.vhd                  ; yes             ; User VHDL File  ; C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/APS/GERACAO CODIGO MORSE/print_debug.vhd    ;         ;
+; MorseCode.vhd                    ; yes             ; User VHDL File  ; C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/APS/GERACAO CODIGO MORSE/MorseCode.vhd      ;         ;
+; meupacote.vhd                    ; yes             ; User VHDL File  ; C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/APS/GERACAO CODIGO MORSE/meupacote.vhd      ;         ;
+; DEBOUNCE_PULSE.vhd               ; yes             ; User VHDL File  ; C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/APS/GERACAO CODIGO MORSE/DEBOUNCE_PULSE.vhd ;         ;
+; DEBOUNCE.vhd                     ; yes             ; User VHDL File  ; C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/APS/GERACAO CODIGO MORSE/DEBOUNCE.vhd       ;         ;
+; APS.vhd                          ; yes             ; User VHDL File  ; C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/APS/GERACAO CODIGO MORSE/APS.vhd            ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 682       ;
+;                                             ;           ;
+; Total combinational functions               ; 680       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 350       ;
+;     -- 3 input functions                    ; 101       ;
+;     -- <=2 input functions                  ; 229       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 483       ;
+;     -- arithmetic mode                      ; 197       ;
+;                                             ;           ;
+; Total registers                             ; 212       ;
+;     -- Dedicated logic registers            ; 212       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 47        ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 212       ;
+; Total fan-out                               ; 3146      ;
+; Average fan-out                             ; 3.19      ;
++---------------------------------------------+-----------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                    ;
++--------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+; Compilation Hierarchy Node     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Library Name ;
++--------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+; |APS                           ; 680 (215)         ; 212 (69)     ; 0           ; 0            ; 0       ; 0         ; 47   ; 0            ; |APS                                       ; work         ;
+;    |DEBOUNCE:db_button|        ; 91 (91)           ; 67 (67)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |APS|DEBOUNCE:db_button                    ; work         ;
+;    |DEBOUNCE_PULSE:db_rst|     ; 46 (46)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |APS|DEBOUNCE_PULSE:db_rst                 ; work         ;
+;    |MorseCode:RxTx|            ; 328 (147)         ; 42 (42)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |APS|MorseCode:RxTx                        ; work         ;
+;       |print_debug:texto_comp| ; 181 (181)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |APS|MorseCode:RxTx|print_debug:texto_comp ; work         ;
++--------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |APS|pr_state                                                                                                                                                                              ;
++------------------------+------------------------+------------------+---------------------+----------------------+----------------------+-----------------------+----------------------+--------------------+
+; Name                   ; pr_state.communication ; pr_state.msgFull ; pr_state.processDot ; pr_state.processDash ; pr_state.buttonPress ; pr_state.processSpace ; pr_state.processChar ; pr_state.idleInput ;
++------------------------+------------------------+------------------+---------------------+----------------------+----------------------+-----------------------+----------------------+--------------------+
+; pr_state.idleInput     ; 0                      ; 0                ; 0                   ; 0                    ; 0                    ; 0                     ; 0                    ; 0                  ;
+; pr_state.processChar   ; 0                      ; 0                ; 0                   ; 0                    ; 0                    ; 0                     ; 1                    ; 1                  ;
+; pr_state.processSpace  ; 0                      ; 0                ; 0                   ; 0                    ; 0                    ; 1                     ; 0                    ; 1                  ;
+; pr_state.buttonPress   ; 0                      ; 0                ; 0                   ; 0                    ; 1                    ; 0                     ; 0                    ; 1                  ;
+; pr_state.processDash   ; 0                      ; 0                ; 0                   ; 1                    ; 0                    ; 0                     ; 0                    ; 1                  ;
+; pr_state.processDot    ; 0                      ; 0                ; 1                   ; 0                    ; 0                    ; 0                     ; 0                    ; 1                  ;
+; pr_state.msgFull       ; 0                      ; 1                ; 0                   ; 0                    ; 0                    ; 0                     ; 0                    ; 1                  ;
+; pr_state.communication ; 1                      ; 0                ; 0                   ; 0                    ; 0                    ; 0                     ; 0                    ; 1                  ;
++------------------------+------------------------+------------------+---------------------+----------------------+----------------------+-----------------------+----------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |APS|MorseCode:RxTx|pr_state                                                                                                                                                                   ;
++------------------------+-------------------+-------------------+-------------------+------------------+-----------------+----------------------+----------------------+------------------------+---------------+
+; Name                   ; pr_state.btw_word ; pr_state.btw_symb ; pr_state.btw_char ; pr_state.tx_dash ; pr_state.tx_dot ; pr_state.transmiting ; pr_state.transmit_hs ; pr_state.communication ; pr_state.idle ;
++------------------------+-------------------+-------------------+-------------------+------------------+-----------------+----------------------+----------------------+------------------------+---------------+
+; pr_state.idle          ; 0                 ; 0                 ; 0                 ; 0                ; 0               ; 0                    ; 0                    ; 0                      ; 0             ;
+; pr_state.communication ; 0                 ; 0                 ; 0                 ; 0                ; 0               ; 0                    ; 0                    ; 1                      ; 1             ;
+; pr_state.transmit_hs   ; 0                 ; 0                 ; 0                 ; 0                ; 0               ; 0                    ; 1                    ; 0                      ; 1             ;
+; pr_state.transmiting   ; 0                 ; 0                 ; 0                 ; 0                ; 0               ; 1                    ; 0                    ; 0                      ; 1             ;
+; pr_state.tx_dot        ; 0                 ; 0                 ; 0                 ; 0                ; 1               ; 0                    ; 0                    ; 0                      ; 1             ;
+; pr_state.tx_dash       ; 0                 ; 0                 ; 0                 ; 1                ; 0               ; 0                    ; 0                    ; 0                      ; 1             ;
+; pr_state.btw_char      ; 0                 ; 0                 ; 1                 ; 0                ; 0               ; 0                    ; 0                    ; 0                      ; 1             ;
+; pr_state.btw_symb      ; 0                 ; 1                 ; 0                 ; 0                ; 0               ; 0                    ; 0                    ; 0                      ; 1             ;
+; pr_state.btw_word      ; 1                 ; 0                 ; 0                 ; 0                ; 0               ; 0                    ; 0                    ; 0                      ; 1             ;
++------------------------+-------------------+-------------------+-------------------+------------------+-----------------+----------------------+----------------------+------------------------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                ;
++-----------------------------------------------------+-------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                 ; Free of Timing Hazards ;
++-----------------------------------------------------+-------------------------------------+------------------------+
+; MorseCode:RxTx|TX                                   ; MorseCode:RxTx|pr_state.transmiting ; yes                    ;
+; buzzer$latch                                        ; pr_state.communication              ; yes                    ;
+; char[9][0]                                          ; Decoder0                            ; yes                    ;
+; char[3][0]                                          ; Decoder0                            ; yes                    ;
+; char[1][0]                                          ; Decoder0                            ; yes                    ;
+; char[11][0]                                         ; Decoder0                            ; yes                    ;
+; char[6][0]                                          ; Decoder0                            ; yes                    ;
+; char[12][0]                                         ; Decoder0                            ; yes                    ;
+; char[4][0]                                          ; Decoder0                            ; yes                    ;
+; char[14][0]                                         ; Decoder0                            ; yes                    ;
+; char[8][0]                                          ; Decoder0                            ; yes                    ;
+; char[2][0]                                          ; Decoder0                            ; yes                    ;
+; char[0][0]                                          ; Decoder0                            ; yes                    ;
+; char[10][0]                                         ; Decoder0                            ; yes                    ;
+; char[7][0]                                          ; Decoder0                            ; yes                    ;
+; char[13][0]                                         ; Decoder0                            ; yes                    ;
+; char[5][0]                                          ; Decoder0                            ; yes                    ;
+; char[15][0]                                         ; Decoder0                            ; yes                    ;
+; char[9][1]                                          ; Decoder0                            ; yes                    ;
+; char[12][1]                                         ; Decoder0                            ; yes                    ;
+; char[8][1]                                          ; Decoder0                            ; yes                    ;
+; char[13][1]                                         ; Decoder0                            ; yes                    ;
+; char[6][1]                                          ; Decoder0                            ; yes                    ;
+; char[3][1]                                          ; Decoder0                            ; yes                    ;
+; char[2][1]                                          ; Decoder0                            ; yes                    ;
+; char[7][1]                                          ; Decoder0                            ; yes                    ;
+; char[4][1]                                          ; Decoder0                            ; yes                    ;
+; char[1][1]                                          ; Decoder0                            ; yes                    ;
+; char[0][1]                                          ; Decoder0                            ; yes                    ;
+; char[5][1]                                          ; Decoder0                            ; yes                    ;
+; char[14][1]                                         ; Decoder0                            ; yes                    ;
+; char[11][1]                                         ; Decoder0                            ; yes                    ;
+; char[10][1]                                         ; Decoder0                            ; yes                    ;
+; char[15][1]                                         ; Decoder0                            ; yes                    ;
+; Number of user-specified and inferred latches = 34  ;                                     ;                        ;
++-----------------------------------------------------+-------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 212   ;
+; Number of registers using Synchronous Clear  ; 157   ;
+; Number of registers using Synchronous Load   ; 64    ;
+; Number of registers using Asynchronous Clear ; 111   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 93    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |APS|MorseCode:RxTx|I[0]                              ;
+; 3:1                ; 29 bits   ; 58 LEs        ; 29 LEs               ; 29 LEs                 ; Yes        ; |APS|t[2]                                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |APS|DEBOUNCE_PULSE:db_rst|cont_down[18]              ;
+; 3:1                ; 29 bits   ; 58 LEs        ; 29 LEs               ; 29 LEs                 ; Yes        ; |APS|MorseCode:RxTx|t[19]                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |APS|DEBOUNCE:db_button|cont_down[30]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |APS|DEBOUNCE:db_button|cont_up[12]                   ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |APS|MorseCode:RxTx|nx_state                          ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |APS|MorseCode:RxTx|print_debug:texto_comp|char[1][2] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |APS|MorseCode:RxTx|print_debug:texto_comp|char[2][2] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |APS|MorseCode:RxTx|print_debug:texto_comp|char[3][4] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |APS|MorseCode:RxTx|print_debug:texto_comp|char[4][5] ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |APS|MorseCode:RxTx|Mux1                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |APS ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; MAX            ; 39    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DEBOUNCE:db_button ;
++----------------+----------+-------------------------------------+
+; Parameter Name ; Value    ; Type                                ;
++----------------+----------+-------------------------------------+
+; tempo_debounce ; 50       ; Signed Integer                      ;
+; freq_hz        ; 50000000 ; Signed Integer                      ;
++----------------+----------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DEBOUNCE_PULSE:db_rst ;
++----------------+----------+----------------------------------------+
+; Parameter Name ; Value    ; Type                                   ;
++----------------+----------+----------------------------------------+
+; tempo_debounce ; 50       ; Signed Integer                         ;
+; freq_hz        ; 50000000 ; Signed Integer                         ;
++----------------+----------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MorseCode:RxTx ;
++----------------+----------+---------------------------------+
+; Parameter Name ; Value    ; Type                            ;
++----------------+----------+---------------------------------+
+; fclk           ; 50000000 ; Signed Integer                  ;
+; tam_vet        ; 10       ; Signed Integer                  ;
++----------------+----------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++--------------------------------+
+; Analysis & Synthesis Equations ;
++--------------------------------+
+The equations can be found in C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/APS/GERACAO CODIGO MORSE/output_files/APS.map.eqn.
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Tue Dec 11 13:05:53 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off APS -c APS
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 0 entities, in source file mensagem.vhd
+    Info (12022): Found design unit 1: mensagem
+Info (12021): Found 2 design units, including 1 entities, in source file print_debug.vhd
+    Info (12022): Found design unit 1: print_debug-print_debug
+    Info (12023): Found entity 1: print_debug
+Info (12021): Found 2 design units, including 1 entities, in source file morsecode.vhd
+    Info (12022): Found design unit 1: MorseCode-MorseCode
+    Info (12023): Found entity 1: MorseCode
+Info (12021): Found 1 design units, including 0 entities, in source file meupacote.vhd
+    Info (12022): Found design unit 1: meupacote
+Info (12021): Found 2 design units, including 1 entities, in source file debounce_tx.vhd
+    Info (12022): Found design unit 1: debounce_Tx-arch
+    Info (12023): Found entity 1: debounce_Tx
+Info (12021): Found 2 design units, including 1 entities, in source file debounce_pulse.vhd
+    Info (12022): Found design unit 1: DEBOUNCE_PULSE-tratamento
+    Info (12023): Found entity 1: DEBOUNCE_PULSE
+Info (12021): Found 2 design units, including 1 entities, in source file debounce.vhd
+    Info (12022): Found design unit 1: DEBOUNCE-debounce
+    Info (12023): Found entity 1: DEBOUNCE
+Info (12021): Found 2 design units, including 1 entities, in source file aps.vhd
+    Info (12022): Found design unit 1: APS-MORSE_GENERATOR
+    Info (12023): Found entity 1: APS
+Info (12127): Elaborating entity "APS" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at APS.vhd(102): signal "button_db" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(102): signal "t" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(102): signal "pointer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(104): signal "button_db" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(104): signal "t" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(104): signal "pointer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(106): signal "button_db" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(106): signal "t" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(106): signal "pointer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(108): signal "button_db" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(108): signal "pointer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(110): signal "sw_comm" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(116): signal "button_db" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(119): signal "button_db" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(119): signal "t" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(121): signal "button_db" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(121): signal "t" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(130): signal "pointer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(136): signal "pointer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(142): signal "pointer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(148): signal "pointer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(153): signal "t" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at APS.vhd(160): signal "sw_comm" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at APS.vhd(95): inferring latch(es) for signal or variable "buzzer", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at APS.vhd(95): inferring latch(es) for signal or variable "char", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "char[0][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[0][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[1][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[1][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[2][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[2][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[3][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[3][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[4][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[4][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[5][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[5][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[6][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[6][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[7][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[7][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[8][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[8][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[9][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[9][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[10][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[10][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[11][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[11][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[12][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[12][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[13][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[13][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[14][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[14][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[15][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[15][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[16][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[16][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[17][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[17][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[18][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[18][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[19][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[19][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[20][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[20][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[21][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[21][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[22][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[22][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[23][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[23][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[24][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[24][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[25][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[25][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[26][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[26][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[27][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[27][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[28][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[28][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[29][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[29][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[30][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[30][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[31][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[31][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[32][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[32][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[33][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[33][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[34][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[34][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[35][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[35][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[36][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[36][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[37][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[37][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[38][0]" at APS.vhd(95)
+Info (10041): Inferred latch for "char[38][1]" at APS.vhd(95)
+Info (10041): Inferred latch for "buzzer" at APS.vhd(95)
+Info (12128): Elaborating entity "DEBOUNCE" for hierarchy "DEBOUNCE:db_button"
+Info (12128): Elaborating entity "DEBOUNCE_PULSE" for hierarchy "DEBOUNCE_PULSE:db_rst"
+Warning (10492): VHDL Process Statement warning at DEBOUNCE_PULSE.vhd(24): signal "button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DEBOUNCE_PULSE.vhd(25): signal "aux" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "MorseCode" for hierarchy "MorseCode:RxTx"
+Warning (10631): VHDL Process Statement warning at MorseCode.vhd(120): inferring latch(es) for signal or variable "TX", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "TX" at MorseCode.vhd(120)
+Info (12128): Elaborating entity "print_debug" for hierarchy "MorseCode:RxTx|print_debug:texto_comp"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "ssd1[1]" is stuck at VCC
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "rx"
+Info (21057): Implemented 737 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
+    Info (21059): Implemented 39 output pins
+    Info (21061): Implemented 690 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 33 warnings
+    Info: Peak virtual memory: 4687 megabytes
+    Info: Processing ended: Tue Dec 11 13:06:04 2018
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:07
+
+

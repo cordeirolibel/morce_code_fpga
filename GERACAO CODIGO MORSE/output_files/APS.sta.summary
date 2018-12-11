@@ -1,0 +1,173 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -7.587
+TNS   : -822.723
+
+Type  : Slow 1200mV 85C Model Setup 'MorseCode:RxTx|pr_state.transmiting'
+Slack : -2.476
+TNS   : -2.476
+
+Type  : Slow 1200mV 85C Model Setup 'pointer[0]'
+Slack : -0.824
+TNS   : -10.680
+
+Type  : Slow 1200mV 85C Model Setup 'pr_state.communication'
+Slack : -0.552
+TNS   : -0.552
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : -1.537
+TNS   : -5.041
+
+Type  : Slow 1200mV 85C Model Hold 'pr_state.communication'
+Slack : -1.188
+TNS   : -22.738
+
+Type  : Slow 1200mV 85C Model Hold 'pointer[0]'
+Slack : -0.485
+TNS   : -3.017
+
+Type  : Slow 1200mV 85C Model Hold 'MorseCode:RxTx|pr_state.transmiting'
+Slack : 2.226
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'clk'
+Slack : -0.941
+TNS   : -53.295
+
+Type  : Slow 1200mV 85C Model Removal 'clk'
+Slack : 0.850
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -215.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pointer[0]'
+Slack : 0.298
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pr_state.communication'
+Slack : 0.327
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MorseCode:RxTx|pr_state.transmiting'
+Slack : 0.394
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -6.661
+TNS   : -715.749
+
+Type  : Slow 1200mV 0C Model Setup 'MorseCode:RxTx|pr_state.transmiting'
+Slack : -2.163
+TNS   : -2.163
+
+Type  : Slow 1200mV 0C Model Setup 'pointer[0]'
+Slack : -0.817
+TNS   : -10.807
+
+Type  : Slow 1200mV 0C Model Setup 'pr_state.communication'
+Slack : -0.367
+TNS   : -0.367
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : -1.435
+TNS   : -5.944
+
+Type  : Slow 1200mV 0C Model Hold 'pr_state.communication'
+Slack : -0.913
+TNS   : -16.183
+
+Type  : Slow 1200mV 0C Model Hold 'pointer[0]'
+Slack : -0.295
+TNS   : -1.201
+
+Type  : Slow 1200mV 0C Model Hold 'MorseCode:RxTx|pr_state.transmiting'
+Slack : 2.040
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'clk'
+Slack : -0.750
+TNS   : -40.502
+
+Type  : Slow 1200mV 0C Model Removal 'clk'
+Slack : 0.764
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -215.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pr_state.communication'
+Slack : 0.369
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pointer[0]'
+Slack : 0.400
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MorseCode:RxTx|pr_state.transmiting'
+Slack : 0.443
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -4.333
+TNS   : -386.948
+
+Type  : Fast 1200mV 0C Model Setup 'MorseCode:RxTx|pr_state.transmiting'
+Slack : -1.031
+TNS   : -1.031
+
+Type  : Fast 1200mV 0C Model Setup 'pointer[0]'
+Slack : -0.250
+TNS   : -1.365
+
+Type  : Fast 1200mV 0C Model Setup 'pr_state.communication'
+Slack : 0.076
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : -0.937
+TNS   : -6.676
+
+Type  : Fast 1200mV 0C Model Hold 'pr_state.communication'
+Slack : -0.814
+TNS   : -16.505
+
+Type  : Fast 1200mV 0C Model Hold 'pointer[0]'
+Slack : -0.356
+TNS   : -2.574
+
+Type  : Fast 1200mV 0C Model Hold 'MorseCode:RxTx|pr_state.transmiting'
+Slack : 1.270
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'clk'
+Slack : -0.133
+TNS   : -3.577
+
+Type  : Fast 1200mV 0C Model Removal 'clk'
+Slack : 0.471
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -226.560
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pr_state.communication'
+Slack : 0.214
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pointer[0]'
+Slack : 0.261
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MorseCode:RxTx|pr_state.transmiting'
+Slack : 0.395
+TNS   : 0.000
+
+------------------------------------------------------------

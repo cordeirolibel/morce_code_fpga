@@ -1,0 +1,135 @@
+LIBRARY ieee;
+USE ieee.numeric_std.all;
+USE ieee.std_logic_1164.all;
+----------------------------
+ENTITY APS IS
+GENERIC (NUM_LEDS: INTEGER :=10;  		--quantidade de leds disponiveis
+			TEMPO_MS: INTEGER:=250; 		--tempo em milisegundos para rolagem do led
+			MAX: INTEGER:=39;					--tamanho do buffer
+			FREQ_HZ: INTEGER:=50000000);
+
+PORT (clk, reset, button: 	IN STD_LOGIC;			   					--sinais de clock, reset e o botao de transmissao
+		buzzer: OUT STD_LOGIC);													--buzzer de sinalizacao de ponto-traco
+END APS;
+----------------------------
+ARCHITECTURE MORSE_GENERATOR OF APS IS
+	TYPE char_array IS ARRAY (MAX-1 DOWNTO 0) OF std_logic_vector (1 DOWNTO 0); --vetor para bufferizacao dos pontos e tracos
+	SIGNAL char: char_array;
+	SIGNAL pointer: INTEGER:=0;	
+	TYPE state IS (											--estados da maquina
+	idleStart,													--estado inicial
+	idleInput,												
+	processChar,												
+	processSpace,												
+	buttonPress,												
+	processDash,
+	processDot;
+	msgFull);														--estado sinaleiro 2 amarelo
+	SIGNAL pr_state,nx_state: state; 
+	SIGNAL button_db: std_logic;						
+	SIGNAL parada_2_db: std_logic;					
+	SIGNAL rst_db: std_logic;									-- botão de reset
+
+	CONSTANT tChar: NATURAL := 100000000;					--constante de tempo 1, 2s
+	CONSTANT tSpace: NATURAL := 150000000;					--constante de tempo 2, 3s
+	CONSTANT tDot: NATURAL := 1;
+	CONSTANT tDash: NATURAL := 1;
+	CONSTANT tBuzzer: NATURAL := 1;
+	CONSTANT tmax: NATURAL := 200000000;					--constante de tempo máximo
+	SIGNAL t: NATURAL RANGE 0 TO tmax;
+	
+BEGIN
+---circuito de debounce dos botoes e reset ------------------
+db_button: entity work.LAB_7_1 port map(clk=>clk, button=>button, output_debounce=>button_db);
+db_rst: entity work.DEBOUNCE port map(clk=>clk, button=>rst, output_debounce=>rst_db);
+
+-----------------TIMER-----------------------------------------
+	PROCESS (clk, rst_db)
+	BEGIN
+		IF (rst_db = '1') THEN
+			t <= 0;
+		ELSIF (rising_edge(clk)) THEN
+			IF pr_state /= nx_state THEN
+				t <= 0;
+			ELSIF t/= tmax THEN
+				t <= t+1;
+			END IF;
+		END IF;
+	END PROCESS;
+----------------------- Lower section -----------------------
+	PROCESS (rst_db, clk)
+	BEGIN
+		IF (rst_db='1') THEN
+			pr_state <= idleInput;
+			FOR i IN 0 TO MAX LOOP
+				char(i) <= NULL;
+			END LOOP;
+		ELSIF (rising_edge(clk)) THEN
+			pr_state <= nx_state;
+		END IF;
+	END PROCESS;
+---------------------- Upper section ------------------------
+	PROCESS (pr_state)
+	BEGIN
+		CASE pr_state IS
+		
+		 WHEN idleInput =>									
+			buzzer <= 0;
+			
+			IF (button_db = '1' AND t < t Char AND pointer < MAX - 1) THEN
+				nx_state <= buttonPress
+			ELSIF (button_db = '1' AND tChar < t AND tSpace > t AND pointer < MAX - 1) THEN
+				nx_state <= processChar;
+			ELSIF (button_db = '1' AND tSpace > t AND pointer < MAX - 1) THEN
+				nx_state <= processSpace;
+			ELSIF (button_db = '1' AND pointer > MAX - 1) THEN
+				nx_state <= msgFull;
+			ELSE nx_state <= idleInput;
+			END IF;
+
+		 WHEN buttonPress =>						
+			buzzer <= button_db;
+			
+			IF (button_db = '0' AND t>tDot) THEN
+				nx_state <= processDash;
+			ELSIF (button_db = '0' AND t < tDot) THEN
+				nx_state <= processDot;
+			ELSE nx_state <= button_Press;
+			END IF;
+			
+		 WHEN processDash =>
+			buzzer <= '0';
+			nx_state <= idleInput;
+			char(pointer) <= "01";
+			pointer:=pointer+1;
+		
+	    WHEN processDot =>
+			buzzer <= '0';
+			nx_state <= idleInput;
+			char(pointer) <= "00";
+			pointer:=pointer+1;
+			
+		 WHEN processChar =>
+			buzzer <= '0';
+			nx_state <= buttonPress;
+			char(pointer) <= "10";
+			pointer:=pointer+1;
+
+		 WHEN processSpace =>
+			buzzer <= '0';
+			nx_state <= buttonPress;
+			char(pointer) <= "11";
+			pointer:=pointer+1;
+		
+		 WHEN msgFull =>
+			buzzer <= '1';
+			IF (t > tBuzzer) THEN
+			nx_state <= idleInput;
+			ELSE nx_state <= msgFull;
+			END IF;
+			
+		END CASE;
+	END PROCESS;
+
+END MORSE_GENERATOR;
+-----------------------------------------
