@@ -128,7 +128,7 @@ BEGIN
 								PORT MAP(clk => CLK_50MHZ,
 										reset => rst_text_ext,
 										textPassage => MSG_EXT,
-										position => (100, 250),-- 640x480
+										position => (150, 250),-- 640x480
 										colorMap => (MSG_EXT'LENGTH-1 DOWNTO 0 => WHITE),
 										inArbiterPort => inArbiterPortArray(3),
 										outArbiterPort => outArbiterPortArray(3),

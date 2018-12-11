@@ -10,13 +10,14 @@ USE work.mensagem.all;
 ENTITY MorseCode IS
 	GENERIC(
 		FCLK		: NATURAL := 50_000_000;
-		tam_vet	: NATURAL := 10);
+		tam_vet	: NATURAL := 39);
 	PORT(
 		clk		: IN 	STD_LOGIC;
 		rst		: IN 	STD_LOGIC;
 		TX_STATE, COM_STATE, LOOP_STATE	: IN STD_LOGIC;				--switches
 		RX, R		: IN 	STD_LOGIC;								--fio IN
 		msg		: IN char_array;
+		msg_out	: OUT char_array;
 		TX, S		: OUT STD_LOGIC;								--fio OUT
 		ssd0		: OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
 		ssd1		: OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
@@ -29,9 +30,10 @@ END ENTITY;
 
 ARCHITECTURE MorseCode OF MorseCode IS	
 
+	
 
 	---------- MAQUINA DE ESTADOS -------------------
-	TYPE state IS (idle, communication, transmit_hs, transmiting, tx_dot, tx_dash, btw_char, btw_symb, btw_word);
+	TYPE state IS (idle, communication, transmit_hs, transmiting, comm_request, recieving,  tx_dot, tx_dash, btw_char, btw_symb, btw_word);
 	SIGNAL pr_state, nx_state: state;
 	--------------------------------------------------
 	
@@ -72,7 +74,8 @@ ARCHITECTURE MorseCode OF MorseCode IS
 	SIGNAL I: INTEGER RANGE 0 TO tam_vet;
 	
 BEGIN
-
+	
+	RecivedMsg: entity work.MORSE_GEN port map (clk=>clk, rst=>rst, button=>RX, msg_out=>msg_out );
 	texto_comp : print_debug PORT MAP (txt => texto, ssd0_d => ssd0, ssd1_d => ssd1, ssd2_d => ssd2, ssd3_d => ssd3);
 
 	-- TIMER ------------------------
@@ -143,11 +146,35 @@ END PROCESS;
 				ELSIF LOOP_STATE = '1' THEN
 					nx_state <= transmit_hs;
 				ELSIF R = '0' THEN
-					nx_state <= communication;
+					nx_state <= comm_request;
 				ELSE
 					nx_state <= communication;
 				END IF;
 				
+			WHEN comm_request =>
+				S 	<= '0';			
+				TX <= '0';		
+				
+				IF COM_STATE = '0' THEN
+					nx_state <= idle;
+				ELSIF RX = '1' THEN
+					nx_state <= recieving;
+				ELSE
+					nx_state <= comm_request;
+				END IF;
+			
+			WHEN recieving =>
+				S 	<= '0';			
+				TX <= '0';		
+				
+				IF COM_STATE = '0' THEN
+					nx_state <= idle;
+				ELSIF R = '1' THEN
+					nx_state <= idle;
+				ELSE
+					nx_state <= recieving;
+				END IF;
+			
 			WHEN transmit_hs =>
 				S  <= '0';			--SINAL DE SEND PARA TRANSMITIR
 				TX <= '0';			

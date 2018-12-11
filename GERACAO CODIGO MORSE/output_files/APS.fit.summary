@@ -1,16 +1,16 @@
-Fitter Status : Successful - Tue Dec 11 13:06:29 2018
+Fitter Status : Successful - Tue Dec 11 16:45:27 2018
 Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
 Revision Name : APS
 Top-level Entity Name : APS
 Family : Cyclone III
 Device : EP3C16F484C6
 Timing Models : Final
-Total logic elements : 684 / 15,408 ( 4 % )
-    Total combinational functions : 680 / 15,408 ( 4 % )
-    Dedicated logic registers : 212 / 15,408 ( 1 % )
-Total registers : 212
-Total pins : 47 / 347 ( 14 % )
+Total logic elements : 2,720 / 15,408 ( 18 % )
+    Total combinational functions : 2,532 / 15,408 ( 16 % )
+    Dedicated logic registers : 1,050 / 15,408 ( 7 % )
+Total registers : 1050
+Total pins : 63 / 347 ( 18 % )
 Total virtual pins : 0
-Total memory bits : 0 / 516,096 ( 0 % )
+Total memory bits : 34,688 / 516,096 ( 7 % )
 Embedded Multiplier 9-bit elements : 0 / 112 ( 0 % )
 Total PLLs : 0 / 4 ( 0 % )

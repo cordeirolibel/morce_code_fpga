@@ -3,171 +3,267 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -7.587
-TNS   : -822.723
+Slack : -7.387
+TNS   : -5072.938
+
+Type  : Slow 1200mV 85C Model Setup 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : -3.958
+TNS   : -73.045
 
 Type  : Slow 1200mV 85C Model Setup 'MorseCode:RxTx|pr_state.transmiting'
-Slack : -2.476
-TNS   : -2.476
+Slack : -2.791
+TNS   : -2.791
 
 Type  : Slow 1200mV 85C Model Setup 'pointer[0]'
-Slack : -0.824
-TNS   : -10.680
+Slack : -2.398
+TNS   : -100.042
 
 Type  : Slow 1200mV 85C Model Setup 'pr_state.communication'
-Slack : -0.552
-TNS   : -0.552
+Slack : -1.028
+TNS   : -10.701
+
+Type  : Slow 1200mV 85C Model Setup 'MorseCode:RxTx|pr_state.comm_request'
+Slack : -0.748
+TNS   : -10.611
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : -1.537
-TNS   : -5.041
+Slack : -2.188
+TNS   : -3.108
 
 Type  : Slow 1200mV 85C Model Hold 'pr_state.communication'
-Slack : -1.188
-TNS   : -22.738
+Slack : -1.222
+TNS   : -45.495
+
+Type  : Slow 1200mV 85C Model Hold 'MorseCode:RxTx|pr_state.comm_request'
+Slack : -1.003
+TNS   : -8.787
 
 Type  : Slow 1200mV 85C Model Hold 'pointer[0]'
-Slack : -0.485
-TNS   : -3.017
+Slack : 0.126
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : 0.352
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'MorseCode:RxTx|pr_state.transmiting'
-Slack : 2.226
+Slack : 2.581
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'clk'
-Slack : -0.941
-TNS   : -53.295
+Slack : -1.362
+TNS   : -72.334
+
+Type  : Slow 1200mV 85C Model Recovery 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : -0.578
+TNS   : -10.141
+
+Type  : Slow 1200mV 85C Model Removal 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : 0.839
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'clk'
-Slack : 0.850
+Slack : 1.222
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -215.000
+TNS   : -1061.958
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : -1.000
+TNS   : -28.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pointer[0]'
-Slack : 0.298
+Slack : 0.227
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pr_state.communication'
-Slack : 0.327
+Slack : 0.367
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MorseCode:RxTx|pr_state.comm_request'
+Slack : 0.428
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MorseCode:RxTx|pr_state.transmiting'
-Slack : 0.394
+Slack : 0.446
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -6.661
-TNS   : -715.749
+Slack : -6.476
+TNS   : -4440.566
+
+Type  : Slow 1200mV 0C Model Setup 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : -3.466
+TNS   : -62.794
 
 Type  : Slow 1200mV 0C Model Setup 'MorseCode:RxTx|pr_state.transmiting'
-Slack : -2.163
-TNS   : -2.163
+Slack : -2.444
+TNS   : -2.444
 
 Type  : Slow 1200mV 0C Model Setup 'pointer[0]'
-Slack : -0.817
-TNS   : -10.807
+Slack : -2.201
+TNS   : -91.146
 
 Type  : Slow 1200mV 0C Model Setup 'pr_state.communication'
-Slack : -0.367
-TNS   : -0.367
+Slack : -0.934
+TNS   : -7.770
+
+Type  : Slow 1200mV 0C Model Setup 'MorseCode:RxTx|pr_state.comm_request'
+Slack : -0.634
+TNS   : -8.634
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : -1.435
-TNS   : -5.944
+Slack : -2.026
+TNS   : -3.195
 
 Type  : Slow 1200mV 0C Model Hold 'pr_state.communication'
-Slack : -0.913
-TNS   : -16.183
+Slack : -0.983
+TNS   : -35.791
+
+Type  : Slow 1200mV 0C Model Hold 'MorseCode:RxTx|pr_state.comm_request'
+Slack : -0.829
+TNS   : -7.263
 
 Type  : Slow 1200mV 0C Model Hold 'pointer[0]'
-Slack : -0.295
-TNS   : -1.201
+Slack : 0.268
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : 0.321
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'MorseCode:RxTx|pr_state.transmiting'
-Slack : 2.040
+Slack : 2.366
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'clk'
-Slack : -0.750
-TNS   : -40.502
+Slack : -1.094
+TNS   : -57.284
+
+Type  : Slow 1200mV 0C Model Recovery 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : -0.443
+TNS   : -7.755
+
+Type  : Slow 1200mV 0C Model Removal 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : 0.814
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'clk'
-Slack : 0.764
+Slack : 1.132
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -215.000
+TNS   : -1061.958
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pr_state.communication'
-Slack : 0.369
-TNS   : 0.000
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : -1.000
+TNS   : -28.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pointer[0]'
-Slack : 0.400
+Slack : 0.345
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pr_state.communication'
+Slack : 0.368
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MorseCode:RxTx|pr_state.comm_request'
+Slack : 0.430
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MorseCode:RxTx|pr_state.transmiting'
-Slack : 0.443
+Slack : 0.479
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -4.333
-TNS   : -386.948
+Slack : -3.842
+TNS   : -2473.480
+
+Type  : Fast 1200mV 0C Model Setup 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : -1.807
+TNS   : -29.119
 
 Type  : Fast 1200mV 0C Model Setup 'MorseCode:RxTx|pr_state.transmiting'
-Slack : -1.031
-TNS   : -1.031
+Slack : -1.204
+TNS   : -1.204
 
 Type  : Fast 1200mV 0C Model Setup 'pointer[0]'
-Slack : -0.250
-TNS   : -1.365
+Slack : -0.983
+TNS   : -30.872
 
 Type  : Fast 1200mV 0C Model Setup 'pr_state.communication'
-Slack : 0.076
+Slack : -0.242
+TNS   : -0.320
+
+Type  : Fast 1200mV 0C Model Setup 'MorseCode:RxTx|pr_state.comm_request'
+Slack : 0.069
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : -0.937
-TNS   : -6.676
+Slack : -1.286
+TNS   : -5.307
 
 Type  : Fast 1200mV 0C Model Hold 'pr_state.communication'
-Slack : -0.814
-TNS   : -16.505
+Slack : -0.775
+TNS   : -28.487
+
+Type  : Fast 1200mV 0C Model Hold 'MorseCode:RxTx|pr_state.comm_request'
+Slack : -0.697
+TNS   : -6.816
 
 Type  : Fast 1200mV 0C Model Hold 'pointer[0]'
-Slack : -0.356
-TNS   : -2.574
+Slack : -0.062
+TNS   : -0.062
+
+Type  : Fast 1200mV 0C Model Hold 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : 0.165
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'MorseCode:RxTx|pr_state.transmiting'
-Slack : 1.270
+Slack : 1.488
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'clk'
-Slack : -0.133
-TNS   : -3.577
+Slack : -0.396
+TNS   : -13.738
+
+Type  : Fast 1200mV 0C Model Recovery 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : 0.056
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : 0.465
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'clk'
-Slack : 0.471
+Slack : 0.594
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -226.560
+TNS   : -1110.356
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pr_state.communication'
-Slack : 0.214
-TNS   : 0.000
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'VGA:vga|FQDIVIDER:fq1|TEMPORAL'
+Slack : -1.000
+TNS   : -28.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pointer[0]'
-Slack : 0.261
+Slack : 0.209
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pr_state.communication'
+Slack : 0.227
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MorseCode:RxTx|pr_state.comm_request'
+Slack : 0.415
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MorseCode:RxTx|pr_state.transmiting'
-Slack : 0.395
+Slack : 0.439
 TNS   : 0.000
 
 ------------------------------------------------------------

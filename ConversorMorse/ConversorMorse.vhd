@@ -1,13 +1,13 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.pacote.all;
+use work.mensagem.all;
 
 entity ConversorMorse is
 
 	generic(	MAX_STR : integer := 20;
 				MAX_LETRA : integer := 4;
-				MAX_ENT: integer := 40
+				MAX_ENT: integer := 39
 	);
   	port (
 		arrayEntrada : in char_array;

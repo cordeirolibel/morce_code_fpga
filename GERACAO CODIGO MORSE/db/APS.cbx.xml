@@ -1,5 +1,11 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="APS">
+		<CBX_INST_ENTRY INSTANCE_NAME="|APS|VGA:vga|blockRamArbiter:ba1|fontROM:blockRam|altsyncram:ROM_rtl_0" CBX_FILE_NAME="altsyncram_af61.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|APS|VGA:vga|text_line:tl0|basicBlockRAM:blockRam|altsyncram:RAM_rtl_0" CBX_FILE_NAME="altsyncram_36d1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|APS|VGA:vga|text_line:tl2|basicBlockRAM:blockRam|altsyncram:RAM_rtl_0" CBX_FILE_NAME="altsyncram_06d1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|APS|VGA:vga|text_line:tl4|basicBlockRAM:blockRam|altsyncram:RAM_rtl_0" CBX_FILE_NAME="altsyncram_59d1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|APS|VGA:vga|text_line:tl1|basicBlockRAM:blockRam|altsyncram:RAM_rtl_0" CBX_FILE_NAME="altsyncram_06d1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|APS|VGA:vga|text_line:tl3|basicBlockRAM:blockRam|altsyncram:RAM_rtl_0" CBX_FILE_NAME="altsyncram_46d1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

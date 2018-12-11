@@ -61,14 +61,6 @@ set_global_assignment -name VHDL_INPUT_VERSION VHDL_2008
 set_global_assignment -name VHDL_SHOW_LMF_MAPPING_MESSAGES OFF
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name VHDL_FILE mensagem.vhd
-set_global_assignment -name VHDL_FILE print_debug.vhd
-set_global_assignment -name VHDL_FILE MorseCode.vhd
-set_global_assignment -name VHDL_FILE meupacote.vhd
-set_global_assignment -name VHDL_FILE debounce_Tx.vhd
-set_global_assignment -name VHDL_FILE DEBOUNCE_PULSE.vhd
-set_global_assignment -name VHDL_FILE DEBOUNCE.vhd
-set_global_assignment -name VHDL_FILE APS.vhd
 set_location_assignment PIN_E4 -to r
 set_location_assignment PIN_D2 -to rx
 set_location_assignment PIN_J2 -to s
@@ -108,4 +100,41 @@ set_location_assignment PIN_H5 -to sw_comm
 set_location_assignment PIN_J6 -to sw_tx
 set_location_assignment PIN_J1 -to tx
 set_location_assignment PIN_G4 -to sw_loop_state
+set_global_assignment -name VHDL_FILE ../ConversorMorse/TabelaMorseChar.vhd
+set_global_assignment -name VHDL_FILE ../ConversorMorse/pacote.vhd
+set_global_assignment -name VHDL_FILE ../ConversorMorse/ConversorSinal.vhd
+set_global_assignment -name VHDL_FILE ../ConversorMorse/ConversorMorse.vhd
+set_global_assignment -name VHDL_FILE ../VGA/VGA_SYNC.vhd
+set_global_assignment -name VHDL_FILE ../VGA/VGA_LIBRERIA.vhd
+set_global_assignment -name VHDL_FILE ../VGA/VGA.vhd
+set_global_assignment -name VHDL_FILE ../VGA/text_line.vhd
+set_global_assignment -name VHDL_FILE ../VGA/FQDIVIDER.vhd
+set_global_assignment -name VHDL_FILE ../VGA/fontROM.vhd
+set_global_assignment -name VHDL_FILE ../VGA/commonPak.vhd
+set_global_assignment -name VHDL_FILE ../VGA/BlockRamArbiter.vhd
+set_global_assignment -name VHDL_FILE ../VGA/basicBlockRAM.vhd
+set_global_assignment -name VHDL_FILE mensagem.vhd
+set_global_assignment -name VHDL_FILE print_debug.vhd
+set_global_assignment -name VHDL_FILE MorseCode.vhd
+set_global_assignment -name VHDL_FILE meupacote.vhd
+set_global_assignment -name VHDL_FILE debounce_Tx.vhd
+set_global_assignment -name VHDL_FILE DEBOUNCE_PULSE.vhd
+set_global_assignment -name VHDL_FILE DEBOUNCE.vhd
+set_global_assignment -name VHDL_FILE APS.vhd
+set_location_assignment PIN_K18 -to B_VGA[3]
+set_location_assignment PIN_J22 -to B_VGA[2]
+set_location_assignment PIN_K21 -to B_VGA[1]
+set_location_assignment PIN_J21 -to G_VGA[3]
+set_location_assignment PIN_K17 -to G_VGA[2]
+set_location_assignment PIN_J17 -to G_VGA[1]
+set_location_assignment PIN_H22 -to G_VGA[0]
+set_location_assignment PIN_L21 -to HSYNC
+set_location_assignment PIN_H21 -to R_VGA[3]
+set_location_assignment PIN_H20 -to R_VGA[2]
+set_location_assignment PIN_H17 -to R_VGA[1]
+set_location_assignment PIN_H19 -to R_VGA[0]
+set_location_assignment PIN_L22 -to VSYNC
+set_location_assignment PIN_H2 -to button_alternativo
+set_location_assignment PIN_E1 -to led_button
+set_global_assignment -name VHDL_FILE MORSE_GEN.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
