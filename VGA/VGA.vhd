@@ -13,13 +13,15 @@ ENTITY VGA IS
 	GENERIC( 
 			TAM_REC : INTEGER := 1;--recebida
 			TAM_ENV : INTEGER := 1;--enviada
-			TAM_EXT : INTEGER := 1 --extra
+			TAM_EXT : INTEGER := 1; --extra
+			TAM_EXT2 : INTEGER := 1 --extra
 		);
 	PORT (
 			--text
 			MSG_RECEBIDA    : IN STRING(1 TO TAM_REC);
 			MSG_ENVIADA    	: IN STRING(1 TO TAM_ENV);
 			MSG_EXTRA    	: IN STRING(1 TO TAM_EXT);
+			MSG_EXTRA2    	: IN STRING(1 TO TAM_EXT2);
 			--vga
 			CLK_50MHz, RST  : IN STD_LOGIC; 
 			HSYNC, VSYNC    : OUT STD_LOGIC; 
@@ -37,8 +39,9 @@ ARCHITECTURE VGA OF VGA IS
 			
 	CONSTANT MSG_TOP    : STRING(1 TO 10) 		:= "MORSE CODE";
 	SIGNAL MSG_REC    	: STRING(1 TO 10+TAM_REC) := "RECEBIDO: "&MSG_RECEBIDA;
-	SIGNAL MSG_ENV    	: STRING(1 TO 10+TAM_ENV) := "ENVIADO : "&MSG_ENVIADA;
-	SIGNAL MSG_EXT    	: STRING(1 TO TAM_EXT) 	:= MSG_EXTRA;
+	SIGNAL MSG_ENV    	: STRING(1 TO 10+TAM_ENV) := "MENSAGEM: "&MSG_ENVIADA;
+	SIGNAL MSG_EXT    	: STRING(1 TO 10+TAM_EXT) :=   "BUFFER_M: "&MSG_EXTRA;
+	SIGNAL MSG_EXT2    	: STRING(1 TO 10+TAM_EXT2) 	:=   "BUFFER_R: "&MSG_EXTRA2;
 	CONSTANT MSG_BOTTOM : STRING(1 TO 34) 		:= "UTFPR 2018 - LOGICA RECONFIGURAVEL";
 
 	SIGNAL HCOUNT : STD_LOGIC_VECTOR (9 DOWNTO 0) := "0000000000";
@@ -53,7 +56,7 @@ ARCHITECTURE VGA OF VGA IS
 	SIGNAL rst_text_env : STD_LOGIC := '0';
 	SIGNAL rst_text_ext : STD_LOGIC := '0';
 
-	CONSTANT NUM_TEXT_ELEMENTS: integer := 5;
+	CONSTANT NUM_TEXT_ELEMENTS: integer := 6;
 	SIGNAL inArbiterPortArray: type_inArbiterPortArray(0 TO NUM_TEXT_ELEMENTS-1) := (OTHERS => init_type_inArbiterPort);
 	SIGNAL outArbiterPortArray: type_outArbiterPortArray(0 TO NUM_TEXT_ELEMENTS-1) := (OTHERS => init_type_outArbiterPort);
 	
@@ -128,25 +131,37 @@ BEGIN
 								PORT MAP(clk => CLK_50MHZ,
 										reset => rst_text_ext,
 										textPassage => MSG_EXT,
-										position => (150, 250),-- 640x480
+										position => (100, 250),-- 640x480
 										colorMap => (MSG_EXT'LENGTH-1 DOWNTO 0 => WHITE),
 										inArbiterPort => inArbiterPortArray(3),
 										outArbiterPort => outArbiterPortArray(3),
 										hCount => CONV_INTEGER(UNSIGNED(HCOUNT)),
 										vCount => CONV_INTEGER(UNSIGNED(VCOUNT)),
-										drawElement => drawElementArray(3));				
+										drawElement => drawElementArray(3));			
 
-	tl4: ENTITY WORK.text_line	GENERIC MAP (textpassagelength => MSG_BOTTOM'LENGTH)
+	tl4: ENTITY WORK.text_line	GENERIC MAP (textpassagelength => MSG_EXT2'LENGTH)
+								PORT MAP(clk => CLK_50MHZ,
+										reset => rst_text_ext,
+										textPassage => MSG_EXT2,
+										position => (100, 300),-- 640x480
+										colorMap => (MSG_EXT2'LENGTH-1 DOWNTO 0 => WHITE),
+										inArbiterPort => inArbiterPortArray(4),
+										outArbiterPort => outArbiterPortArray(4),
+										hCount => CONV_INTEGER(UNSIGNED(HCOUNT)),
+										vCount => CONV_INTEGER(UNSIGNED(VCOUNT)),
+										drawElement => drawElementArray(4));		
+
+	tl5: ENTITY WORK.text_line	GENERIC MAP (textpassagelength => MSG_BOTTOM'LENGTH)
 								PORT MAP(clk => CLK_50MHZ,
 										reset => RST,
 										textPassage => MSG_BOTTOM,
 										position => (100, 400),
 										colorMap => (MSG_BOTTOM'LENGTH-1 DOWNTO 0 => WHITE),
-										inArbiterPort => inArbiterPortArray(4),
-										outArbiterPort => outArbiterPortArray(4),
+										inArbiterPort => inArbiterPortArray(5),
+										outArbiterPort => outArbiterPortArray(5),
 										hCount => CONV_INTEGER(UNSIGNED(HCOUNT)),
 										vCount => CONV_INTEGER(UNSIGNED(VCOUNT)),
-										drawElement => drawElementArray(4));
+										drawElement => drawElementArray(5));
 ----------------------------------------------------------
 ---------- PROCESSOS
 ----------------------------------------------------------

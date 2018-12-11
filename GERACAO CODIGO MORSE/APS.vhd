@@ -32,7 +32,7 @@ ARCHITECTURE MORSE_GENERATOR OF APS IS
 	
 	--TYPE char_array IS ARRAY (MAX-1 DOWNTO 0) OF std_logic_vector (1 DOWNTO 0); --vetor para bufferizacao dos pontos e tracos
 	SIGNAL char: char_array;
-	SIGNAL msg_in: char_array;
+	SIGNAL msg_in: char_array ;
 	
 	TYPE state IS (												--estados da maquina conforme diagrama de estados
 	idleInput,												
@@ -58,9 +58,10 @@ ARCHITECTURE MORSE_GENERATOR OF APS IS
 	SIGNAL t: NATURAL RANGE 0 TO tmax;
 	
 	-- strings de mensagem para o vga
-	SIGNAL msg_rec: STRING(1 TO MAX_STR) := (OTHERS=>' ');------TODO: colocar no lugar correto---------
+	SIGNAL msg_rec: STRING(1 TO MAX_STR) := (OTHERS=>' ');
 	SIGNAL msg_env: STRING(1 TO MAX_STR) := (OTHERS=>' ');
 	SIGNAL msg_ext: STRING(1 TO MAX) 	 := (OTHERS=>' ');
+	SIGNAL msg_ext2: STRING(1 TO MAX) 	 := (OTHERS=>' ');
 BEGIN
 ---circuito de debounce dos botoes e reset ------------------
 db_button: entity work.DEBOUNCE port map(clk=>clk, button=>(button or (not button_alternativo)), output_debounce=>button_db);
@@ -71,12 +72,14 @@ RxTx: entity work.MorseCode port map (clk=>clk, rst=>rst, TX_STATE=>sw_tx, COM_S
 ---para VGA ------------------																		 
 vga: entity WORK.VGA	GENERIC MAP (TAM_REC => MAX_STR,
 										TAM_ENV => MAX_STR,
-										TAM_EXT => MAX)
+										TAM_EXT => MAX,
+										TAM_EXT2 => MAX)
 								PORT MAP(CLK_50MHZ => CLK,
 										RST => rst_db,
 										MSG_RECEBIDA => msg_rec,
 										MSG_ENVIADA => msg_env, 
 										MSG_EXTRA => msg_ext,
+										MSG_EXTRA2 => msg_ext2,
 										HSYNC => HSYNC, 
 										VSYNC => VSYNC,    
 										R=>R_VGA , G=>G_VGA, B=>B_VGA);    
@@ -88,6 +91,14 @@ vga: entity WORK.VGA	GENERIC MAP (TAM_REC => MAX_STR,
 										arrayEntrada => char,
 										saida => msg_env,
 										clk => CLK);
+										
+	cm2: ENTITY WORK.ConversorMorse 	GENERIC MAP (MAX_STR => MAX_STR,
+												MAX_ENT => MAX)
+								  		PORT MAP(
+										arrayEntrada => msg_in,
+										saida => msg_rec,
+										clk => CLK);
+							 
 							 
 
 -----------------TIMER-----------------------------------------
@@ -209,6 +220,10 @@ vga: entity WORK.VGA	GENERIC MAP (TAM_REC => MAX_STR,
 						  '-' WHEN char(i-1)= "01" ELSE -- -
 						  '|' WHEN char(i-1)= "10" ELSE -- fim de caractere
 						  '_' ;     						-- espaco
+		msg_ext2(i) <= '.' WHEN msg_in(i-1)= "00" ELSE -- .
+						   '-' WHEN msg_in(i-1)= "01" ELSE -- -
+						   '|' WHEN msg_in(i-1)= "10" ELSE -- fim de caractere
+						   '_' ; 
 	END GENERATE G1;
 	
 	
