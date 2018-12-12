@@ -16,9 +16,7 @@ PORT (clk, rst, button: 	IN STD_LOGIC;			   					--sinais de clock, reset e o bo
 		rx, r: IN STD_LOGIC;														-- pinos para receber mensagem e pino para handshake
 		tx, s: OUT STD_LOGIC;
 		led_button: OUT STD_LOGIC;  											--led para indicar o estado do botao, led5
-		led_debug2: OUT STD_LOGIC;  -- LED4
-		led_debug1: OUT STD_LOGIC;  -- LED3
-		led_seg   : OUT STD_LOGIC;  -- LED2 - indicar 1 segundo
+		led_seg   : OUT STD_LOGIC; 
 		--LED		: OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
 		ssd0		: OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
 		ssd1		: OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
@@ -53,13 +51,13 @@ ARCHITECTURE MORSE_GENERATOR OF APS IS
 	SIGNAL pointer: integer:=0;									--ponteiro para preenchimento do vetor de caracteres
 	SIGNAL rst_db: std_logic;									   --botÃ£o de reset
 	
-	CONSTANT    tSeg: NATURAL := 50000000;						-- 1s
+	CONSTANT    tSeg: NATURAL := 50000000;						--constante de tempo para ponto, 1s
 	CONSTANT   tChar: NATURAL := 150000000;					--constante de tempo para caractere, 3s
 	CONSTANT  tSpace: NATURAL := 250000000;					--constante de tempo para espaco entre palavas, 5s
 	CONSTANT    tDot: NATURAL := 50000000;						--constante de tempo para ponto, 1s
 	CONSTANT   tDash: NATURAL := 150000000;					--constante de tempo para traco, 3s
 	CONSTANT tBuzzer: NATURAL := 250000000;					--constante de tempo para animacao do buzzer, 5s
-	CONSTANT    tmax: NATURAL := 350000000;					--constante de tempo mÃ¡ximo, 7s
+	CONSTANT    tmax: NATURAL := 500000000;					--constante de tempo mÃ¡ximo, 10s
 	SIGNAL t: NATURAL RANGE 0 TO tmax;
 	
 	-- strings de mensagem para o vga
@@ -69,7 +67,7 @@ ARCHITECTURE MORSE_GENERATOR OF APS IS
 	SIGNAL msg_ext2: STRING(1 TO MAX) 	 := (OTHERS=>' ');
 BEGIN
 ---circuito de debounce dos botoes e reset ------------------
-db_button: entity work.DEBOUNCE port map(clk=>clk, button=>( button or(not button_alternativo)), output_debounce=>button_db);
+db_button: entity work.DEBOUNCE port map(clk=>clk, button=>(button or (not button_alternativo)), output_debounce=>button_db);
 db_rst: entity work.DEBOUNCE_PULSE port map(clk=>clk, button=>rst, output_debounce=>rst_db);
 --db_button: entity work.debouncefsm port map(Clock=>clk, button_in=>button, pulse_out=>button_db);
 RxTx: entity work.MorseCode port map (clk=>clk, rst=>rst, TX_STATE=>sw_tx, COM_STATE=>sw_comm, loop_state=>sw_loop_state, RX=>rx, R=>r, msg=>char, msg_out=>msg_in ,TX=>tx, S=>s, 
@@ -108,6 +106,9 @@ vga: entity WORK.VGA	GENERIC MAP (TAM_REC => MAX_STR,
 							 
 
 -----------------TIMER-----------------------------------------
+
+	
+	
 	PROCESS (rst_db, clk)	
 	BEGIN
 		IF (rst_db = '1') THEN
@@ -119,7 +120,7 @@ vga: entity WORK.VGA	GENERIC MAP (TAM_REC => MAX_STR,
 				led_seg <= '1';
 			ELSIF t/= tmax THEN
 				t <= t+1;
-				IF ((t mod (tSeg/2))=0) THEN 
+				IF (t mod tSeg/2)=0 THEN
 					led_seg <= NOT led_seg;
 				END IF;
 			END IF;
@@ -132,10 +133,26 @@ vga: entity WORK.VGA	GENERIC MAP (TAM_REC => MAX_STR,
 		IF (rst_db = '1') THEN
 			pointer <= 0;
 		ELSIF (rising_edge(clk)) THEN
-			IF ((nx_state = processChar OR nx_state = processDash OR nx_state = processDot OR nx_state = processSpace) AND pr_state /= nx_state) THEN
+			IF (pr_state = processDot) THEN
+				char(pointer) <= "00";
+				pointer <= pointer + 1;
+			ELSIF (pr_state = processDash) THEN
+				char(pointer) <= "01";
+				pointer <= pointer + 1;
+			ELSIF (pr_state = processSpace) THEN
+				char(pointer) <= "11";
+				pointer <= pointer + 1;
+			ELSIF (pr_state = processChar) THEN
+				char(pointer) <= "10";
+				pointer <= pointer + 1;
+			END IF;
+			
+			/*IF ((pr_state = processChar OR pr_state = processDash OR pr_state = processDot OR pr_state = processSpace) AND pr_state /= nx_state) THEN
 				pointer <= pointer + 1;
 			ELSE pointer <= pointer;
-			END IF;
+			
+			END IF;*/
+			
 		END IF;
 	END PROCESS;
 ----------------------- Lower section -----------------------
@@ -178,7 +195,7 @@ vga: entity WORK.VGA	GENERIC MAP (TAM_REC => MAX_STR,
 			buzzer <= '1';
 			IF (button_db = '0' AND t>tDot) THEN
 				nx_state <= processDash;
-			ELSIF (button_db = '0' AND t<tDot) THEN
+			ELSIF (button_db = '0' AND t<=tDot) THEN
 				nx_state <= processDot;
 			ELSE nx_state <= buttonPress;
 			END IF;
@@ -186,26 +203,26 @@ vga: entity WORK.VGA	GENERIC MAP (TAM_REC => MAX_STR,
 		 WHEN processDash =>
 			buzzer <= '0';
 			states <= "0011";
+			--char(pointer) <= "01";
 			nx_state <= idleInput;
-			char(pointer) <= "01";
 			
 	    WHEN processDot =>
 			buzzer <= '0';
 			states <= "0100";
+			--char(pointer) <= "00";
 			nx_state <= idleInput;
-			char(pointer) <= "00";
 			
 		 WHEN processChar =>
 			states <= "0101";
 			buzzer <= '0';
+			--char(pointer) <= "10";
 			nx_state <= buttonPress;
-			char(pointer) <= "10";
 
 		 WHEN processSpace =>
 			states <= "0110";
 			buzzer <= '0';
+			--char(pointer) <= "11";
 			nx_state <= buttonPress;
-			char(pointer) <= "11";
 		
 		 WHEN msgFull =>
 			states <= "0111";
@@ -226,7 +243,8 @@ vga: entity WORK.VGA	GENERIC MAP (TAM_REC => MAX_STR,
 	END PROCESS;
 	
 	----------------------------------------
-	--print no vga de char 
+	--print no vga de char -- para debugger 
+
 	G1: FOR i IN 1 TO MAX GENERATE
 		msg_ext(i) <= '.' WHEN char(i-1)= "00" ELSE -- .
 						  '-' WHEN char(i-1)= "01" ELSE -- -
@@ -237,11 +255,24 @@ vga: entity WORK.VGA	GENERIC MAP (TAM_REC => MAX_STR,
 						   '|' WHEN msg_in(i-1)= "10" ELSE -- fim de caractere
 						   '_' WHEN msg_in(i-1)= "11" ; 
 	END GENERATE G1;
-
+	
+	/*
+	FOR i IN 1 TO MAX-1 LOOP
+		IF (char(i-1) = "00") THEN
+			msg_ext(i) <= '.';
+		ELSIF (char(i-1) = "01") THEN
+			msg_ext(i) <= '-';
+		ELSIF (char(i-1) = "10") THEN
+			msg_ext(i) <= '|';
+		ELSIF (char(i-1) = "11") THEN
+			msg_ext(i) <= '_';
+		END IF;
+	END LOOP;
+	END PROCESS;*/
 	
 	----------------------------------------
 	--led para indicar o estado do botao
-	led_button <= button_db; --led5
-
+	led_button <= button_db; 
+	
 END MORSE_GENERATOR;
 -----------------------------------------

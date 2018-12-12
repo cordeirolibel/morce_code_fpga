@@ -1,5 +1,5 @@
 Assembler report for APS
-Wed Dec 12 15:04:19 2018
+Wed Dec 12 15:49:06 2018
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -10,7 +10,7 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/APS/GERACAO CODIGO MORSE/output_files/APS.sof
+  5. Assembler Device Options: C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/ultimo_morse_code_fpga-master/morse_code_fpga-master/GERACAO CODIGO MORSE/output_files/APS.sof
   6. Assembler Messages
 
 
@@ -37,7 +37,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Dec 12 15:04:19 2018 ;
+; Assembler Status      ; Successful - Wed Dec 12 15:49:06 2018 ;
 ; Revision Name         ; APS                                   ;
 ; Top-level Entity Name ; APS                                   ;
 ; Family                ; Cyclone III                           ;
@@ -77,24 +77,24 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+--------------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                              ;
-+--------------------------------------------------------------------------------------------------------+
-; File Name                                                                                              ;
-+--------------------------------------------------------------------------------------------------------+
-; C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/APS/GERACAO CODIGO MORSE/output_files/APS.sof ;
-+--------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                                                               ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                                                               ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/ultimo_morse_code_fpga-master/morse_code_fpga-master/GERACAO CODIGO MORSE/output_files/APS.sof ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/APS/GERACAO CODIGO MORSE/output_files/APS.sof ;
-+----------------+-----------------------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                                         ;
-+----------------+-----------------------------------------------------------------------------------------------------------------+
-; Device         ; EP3C16F484C6                                                                                                    ;
-; JTAG usercode  ; 0x00319B38                                                                                                      ;
-; Checksum       ; 0x00319B38                                                                                                      ;
-+----------------+-----------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/ultimo_morse_code_fpga-master/morse_code_fpga-master/GERACAO CODIGO MORSE/output_files/APS.sof ;
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                                                          ;
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Device         ; EP3C16F484C6                                                                                                                                                     ;
+; JTAG usercode  ; 0x002F120D                                                                                                                                                       ;
+; Checksum       ; 0x002F120D                                                                                                                                                       ;
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -103,14 +103,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Wed Dec 12 15:04:17 2018
+    Info: Processing started: Wed Dec 12 15:49:04 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off APS -c APS
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4614 megabytes
-    Info: Processing ended: Wed Dec 12 15:04:20 2018
-    Info: Elapsed time: 00:00:03
+    Info: Peak virtual memory: 4613 megabytes
+    Info: Processing ended: Wed Dec 12 15:49:06 2018
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
 

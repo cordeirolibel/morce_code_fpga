@@ -1,0 +1,85 @@
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+# Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+# File: C:\Users\gusta\Documents\MEGA\EngdeComputacao\Logica_Rec\ultimo_morse_code_fpga-master\morse_code_fpga-master\GERACAO CODIGO MORSE\APS.csv
+# Generated on: Wed Dec 12 15:44:56 2018
+
+# Note: The column header names should not be changed if you wish to import this .csv file into the Quartus II software.
+
+To,Direction,Location,I/O Bank,VREF Group,I/O Standard,Reserved,Current Strength,Slew Rate,Differential Pair
+B_VGA[3],Output,PIN_K18,6,B6_N1,,,,,
+B_VGA[2],Output,PIN_J22,6,B6_N1,,,,,
+B_VGA[1],Output,PIN_K21,6,B6_N1,,,,,
+B_VGA[0],Output,,,,,,,,
+button,Input,PIN_AB16,4,B4_N1,,,,,
+button_alternativo,Input,PIN_H2,1,B1_N1,,,,,
+buzzer,Output,PIN_AA16,4,B4_N1,,,,,
+clk,Input,PIN_G21,6,B6_N1,,,,,
+G_VGA[3],Output,PIN_J21,6,B6_N1,,,,,
+G_VGA[2],Output,PIN_K17,6,B6_N1,,,,,
+G_VGA[1],Output,PIN_J17,6,B6_N0,,,,,
+G_VGA[0],Output,PIN_H22,6,B6_N1,,,,,
+HSYNC,Output,PIN_L21,6,B6_N1,,,,,
+led_button,Output,PIN_E1,1,B1_N0,,,,,
+led_seg,Output,PIN_J3,1,B1_N1,,,,,
+r,Input,PIN_E4,1,B1_N0,,,,,
+R_VGA[3],Output,PIN_H21,6,B6_N1,,,,,
+R_VGA[2],Output,PIN_H20,6,B6_N0,,,,,
+R_VGA[1],Output,PIN_H17,6,B6_N0,,,,,
+R_VGA[0],Output,PIN_H19,6,B6_N0,,,,,
+rst,Input,PIN_F1,1,B1_N0,,,,,
+rx,Input,PIN_D2,1,B1_N0,,,,,
+s,Output,PIN_J2,1,B1_N1,,,,,
+ssd0[7],Output,PIN_D13,7,B7_N1,,,,,
+ssd0[6],Output,PIN_F13,7,B7_N1,,,,,
+ssd0[5],Output,PIN_F12,7,B7_N1,,,,,
+ssd0[4],Output,PIN_G12,7,B7_N1,,,,,
+ssd0[3],Output,PIN_H13,7,B7_N1,,,,,
+ssd0[2],Output,PIN_H12,7,B7_N1,,,,,
+ssd0[1],Output,PIN_F11,7,B7_N1,,,,,
+ssd0[0],Output,PIN_E11,7,B7_N1,,,,,
+ssd1[7],Output,PIN_B15,7,B7_N1,,,,,
+ssd1[6],Output,PIN_A15,7,B7_N1,,,,,
+ssd1[5],Output,PIN_E14,7,B7_N1,,,,,
+ssd1[4],Output,PIN_B14,7,B7_N1,,,,,
+ssd1[3],Output,PIN_A14,7,B7_N1,,,,,
+ssd1[2],Output,PIN_C13,7,B7_N1,,,,,
+ssd1[1],Output,PIN_B13,7,B7_N1,,,,,
+ssd1[0],Output,PIN_A13,7,B7_N1,,,,,
+ssd2[7],Output,PIN_A18,7,B7_N0,,,,,
+ssd2[6],Output,PIN_F14,7,B7_N0,,,,,
+ssd2[5],Output,PIN_B17,7,B7_N1,,,,,
+ssd2[4],Output,PIN_A17,7,B7_N1,,,,,
+ssd2[3],Output,PIN_E15,7,B7_N0,,,,,
+ssd2[2],Output,PIN_B16,7,B7_N1,,,,,
+ssd2[1],Output,PIN_A16,7,B7_N1,,,,,
+ssd2[0],Output,PIN_D15,7,B7_N0,,,,,
+ssd3[7],Output,PIN_G16,7,B7_N0,,,,,
+ssd3[6],Output,PIN_G15,7,B7_N0,,,,,
+ssd3[5],Output,PIN_D19,7,B7_N0,,,,,
+ssd3[4],Output,PIN_C19,7,B7_N0,,,,,
+ssd3[3],Output,PIN_B19,7,B7_N0,,,,,
+ssd3[2],Output,PIN_A19,7,B7_N0,,,,,
+ssd3[1],Output,PIN_F15,7,B7_N0,,,,,
+ssd3[0],Output,PIN_B18,7,B7_N0,,,,,
+states[3],Output,PIN_B1,1,B1_N0,,,,,
+states[2],Output,PIN_B2,1,B1_N0,,,,,
+states[1],Output,PIN_C2,1,B1_N0,,,,,
+states[0],Output,PIN_C1,1,B1_N0,,,,,
+sw_comm,Input,PIN_H5,1,B1_N0,,,,,
+sw_loop_state,Input,PIN_G4,1,B1_N0,,,,,
+sw_tx,Input,PIN_J6,1,B1_N0,,,,,
+tx,Output,PIN_J1,1,B1_N1,,,,,
+VSYNC,Output,PIN_L22,6,B6_N1,,,,,

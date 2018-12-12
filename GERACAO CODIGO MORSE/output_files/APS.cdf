@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP3C16F484) Path("C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/APS/GERACAO CODIGO MORSE/output_files/") File("APS.sof") MfrSpec(OpMask(1));
+		Device PartName(EP3C16F484) Path("C:/Users/gusta/Documents/MEGA/EngdeComputacao/Logica_Rec/ultimo_morse_code_fpga-master/morse_code_fpga-master/GERACAO CODIGO MORSE/output_files/") File("APS.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

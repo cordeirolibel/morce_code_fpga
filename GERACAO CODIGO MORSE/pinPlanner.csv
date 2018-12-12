@@ -14,7 +14,7 @@
 
 # Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 # File: C:\Users\gusta\Documents\MEGA\EngdeComputacao\Logica_Rec\APS\GERACAO CODIGO MORSE\pinPlanner.csv
-# Generated on: Wed Dec 12 14:30:06 2018
+# Generated on: Tue Dec 11 14:45:42 2018
 
 # Note: The column header names should not be changed if you wish to import this .csv file into the Quartus II software.
 
@@ -22,7 +22,7 @@ To,Direction,Location,I/O Bank,VREF Group,Fitter Location,I/O Standard,Reserved,
 B_VGA[3],Output,PIN_K18,6,B6_N1,PIN_K18,,,,,
 B_VGA[2],Output,PIN_J22,6,B6_N1,PIN_J22,,,,,
 B_VGA[1],Output,PIN_K21,6,B6_N1,PIN_K21,,,,,
-B_VGA[0],Output,,,,PIN_M4,,,,,
+B_VGA[0],Output,,,,PIN_T12,,,,,
 button,Input,PIN_AB16,4,B4_N1,PIN_AB16,,,,,
 button_alternativo,Input,PIN_H2,1,B1_N1,PIN_H2,,,,,
 buzzer,Output,PIN_AA16,4,B4_N1,PIN_AA16,,,,,
@@ -32,10 +32,6 @@ G_VGA[2],Output,PIN_K17,6,B6_N1,PIN_K17,,,,,
 G_VGA[1],Output,PIN_J17,6,B6_N0,PIN_J17,,,,,
 G_VGA[0],Output,PIN_H22,6,B6_N1,PIN_H22,,,,,
 HSYNC,Output,PIN_L21,6,B6_N1,PIN_L21,,,,,
-led_button,Output,PIN_E1,1,B1_N0,PIN_E1,,,,,
-led_debug1,Output,PIN_H1,1,B1_N1,PIN_H1,,,,,
-led_debug2,Output,PIN_F2,1,B1_N0,PIN_F2,,,,,
-led_seg,Output,PIN_J3,1,B1_N1,PIN_N21,,,,,
 r,Input,PIN_E4,1,B1_N0,PIN_E4,,,,,
 R_VGA[3],Output,PIN_H21,6,B6_N1,PIN_H21,,,,,
 R_VGA[2],Output,PIN_H20,6,B6_N0,PIN_H20,,,,,
@@ -85,3 +81,4 @@ sw_loop_state,Input,PIN_G4,1,B1_N0,PIN_G4,,,,,
 sw_tx,Input,PIN_J6,1,B1_N0,PIN_J6,,,,,
 tx,Output,PIN_J1,1,B1_N1,PIN_J1,,,,,
 VSYNC,Output,PIN_L22,6,B6_N1,PIN_L22,,,,,
+led_button,Output,PIN_E1,1,B1_N0,,,,,,
