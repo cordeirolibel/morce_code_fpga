@@ -109,24 +109,24 @@ db_rst: entity work.DEBOUNCE_PULSE port map(clk=>clk, button=>rst, output_deboun
 			--buzzer <= '0';
 			--states <= "0011";
 			nx_state <= idleInput;
-			msg_out(pointer) <= "01";
+			--msg_out(pointer) <= "01";
 			
 	    WHEN processDot =>
 			--buzzer <= '0';
 			--states <= "0100";
 			nx_state <= idleInput;
-			msg_out(pointer) <= "00";
+			--msg_out(pointer) <= "00";
 			
 		 WHEN processChar =>
 			--states <= "0101";
 			--buzzer <= '0';
 			nx_state <= buttonPress;
-			msg_out(pointer) <= "10";
+			--msg_out(pointer) <= "10";
  		 WHEN processSpace =>
 			--states <= "0110";
 			--buzzer <= '0';
 			nx_state <= buttonPress;
-			msg_out(pointer) <= "11";
+			--msg_out(pointer) <= "11";
 		
 		 WHEN msgFull =>
 			--states <= "0111";

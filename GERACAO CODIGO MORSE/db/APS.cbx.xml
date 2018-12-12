@@ -8,5 +8,6 @@
 		<CBX_INST_ENTRY INSTANCE_NAME="|APS|VGA:vga|text_line:tl1|basicBlockRAM:blockRam|altsyncram:RAM_rtl_0" CBX_FILE_NAME="altsyncram_06d1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|APS|VGA:vga|text_line:tl3|basicBlockRAM:blockRam|altsyncram:RAM_rtl_0" CBX_FILE_NAME="altsyncram_n4d1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|APS|VGA:vga|text_line:tl5|basicBlockRAM:blockRam|altsyncram:RAM_rtl_0" CBX_FILE_NAME="altsyncram_59d1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|APS|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_nbm.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
